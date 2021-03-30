@@ -10,6 +10,7 @@ type SiteSettings = {
     suburb: string;
   };
   description: string;
+  email: string;
   hours: Array<{
     id: string;
     days: string;
@@ -46,6 +47,7 @@ function useSiteSettings(): SiteSettings {
             suburb
           }
           description
+          email
           hours {
             id: _key
             days
