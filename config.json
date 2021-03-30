@@ -1,10 +1,13 @@
 {
   "address": {
-    "googleMaps": "",
-    "line1": "",
-    "line2": ""
+    "googleMaps": {
+      "embed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.0842821022584!2d152.53439121516408!3d-32.06696908119222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b7434af6c8deeab%3A0x748fa747f6380a77!2sHallidays%20Point%20Tavern!5e0!3m2!1sen!2sau!4v1617076460616!5m2!1sen!2sau",
+      "link": "https://goo.gl/maps/4GwEqtEUNdig4PpY7"
+    },
+    "line1": "551 Blackhead Rd",
+    "line2": "Hallidays Point, NSW, 2430"
   },
-  "email": "",
+  "email": "hallidayspointtavern@gmail.com",
   "hrefLang": "en-AU",
   "openingHours": [
     {
@@ -16,38 +19,34 @@
       "hours": "Closed"
     }
   ],
-  "phone": "",
+  "phone": "(02) 6559 2995",
   "shortName": "",
-  "siteDescription": "",
+  "siteDescription": "Welcome, relax with family and friends while watching the day go by.",
   "siteImage": "og-image.jpg",
   "siteNavigation": [
     {
-      "label": "Solutions",
+      "label": "Menu",
       "slug": "/"
     },
     {
-      "label": "Pricing",
+      "label": "About Us",
       "slug": "/"
     },
     {
-      "label": "Docs",
+      "label": "Events",
       "slug": "/"
     },
     {
-      "label": "More",
+      "label": "Contact",
       "slug": "/"
     }
   ],
-  "siteTitle": "Site Title",
-  "siteUrl": "https://example.com/",
+  "siteTitle": "Hallidays Point Tavern",
+  "siteUrl": "https://www.hallidayspointtavern.com.au/",
   "socialLinks": [
     {
-      "link": "https://www.facebook.com/",
+      "link": "https://www.facebook.com/hallidayspointtavern",
       "socialNetwork": "Facebook"
-    },
-    {
-      "link": "https://www.instagram.com/",
-      "socialNetwork": "Instagram"
     }
   ]
 }

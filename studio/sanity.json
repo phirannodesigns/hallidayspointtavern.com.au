@@ -1,0 +1,32 @@
+{
+  "api": {
+    "dataset": "production",
+    "projectId": "p8jsw8i3"
+  },
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./desk-structure.js"
+    }
+  ],
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool"
+  ],
+  "project": {
+    "name": "Halliday’s Point Tavern"
+  },
+  "root": true
+}

@@ -1028,6 +1028,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/metropolis@^4.2.1":
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/metropolis/-/metropolis-4.2.1.tgz#49b69c0e3ff940bf2d94ee45627fa1fe3528f59f"
+  integrity sha512-PhXqIWHqD+HyTkZr1XT7irKhaObRmHLz+d0js/NuoI30md0X4LXMxkolCL5EbmSDXNXW36nT+A1HCKW71oyd6w==
+
 "@fullhuman/postcss-purgecss@^3.1.3":
   version "3.1.3"
   resolved "https://registry.npmjs.org/@fullhuman/postcss-purgecss/-/postcss-purgecss-3.1.3.tgz"
@@ -5211,7 +5216,7 @@ dot-prop@^5.2.0:
 
 dotenv@^8.2.0:
   version "8.2.0"
-  resolved "https://registry.npmjs.org/dotenv/-/dotenv-8.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
   integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
 
 dotnet-deps-parser@5.0.0:

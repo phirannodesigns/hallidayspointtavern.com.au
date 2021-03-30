@@ -4,29 +4,50 @@ import { Link } from 'gatsby';
 import * as React from 'react';
 import { HiMenu } from 'react-icons/hi';
 
-import config from '../../config.json';
+import {
+  NavItem,
+  NavItems,
+  useSiteNavigation,
+} from '../hooks/use-site-navigation';
+import { SiteSettings, useSiteSettings } from '../hooks/use-site-settings';
+import { Logo } from '../icons/logo';
 
 function Nav(): React.ReactElement {
-  const { pathname } = useLocation();
   const [isOpen, setIsOpen] = React.useState(false);
   const toggle = () => setIsOpen((prevState) => !prevState);
+  const siteSettings: SiteSettings = useSiteSettings();
+  const siteNavigation = useSiteNavigation();
+
+  const navItems = siteNavigation.filter(({ footerOnly }) => !footerOnly);
+
+  const half = Math.ceil(navItems.length / 2);
+
+  const firstHalf = navItems.splice(0, half);
+  const secondHalf = navItems.splice(-half);
+
   return (
     <div className="sticky inset-x-0 top-0 z-10 bg-white">
-      <div className="relative z-20 shadow">
-        <div className="flex items-center justify-between px-4 py-5 mx-auto max-w-screen-2xl sm:px-6 sm:py-4 lg:px-8 md:justify-start md:space-x-10">
+      <div className="relative z-20">
+        <nav className="flex flex-wrap items-baseline justify-between px-4 py-5 mx-auto md:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-8 md:space-x-10">
+          {firstHalf.map((navItem) => (
+            <NavLink key={navItem.route.current} navItem={navItem} />
+          ))}
           <div>
-            <Link to="/" className="flex">
-              <span className="sr-only">{config.siteTitle}</span>
-              <img
-                className="w-auto h-8 sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
-              />
+            <Link
+              to="/"
+              className="inline-flex transform md:mx-auto md:translate-y-1"
+            >
+              <span className="sr-only">{siteSettings.title}</span>
+              <Logo aria-hidden className="w-auto h-8 sm:h-16" />
             </Link>
           </div>
+          {secondHalf.map((navItem) => (
+            <NavLink key={navItem.route.current} navItem={navItem} />
+          ))}
           <div className="-my-2 -mr-2 md:hidden">
             <button
               type="button"
+              aria-expanded={isOpen}
               onClick={toggle}
               className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
             >
@@ -34,25 +55,26 @@ function Nav(): React.ReactElement {
               <HiMenu aria-hidden className="w-6 h-6" />
             </button>
           </div>
-          <div className="hidden md:flex-1 md:flex md:items-center md:justify-between">
-            <nav className="flex justify-end ml-auto space-x-10">
-              {config.siteNavigation.map(({ label, slug }) => (
-                <Link
-                  key={label}
-                  to={slug}
-                  className={`text-base font-medium ${
-                    pathname === slug ? 'text-gray-900' : 'text-gray-500'
-                  } hover:text-gray-900`}
-                >
-                  {label}
-                </Link>
-              ))}
-            </nav>
-          </div>
-        </div>
+        </nav>
       </div>
-      <MobileMenu isOpen={isOpen} toggle={toggle} />
+      {/* <MobileMenu isOpen={isOpen} toggle={toggle} /> */}
     </div>
+  );
+}
+
+function NavLink({ navItem }: { navItem: NavItem }): React.ReactElement | null {
+  const { pathname } = useLocation();
+
+  return (
+    <Link
+      key={navItem.label}
+      to={navItem.route.current}
+      className={`text-base font-medium uppercase ${
+        pathname === navItem.route.current ? 'text-teal' : 'text-blue-light'
+      } hover:text-gray-900`}
+    >
+      {navItem.label}
+    </Link>
   );
 }
 

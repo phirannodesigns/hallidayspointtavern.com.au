@@ -9,8 +9,25 @@ module.exports = {
       blur: `blur(${defaultTheme.spacing[1]})`,
     },
     extend: {
+      colors: {
+        black: {
+          DEFAULT: '#2c3239',
+          transparent: 'hsla(212, 13%, 20%, 0.76)'
+        },
+        cream: '#f5e7b8',
+        olive: '#929e64',
+        teal: {
+          DEFAULT: '#486c6d',
+          transparent: 'hsla(182, 20%, 35%, 0.85)'
+        },
+        blue: {
+          DEFAULT: '#087db0',
+          light: '#30a6cc',
+          lightest: '#9dcbe4'
+        }
+      },
       fontFamily: {
-        sans: ['Avenir Next', ...defaultTheme.fontFamily.sans],
+        sans: ['Metropolis', ...defaultTheme.fontFamily.sans],
       },
     },
   },
