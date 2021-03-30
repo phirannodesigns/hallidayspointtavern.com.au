@@ -1,16 +1,34 @@
 import * as React from 'react';
 
+import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
+import { LogoWhite } from '../icons/logo-white';
 
 function IndexPage(): React.ReactElement {
   return (
-    <Layout>
-      <div className="w-full px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
-        <SEO title="Home" />
-        <h1>Hello World</h1>
+    <>
+      <SEO title="Home" />
+      <Layout hero={<Hero />}>
+        <div className="w-full px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
+          <h1>Hello World</h1>
+        </div>
+        <GoogleMap />
+      </Layout>
+    </>
+  );
+}
+
+function Hero() {
+  return (
+    <div className="aspect-w-16 aspect-h-9">
+      <div className="flex bg-teal-transparent">
+        {/* image goes here */}
+        <div className="flex items-center justify-center flex-1 px-4 sm:px-6 lg:px-8">
+          <LogoWhite className="w-full max-w-4xl mx-auto" />
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 }
 
