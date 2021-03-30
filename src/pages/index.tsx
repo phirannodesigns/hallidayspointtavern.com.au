@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { ContactSection } from '../components/contact-section';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
@@ -10,9 +11,7 @@ function IndexPage(): React.ReactElement {
     <>
       <SEO title="Home" />
       <Layout hero={<Hero />}>
-        <div className="w-full px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 lg:px-8">
-          <h1>Hello World</h1>
-        </div>
+        <ContactSection />
         <GoogleMap />
       </Layout>
     </>
