@@ -34,6 +34,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Email address',
+      name: 'email',
+      type: 'string',
+    },
+    {
       title: 'Hours',
       name: 'hours',
       type: 'array',
