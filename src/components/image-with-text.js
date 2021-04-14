@@ -14,7 +14,7 @@ const ImageWithText = ({
   
   return (
     <article className={`${bgColorClass || 'bg-white'}`}>
-      <div className="w-full px-4 py-20 mx-auto sm:px-6 max-w-screen-7xl">
+      <div className="w-full px-4 py-20 mx-auto sm:px-6 max-w-screen-2xl">
         <div
           className={`relative flex items-stretch ${
             reversed ? 'justify-start' : 'justify-end'
