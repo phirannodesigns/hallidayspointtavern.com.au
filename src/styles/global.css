@@ -26,6 +26,20 @@
     scroll-behavior: smooth;
   }
 
+  .heading-accent > * {
+    @apply relative;
+  }
+  .heading-accent::before {
+    content: '';
+    @apply absolute bottom-0 h-4 -left-24 w-[115%];
+  }
+  .accent-black-transparent::before {
+    @apply bg-black-transparent;
+  }
+  .accent-olive::before {
+    @apply bg-olive;
+  }
+
   /* Turn off animations for people who have the prefers-reduced-motion query enabled */
   @media (prefers-reduced-motion: reduce) {
     * {

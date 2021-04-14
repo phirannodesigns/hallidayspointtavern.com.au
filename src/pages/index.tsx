@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+import { Heading } from '../components/ui/heading';
 import { Link } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import { ContactSection } from '../components/contact-section';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
@@ -10,6 +11,7 @@ import { SideBySide } from '../components/side-by-side';
 import { LogoWhite } from '../icons/logo-white';
 import { useGraphQL } from '../hooks/use-graphql';
 import { ImageWithText } from '../components/image-with-text';
+import { ClippedBackground } from '../components/clipped-background';
 
 function IndexPage(): React.ReactElement {
   return (
@@ -27,25 +29,14 @@ function IndexPage(): React.ReactElement {
 }
 
 function Welcome() {
-  const { landingWelcomeImage } = useGraphQL();
-
   return (
     <SideBySide>
       <SideBySide.ThreeCols bgColorClass="bg-teal-transparent">
         <div className="p-6 sm:p-24">
-          <div className="relative pb-1">
-            <div
-              style={{ width: '115%' }}
-              className={`absolute bottom-0 h-4 -left-24 bg-black-transparent`}
-            />
-
-            <h1 className="relative text-xl leading-none text-white sm:text-2xl font-script">
-              <span className="ml-12">Welcome To</span>
-              <span className="block text-5xl font-black sm:text-6xl">
-                Hallidays Point Tavern
-              </span>
-            </h1>
-          </div>
+          <Heading>
+            <Heading.Eyebrow>Welcome To</Heading.Eyebrow>
+            <Heading.Main>Hallidays Point Tavern</Heading.Main>
+          </Heading>
           <h2 className="mt-6 text-xl prose text-white sm:text-2xl">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
             provident expedita. Earum itaque tempora fugiat.
@@ -80,10 +71,9 @@ function Welcome() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <div className="lg:py-24 lg:-ml-24">
-          {' '}
-          <GatsbyImage
-            alt="welcome"
-            image={landingWelcomeImage.childImageSharp.gatsbyImageData}
+          <StaticImage
+            src="../images/landing-welcome.jpg"
+            alt=""
             className="flex-1"
           />
         </div>
@@ -96,32 +86,29 @@ function OurMenu() {
   const { landingWelcomeImage } = useGraphQL();
 
   return (
-    <SideBySide>
-      <SideBySide.TwoCols>
-        <div className="lg:py-24 lg:-mr-24">
-          {' '}
-          <GatsbyImage
-            alt="welcome"
-            image={landingWelcomeImage.childImageSharp.gatsbyImageData}
-            className="flex-1"
-          />
-        </div>
-      </SideBySide.TwoCols>
-      <SideBySide.ThreeCols bgColorClass="bg-gray-500">
-        <div className="p-6 sm:p-24">
-          <div className="relative pb-1">
-            <div
-              style={{ width: '115%' }}
-              className={`absolute bottom-0 h-4 -left-24 bg-black-transparent`}
+    <SideBySide
+      background={
+        <div className="absolute inset-0 flex">
+          <div className="absolute inset-0 flex">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1914&q=80"
+              alt=""
+              className="flex-1 object-cover"
             />
-
-            <h1 className="relative text-xl leading-none text-white sm:text-2xl font-script">
-              <span className="ml-12">Come check out</span>
-              <span className="block text-5xl font-black sm:text-6xl">
-                Our Delicious Menu
-              </span>
-            </h1>
           </div>
+          <div className="absolute inset-0 flex">
+            <ClippedBackground className="flex-1" />
+          </div>
+        </div>
+      }
+    >
+      <SideBySide.TwoCols>{/*  */}</SideBySide.TwoCols>
+      <SideBySide.ThreeCols>
+        <div className="p-6 sm:p-24">
+          <Heading>
+            <Heading.Eyebrow>Come check out</Heading.Eyebrow>
+            <Heading.Main>Our Delicious Menu</Heading.Main>
+          </Heading>
           <h2 className="mt-6 text-xl prose text-white sm:text-2xl">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
             provident expedita. Earum itaque tempora fugiat.
@@ -165,19 +152,10 @@ function ExcitingEvents() {
     <SideBySide>
       <SideBySide.ThreeCols bgColorClass="bg-cream">
         <div className="p-6 sm:p-24">
-          <div className="relative pb-1">
-            <div
-              style={{ width: '115%' }}
-              className={`absolute bottom-0 h-4 -left-24 bg-olive`}
-            />
-
-            <h1 className="relative text-xl leading-none text-black sm:text-2xl font-script">
-              <span className="ml-12">Keep up with our</span>
-              <span className="block text-5xl font-black sm:text-6xl">
-                Exciting Events
-              </span>
-            </h1>
-          </div>
+          <Heading textColor="black" underlineColor="olive">
+            <Heading.Eyebrow>Keep up with our</Heading.Eyebrow>
+            <Heading.Main>Exciting Events</Heading.Main>
+          </Heading>
           <h2 className="mt-6 text-xl prose text-black sm:text-2xl">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
             provident expedita. Earum itaque tempora fugiat.
