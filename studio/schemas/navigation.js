@@ -17,7 +17,7 @@ export default {
       media: 'shareImage',
     },
     prepare(selection) {
-      return { ...selection }
+      return { ...selection };
     },
   },
-}
+};

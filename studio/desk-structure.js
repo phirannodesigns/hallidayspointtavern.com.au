@@ -3,10 +3,7 @@ import S from '@sanity/desk-tool/structure-builder';
 import * as React from 'react';
 
 const hiddenDocTypes = (listItem) =>
-  ![
-    'navigation',
-    'siteSettings',
-  ].includes(listItem.getId())
+  !['navigation', 'siteSettings'].includes(listItem.getId());
 
 export default () =>
   S.list()
@@ -17,11 +14,13 @@ export default () =>
       // Navigation
       S.listItem()
         .title('Navigation')
-        .icon(() => <LinkIcon style={{ height: '1em', width: '1em', }} />)
+        .icon(() => <LinkIcon style={{ height: '1em', width: '1em' }} />)
         .child(S.document().schemaType('navigation').documentId('navigation')),
       // Site settings
       S.listItem()
         .title('Site Settings')
-        .icon(() => <CogIcon style={{ height: '1em', width: '1em', }} />)
-        .child(S.document().schemaType('siteSettings').documentId('siteSettings')),
+        .icon(() => <CogIcon style={{ height: '1em', width: '1em' }} />)
+        .child(
+          S.document().schemaType('siteSettings').documentId('siteSettings')
+        ),
     ]);

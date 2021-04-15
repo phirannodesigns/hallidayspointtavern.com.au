@@ -5,7 +5,7 @@ export default {
   title: 'Social Link',
   name: 'socialLink',
   type: 'object',
-  icon: () => <ShareIcon style={{ height: '1em', width: '1em', }} />,
+  icon: () => <ShareIcon style={{ height: '1em', width: '1em' }} />,
   fields: [
     {
       title: 'Social Network',

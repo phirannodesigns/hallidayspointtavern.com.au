@@ -5,7 +5,7 @@ export default {
   title: 'Nav item',
   name: 'navItem',
   type: 'object',
-  icon: () => <LinkIcon style={{ height: '1em', width: '1em', }} />,
+  icon: () => <LinkIcon style={{ height: '1em', width: '1em' }} />,
   fields: [
     {
       name: 'label',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from 'gatsby-plugin-image';
 import PropTypes from 'prop-types';
 
 const ImageWithText = ({
@@ -11,7 +11,6 @@ const ImageWithText = ({
   reversed,
   sanityImage,
 }) => {
-  
   return (
     <article className={`${bgColorClass || 'bg-white'}`}>
       <div className="w-full px-4 py-20 mx-auto sm:px-6 max-w-screen-2xl">
@@ -24,10 +23,14 @@ const ImageWithText = ({
             <div className="absolute left-0 flex w-full h-full transform -translate-x-12 sm:w-9/12 md:h-auto md:w-5/12 md:transform-none md:relative">
               <div className="absolute left-0 flex transform -translate-y-24 sm:-translate-y-24 md:flex-1 w-6/5 h-1/2 md:h-full">
                 {sanityImage ? (
-                  <GatsbyImage alt="asdf" image={image.asset.fluid} className="flex-1" />
+                  <GatsbyImage
+                    alt="asdf"
+                    image={image.asset.fluid}
+                    className="flex-1"
+                  />
                 ) : (
                   <GatsbyImage
-                  alt="fdsa"
+                    alt="fdsa"
                     image={image.childImageSharp.gatsbyImageData}
                     className="flex-1"
                   />
@@ -55,10 +58,14 @@ const ImageWithText = ({
             <div className="absolute right-0 z-10 flex w-full h-full transform translate-x-12 sm:w-9/12 md:h-auto md:w-5/12 md:transform-none md:relative">
               <div className="absolute right-0 flex transform -translate-y-24 h-1/2 sm:-translate-y-24 md:h-full md:flex-1 w-6/5">
                 {sanityImage ? (
-                  <GatsbyImage alt="qwer" image={image.asset.fluid} className="flex-1" />
+                  <GatsbyImage
+                    alt="qwer"
+                    image={image.asset.fluid}
+                    className="flex-1"
+                  />
                 ) : (
                   <GatsbyImage
-                  alt="rewq"
+                    alt="rewq"
                     image={image.childImageSharp.gatsbyImageData}
                     className="flex-1"
                   />
