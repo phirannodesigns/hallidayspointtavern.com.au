@@ -137,6 +137,17 @@
     }
   },
   "lint-staged": {
-    "*.--write": "prettier --write"
+    "*.*.{md,mdx,json,yaml,js,jsx}": [
+      "prettier --write"
+    ],
+    "*./src/**/*.{md,mdx,json,yaml,js,jsx}": [
+      "prettier --write"
+    ],
+    "*./studio/*.{md,mdx,json,yaml,js,jsx}": [
+      "prettier --write"
+    ],
+    "*./studio/schemas/**/*.{md,mdx,json,yaml,js,jsx}": [
+      "prettier --write"
+    ]
   }
 }
