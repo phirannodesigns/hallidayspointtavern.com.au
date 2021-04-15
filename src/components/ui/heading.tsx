@@ -16,7 +16,11 @@ type HeadingProps = {
   underlineColor: 'black' | 'olive';
 };
 
-function Heading({ children, textColor = 'white', underlineColor = 'black' }) {
+function Heading({
+  children,
+  textColor = 'white',
+  underlineColor = 'black',
+}: HeadingProps): React.ReactElement {
   return (
     <h1
       className={`${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl font-script heading-accent`}
@@ -26,11 +30,11 @@ function Heading({ children, textColor = 'white', underlineColor = 'black' }) {
   );
 }
 
-function Eyebrow({ children }) {
+function Eyebrow({ children }): React.ReactElement {
   return <span className="ml-12">{children}</span>;
 }
 
-function Main({ children }) {
+function Main({ children }): React.ReactElement {
   return (
     <span className="block text-5xl font-black sm:text-5xl sm:whitespace-nowrap">
       {children}
