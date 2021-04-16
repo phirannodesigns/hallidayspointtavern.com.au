@@ -31,7 +31,8 @@
   }
   .heading-accent::before {
     content: '';
-    @apply absolute bottom-0 h-4 -left-24 w-[115%];
+    @apply absolute bottom-0 h-4 -left-24;
+    width: 115%;
   }
   .accent-black-transparent::before {
     @apply bg-black-transparent;

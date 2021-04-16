@@ -1,4 +1,3 @@
-
 export default {
   name: 'siteSettings',
   title: 'Site Settings',
@@ -13,7 +12,7 @@ export default {
       title: 'Default page description',
       name: 'description',
       type: 'text',
-      rows: 4
+      rows: 4,
     },
     {
       title: 'Site URL',
@@ -63,7 +62,7 @@ export default {
       media: 'shareImage',
     },
     prepare(selection) {
-      return { ...selection }
+      return { ...selection };
     },
   },
-}
+};
