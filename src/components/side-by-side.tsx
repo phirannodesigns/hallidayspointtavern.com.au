@@ -13,7 +13,9 @@ function SideBySide({
 }: SideBySideProps): React.ReactElement {
   return (
     <div
-      className={`relative w-full px-4 mx-auto bg-white max-w-screen-2xl sm:px-6 lg:px-8`}
+      className={`relative w-full px-4 mx-auto ${
+        bgColorClass ? bgColorClass : 'bg-white'
+      } max-w-screen-2xl sm:px-6 lg:px-8`}
     >
       {background ? background : null}
       <div className="relative grid gap-8 lg:grid-cols-5">{children}</div>

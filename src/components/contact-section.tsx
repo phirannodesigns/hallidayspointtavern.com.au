@@ -5,7 +5,7 @@ import { SideBySide } from './side-by-side';
 
 function ContactSection(): React.ReactElement {
   return (
-    <SideBySide>
+    <SideBySide bgColorClass="bg-teal-transparent">
       <SideBySide.TwoCols>
         <ContactForm />
       </SideBySide.TwoCols>
