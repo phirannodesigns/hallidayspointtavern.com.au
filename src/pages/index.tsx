@@ -131,7 +131,7 @@ function OurMenu() {
       <SideBySide.TwoCols>{/*  */}</SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <div className="p-6 sm:p-24">
-          <Heading>
+          <Heading underlineColor="olive">
             <Heading.Eyebrow>Come check out</Heading.Eyebrow>
             <Heading.Main>Our Delicious Menu</Heading.Main>
           </Heading>
@@ -161,7 +161,7 @@ function OurMenu() {
           <div className="flex justify-start mt-8">
             <Link
               to="/about"
-              className="px-6 py-2 font-serif tracking-wide text-white uppercase bg-black-transparent"
+              className="px-6 py-2 font-serif tracking-wide text-white uppercase bg-olive"
             >
               See Menu
             </Link>

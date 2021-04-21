@@ -38,17 +38,21 @@ function ContactForm(): React.ReactElement {
           {...register('contact_number', { required: true })}
           errors={errors}
         />
-        <Input
+        {/* <Input
           label="Subject"
           {...register('subject', { required: true })}
           errors={errors}
-        />
+        /> */}
         <Textarea
           label="Message"
+          rows={10}
           {...register('message', { required: true })}
           errors={errors}
         />
-        <button type="submit" className="w-56 button">
+        <button
+          type="submit"
+          className="w-56 py-2 text-white uppercase button bg-black-transparent "
+        >
           Submit
         </button>
       </div>
