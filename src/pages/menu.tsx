@@ -8,6 +8,7 @@ import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import { Menu } from '../components/menu';
 import { LogoWhite } from '../icons/logo-white';
 import { useGraphQL } from '../hooks/use-graphql';
 import { ImageWithText } from '../components/image-with-text';
@@ -19,6 +20,7 @@ function MenuPage(): React.ReactElement {
       <SEO title="Menu" />
       <Layout>
         <OurMenu />
+        <Menu />
       </Layout>
     </>
   );
@@ -73,14 +75,6 @@ function OurMenu() {
               Sit back, relax, and let us show you why our patrons brand us as
               one of the best restaurants in Hallidays Point, New South Wales.
             </p>
-          </div>
-          <div className="flex justify-start mt-8">
-            <Link
-              to="/about"
-              className="px-6 py-2 font-serif tracking-wide text-white uppercase bg-olive"
-            >
-              See Menu
-            </Link>
           </div>
         </div>
       </SideBySide.TwoCols>

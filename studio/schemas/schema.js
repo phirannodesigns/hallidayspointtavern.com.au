@@ -15,6 +15,14 @@ import navigation from './navigation';
 import openHours from './open-hours';
 import siteSettings from './site-settings';
 import socialLink from './social-link';
+import menuList from './menuList';
+
+import * as plugs from '../plugins';
+import plugDefaultFields from '../plugins/_plugDefaultFields';
+
+const allPlugins = Object.values(plugs).map((plug) => {
+  return { ...plug, fields: plugDefaultFields.concat(plug.fields) };
+});
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,5 +42,6 @@ export default createSchema({
     // Documents
     navigation,
     siteSettings,
-  ]),
+    menuList,
+  ]).concat(allPlugins),
 });
