@@ -115,7 +115,7 @@ function MenuPanel({ dishes, index, menuData, ...props }) {
               </p>
               <p className="mt-1 text-sm leading-tight ">{dish.description}</p>
             </div>
-            <p className="text-lg font-bold uppercase font-script">
+            <p className="text-lg font-bold uppercase font-script whitespace-nowrap">
               {dish.price}
             </p>
           </div>
