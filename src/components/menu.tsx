@@ -1,37 +1,55 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
 import {
-  Tabs,
-  TabPanels,
-  TabPanel,
-  TabList,
   Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
   useTabsContext,
 } from '@reach/tabs';
-import { useStaticQuery, graphql } from 'gatsby';
-import { nanoid } from 'nanoid';
+import { graphql, useStaticQuery } from 'gatsby';
+import * as React from 'react';
 
-function Menu() {
-  const { allSanityMenuList } = useStaticQuery(graphql`
+interface MenuItem {
+  id: string;
+  price: string;
+  itemName: string;
+  description: string;
+}
+
+interface MenuList {
+  id: string;
+  category: string;
+  description: string;
+  items: Array<MenuItem>;
+}
+
+interface AllSanityMenuList {
+  allSanityMenuList: {
+    nodes: Array<MenuList>;
+  };
+}
+
+function Menu(): React.ReactElement {
+  const { allSanityMenuList } = useStaticQuery<AllSanityMenuList>(graphql`
     {
       allSanityMenuList(sort: { fields: _createdAt }) {
-        edges {
-          node {
-            category
+        nodes {
+          id
+          category
+          description
+          items {
+            id: _key
+            price
+            itemName
             description
-            items {
-              price
-              itemName
-              description
-            }
           }
         }
       }
     }
   `);
 
-  const menuData = allSanityMenuList.edges;
-  let startingIndex = 0;
+  const { nodes: menuData } = allSanityMenuList;
+  const startingIndex = 0;
 
   return (
     <article id="menu" className="bg-white">
@@ -50,17 +68,17 @@ function Menu() {
             </div>
             <div>
               {menuData.map((item, index) => (
-                <MenuTab index={index} item={item.node} key={nanoid()} />
+                <MenuTab key={item.id} item={item} index={index} />
               ))}
             </div>
           </TabList>
-          <TabPanels className="grid gap-16 p-8 mt-12 bg-white grild-cols-2">
-            {menuData.map((item, index) => (
+          <TabPanels className="grid gap-16 mt-12 bg-white">
+            {menuData.map(({ items, id }, index) => (
               <MenuPanel
-                dishes={item.node.items}
-                index={index}
-                key={nanoid()}
+                key={id}
+                dishes={items}
                 menuData={menuData}
+                index={index}
               />
             ))}
           </TabPanels>
@@ -70,14 +88,19 @@ function Menu() {
   );
 }
 
-function MenuTab({ index, item, ...props }) {
+interface MenuTabProps {
+  index: number;
+  item: MenuList;
+}
+
+function MenuTab({ index, item, ...rest }: MenuTabProps) {
   const { selectedIndex } = useTabsContext();
   return (
     <Tab
       className={`${
         index === selectedIndex ? '' : 'text-gray-400'
       } relative self-center px-3 py-2 leading-none focus:outline-none focus:ring`}
-      {...props}
+      {...rest}
     >
       <div
         className={`absolute bottom-0 left-0 w-full h-4 transition ease-in-out duration-300 ${
@@ -88,35 +111,39 @@ function MenuTab({ index, item, ...props }) {
     </Tab>
   );
 }
-MenuTab.propTypes = {
-  index: PropTypes.number.isRequired,
-  item: PropTypes.object.isRequired,
-};
 
-function MenuPanel({ dishes, index, menuData, ...props }) {
+interface MenuPanelProps {
+  index: number;
+  dishes: Array<MenuItem>;
+  menuData: Array<MenuList>;
+}
+
+function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
   const { selectedIndex } = useTabsContext();
   return (
     <TabPanel
-      className={`focus:outline-none ${index === selectedIndex ? 'block' : ''}`}
-      {...props}
+      className={`p-8 focus:outline-none ${
+        index === selectedIndex ? 'block' : ''
+      }`}
+      {...rest}
     >
       <p className="text-center text-black">
-        {menuData[selectedIndex].node.description}
+        {menuData[selectedIndex].description}
       </p>
       <div className="grid gap-12 mt-8 md:grid-cols-2">
-        {dishes.map((dish) => (
+        {dishes.map(({ id, itemName, description, price }) => (
           <div
+            key={id}
             className="flex items-start justify-between space-x-16 text-black"
-            key={nanoid()}
           >
             <div>
               <p className="text-lg font-bold uppercase font-script">
-                {dish.itemName}
+                {itemName}
               </p>
-              <p className="mt-1 text-sm leading-tight ">{dish.description}</p>
+              <p className="mt-1 text-sm leading-tight ">{description}</p>
             </div>
             <p className="text-lg font-bold uppercase font-script whitespace-nowrap">
-              {dish.price}
+              {price}
             </p>
           </div>
         ))}
@@ -124,11 +151,5 @@ function MenuPanel({ dishes, index, menuData, ...props }) {
     </TabPanel>
   );
 }
-
-MenuPanel.propTypes = {
-  index: PropTypes.number.isRequired,
-  dishes: PropTypes.array.isRequired,
-  menuData: PropTypes.array.isRequired,
-};
 
 export { Menu };
