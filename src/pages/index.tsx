@@ -274,7 +274,11 @@ function Hero() {
   return (
     <div className="aspect-w-16 aspect-h-9">
       <div className="flex bg-teal-transparent">
-        {/* image goes here */}
+        <StaticImage
+          src="../images/landing-hero.jpg"
+          alt=""
+          className="flex-1"
+        />
         <div className="flex items-center justify-center flex-1 px-4 sm:px-6 lg:px-8">
           <LogoWhite className="w-full max-w-4xl mx-auto" />
         </div>

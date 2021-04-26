@@ -64,11 +64,10 @@ function Nav(): React.ReactElement {
 
 function NavLink({ navItem }: { navItem: NavItem }): React.ReactElement | null {
   const { pathname } = useLocation();
-
   return (
     <Link
       key={navItem.label}
-      to={navItem.route.current}
+      to={`/${navItem.route.current}`}
       className={`hidden text-base font-medium uppercase md:inline-block ${
         pathname === navItem.route.current ? 'text-teal' : 'text-blue-light'
       } hover:text-gray-900`}
