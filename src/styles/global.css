@@ -26,6 +26,18 @@
     scroll-behavior: smooth;
   }
 
+  /* Turn off animations for people who have the prefers-reduced-motion query enabled */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
   .heading-accent > * {
     @apply relative;
   }
@@ -48,14 +60,16 @@
   .accent-olive::before {
     @apply bg-olive;
   }
-
-  /* Turn off animations for people who have the prefers-reduced-motion query enabled */
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
+  .event-list > li::before {
+    @apply hidden;
+  }
+  .event-list > li {
+    @apply pl-0 !important;
+  }
+  .event-list > li > h3 {
+    @apply m-0 !important;
+  }
+  .event-list > li > p {
+    @apply m-0 !important;
   }
 }
