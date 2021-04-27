@@ -7,19 +7,19 @@ import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 
-function NotFoundPage(): React.ReactElement {
+function SuccessPage(): React.ReactElement {
   return (
     <>
-      <SEO title="404: Page Not Found" />
+      <SEO title="Success" />
       <Layout>
-        <NotFound />
+        <Success />
         <GoogleMap />
       </Layout>
     </>
   );
 }
 
-function NotFound() {
+function Success() {
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
@@ -31,7 +31,8 @@ function NotFound() {
           />
         </div>
         <Copy
-          heading={{ main: '404: Page Not Found' }}
+          heading={{ eyebrow: 'Success', main: 'Message received!' }}
+          lead="Thank you, our team will get back to you shortly."
           cta={{ route: '/', text: 'Return Home' }}
           backgroundColour="transparent-olive"
         />
@@ -45,4 +46,4 @@ function NotFound() {
   );
 }
 
-export default NotFoundPage;
+export default SuccessPage;
