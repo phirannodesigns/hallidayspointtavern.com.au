@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { useLazyLoad } from '../hooks/use-lazy-load';
-import { SiteSettings, useSiteSettings } from '../hooks/use-site-settings';
+import { useSiteSettings } from '../hooks/use-site-settings';
 
 function GoogleMap(): React.ReactElement {
   const {
@@ -11,9 +11,12 @@ function GoogleMap(): React.ReactElement {
     handleIsLoaded,
     Spinner,
   } = useLazyLoad();
-  const siteSettings: SiteSettings = useSiteSettings();
+  const siteSettings = useSiteSettings();
   return (
-    <div ref={containerRef} className="relative flex h-64 bg-teal-transparent">
+    <div
+      ref={containerRef}
+      className="relative flex w-full h-64 mx-auto max-w-screen-2xl bg-blue-lightest"
+    >
       <iframe
         ref={srcRef}
         data-src={siteSettings.address.googleMaps.embed}

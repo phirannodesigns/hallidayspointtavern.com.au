@@ -5,7 +5,7 @@ import { Spinner } from '../components/spinner';
 
 function LoadingSpinner(): React.ReactElement {
   return (
-    <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-teal-transparent">
+    <div className="absolute inset-0 flex items-center justify-center w-full h-full bg-opacity-50 pointer-events-none bg-blue-lightest">
       <Spinner />
     </div>
   );

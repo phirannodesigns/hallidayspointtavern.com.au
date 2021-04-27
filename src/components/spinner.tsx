@@ -11,7 +11,7 @@ function Spinner(
     <svg
       height="1em"
       width="1em"
-      className="text-white w-7 h-7 animate-spin"
+      className="text-blue w-7 h-7 animate-spin"
       role="img"
       aria-labelledby={`${title} ${desc}`}
       viewBox="0 0 32 32"
