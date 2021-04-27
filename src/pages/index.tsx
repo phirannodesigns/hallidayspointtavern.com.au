@@ -51,7 +51,7 @@ function Welcome() {
           heading={{ eyebrow: 'Welcome To', main: 'Hallidays Point Tavern' }}
           lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
           cta={{ route: '/about-us/', text: 'Read more' }}
-          backgroundColour="bg-teal-transparent"
+          backgroundColour="transparent-teal"
         >
           <p>
             At the Tavern, we are focused on delivering the best customer
@@ -143,10 +143,10 @@ function ExcitingEvents() {
           }}
           lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
           cta={{ route: '/events/', text: 'Upcoming Events' }}
-          backgroundColour="bg-cream"
+          backgroundColour="cream"
           onDark={false}
         >
-          <ul className="divide-y divide-gray-700 event-list">
+          <ul className="divide-y divide-gray-700 reset-list">
             <li className="py-4">
               <h3>Raffles Every Monday &amp; Thursdays 5pm – 6:30pm</h3>
               <p>
@@ -182,7 +182,7 @@ function ExcitingEvents() {
 
 function DiscoverHallidaysPoint() {
   return (
-    <div className="relative w-full mx-auto bg-teal-transparent max-w-screen-2xl">
+    <div className="relative w-full mx-auto max-w-screen-2xl">
       <div className="absolute inset-0 flex overflow-hidden">
         <StaticImage
           src="../images/discover-hallidays-point.jpg"
@@ -190,7 +190,7 @@ function DiscoverHallidaysPoint() {
           className="flex-1"
         />
       </div>
-      <div className="relative flex items-center justify-center px-4 py-64 bg-black-transparent sm:px-6 lg:px-8">
+      <div className="relative flex items-center justify-center px-4 py-64 bg-black bg-opacity-50 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-3xl text-white">What are you waiting for?</p>
           <h2 className="block text-5xl font-black text-white sm:text-5xl sm:whitespace-nowrap">
@@ -214,6 +214,13 @@ function CourtesyBus() {
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
+        <div className="absolute inset-0 flex overflow-hidden">
+          <StaticImage
+            src="../images/headlands.jpg"
+            alt=""
+            className="flex-1"
+          />
+        </div>
         <Copy
           heading={{
             eyebrow: 'Don’t want to drive?',
@@ -221,7 +228,7 @@ function CourtesyBus() {
             underlineColor: 'olive',
           }}
           lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
-          backgroundColour="bg-black-transparent"
+          backgroundColour="transparent-black"
         >
           <dl className="divide-y-2 divide-white">
             <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
