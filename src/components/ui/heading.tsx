@@ -10,11 +10,14 @@ const UNDERLINE_COLOR_MAP = {
   olive: 'accent-olive',
 };
 
-type HeadingProps = {
+type TextColor = 'white' | 'black';
+type UnderlineColor = 'black' | 'olive';
+
+interface HeadingProps {
   children: React.ReactNode;
-  textColor?: 'white' | 'black';
-  underlineColor?: 'black' | 'olive';
-};
+  textColor?: TextColor;
+  underlineColor?: UnderlineColor;
+}
 
 function Heading({
   children,
@@ -46,3 +49,4 @@ Heading.Eyebrow = Eyebrow;
 Heading.Main = Main;
 
 export { Heading };
+export type { TextColor, UnderlineColor };

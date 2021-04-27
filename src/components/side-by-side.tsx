@@ -1,32 +1,32 @@
 import * as React from 'react';
 
-type SideBySideProps = {
+interface SideBySideProps {
   background?: React.ReactNode;
   children: React.ReactNode;
   bgColorClass?: string;
-};
+}
 
 function SideBySide({
   background = null,
   children,
-  bgColorClass,
+  bgColorClass = 'bg-white',
 }: SideBySideProps): React.ReactElement {
   return (
-    <div
-      className={`relative w-full px-4 mx-auto ${
-        bgColorClass || 'bg-white'
-      } max-w-screen-2xl sm:px-6 lg:px-8`}
-    >
-      {background}
-      <div className="relative grid gap-8 lg:grid-cols-5">{children}</div>
+    <div className="relative overflow-hidden">
+      <div
+        className={`relative w-full mx-auto overflow-hidden max-w-screen-2xl ${bgColorClass}`}
+      >
+        {background}
+        <div className="relative grid gap-8 lg:grid-cols-5">{children}</div>
+      </div>
     </div>
   );
 }
 
-type TwoColsProps = {
+interface TwoColsProps {
   children: React.ReactNode;
   bgColorClass?: string;
-};
+}
 
 function TwoCols({
   children,
@@ -34,17 +34,17 @@ function TwoCols({
 }: TwoColsProps): React.ReactElement {
   return (
     <div
-      className={`flex flex-col ${bgColorClass} justify-center lg:col-span-2`}
+      className={`relative flex flex-col justify-center lg:col-span-2 ${bgColorClass}`}
     >
       {children}
     </div>
   );
 }
 
-type ThreeColsProps = {
+interface ThreeColsProps {
   children: React.ReactNode;
   bgColorClass?: string;
-};
+}
 
 function ThreeCols({
   children,
@@ -52,7 +52,7 @@ function ThreeCols({
 }: ThreeColsProps): React.ReactElement {
   return (
     <div
-      className={`flex flex-col justify-center ${bgColorClass} order-last lg:col-span-3 lg:order-none`}
+      className={`relative flex flex-col justify-center order-last lg:col-span-3 lg:order-none ${bgColorClass}`}
     >
       {children}
     </div>
