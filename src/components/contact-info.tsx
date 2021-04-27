@@ -7,42 +7,72 @@ import { Copy } from './copy';
 function ContactInfo(): React.ReactElement {
   const siteSettings = useSiteSettings();
   return (
-    <Copy heading={{ eyebrow: 'Have an enquiry?', main: 'Contact Us' }}>
+    <Copy
+      heading={{ eyebrow: 'Have an enquiry?', main: 'Contact Us' }}
+      maxWidth="max-w-prose"
+    >
       <h3 className="uppercase !mb-0 !text-white">Contact Details</h3>
-      <div className="mt-2 prose text-white">
-        <p>
-          {siteSettings.phoneNumber}
-          <br />
-          {siteSettings.email}
-        </p>
-      </div>
+      <dl className="mt-2">
+        <div>
+          <dt className="sr-only">Phone number</dt>
+          <dd>
+            <a href={`tel:${siteSettings.phoneNumber}`} className="!text-white">
+              {siteSettings.phoneNumber}
+            </a>
+          </dd>
+        </div>
+        <div>
+          <dt className="sr-only">Email address</dt>
+          <dd>
+            <a href={`mailto:${siteSettings.email}`} className="!text-white">
+              {siteSettings.email}
+            </a>
+          </dd>
+        </div>
+      </dl>
       <h3 className="uppercase !mb-0 !text-white">Open Hours</h3>
-      <div className="mt-2 prose text-white">
-        <p>Monday to Sunday</p>
-      </div>
+      <dl className="mt-2">
+        {siteSettings.hours.map(({ days, hours }) => (
+          <div className="font-medium">
+            <dt className="inline">{days}: </dt>
+            <dd className="inline">{hours}</dd>
+          </div>
+        ))}
+      </dl>
       <h3 className="uppercase !mb-0 !text-white">Find us at</h3>
-      <div className="mt-2 prose text-white">
-        <p>
-          {siteSettings.address.streetAddress}
-          <br />
-          {siteSettings.address.suburb}
-        </p>
-      </div>
-      <h3 className="uppercase !mb-0 !text-white">Follow us on</h3>
-      {siteSettings.socialLinks.map(({ link, socialNetwork }) => {
-        const Icon = ICON_MAP[socialNetwork];
-        return (
+      <dl className="mt-2">
+        <dt className="sr-only">Address</dt>
+        <dd>
           <a
-            href={link}
-            target="_blank"
+            href={siteSettings.address.googleMaps.link}
             rel="noopener noreferrer"
-            className="inline-block mt-2 text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 focus:text-gray-600"
+            className="!text-white"
           >
-            <span className="sr-only">{socialNetwork}</span>
-            <Icon aria-hidden className="w-8 h-8 text-white" />
+            {siteSettings.address.streetAddress}
+            <br />
+            {siteSettings.address.suburb}
           </a>
-        );
-      })}
+        </dd>
+      </dl>
+      <h3 className="uppercase !mb-0 !text-white">Follow us on</h3>
+      <ul className="mt-2 reset-list">
+        {siteSettings.socialLinks.map(({ link, socialNetwork }) => {
+          const Icon = ICON_MAP[socialNetwork];
+          return (
+            <li className="!my-0">
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block !mb-0 !mt-2 text-gray-500 transition duration-150 ease-in-out hover:text-gray-400 focus:text-gray-600"
+              >
+                <span className="sr-only">{socialNetwork}</span>
+                <Icon aria-hidden className="w-8 h-8 text-white" />
+              </a>
+            </li>
+          );
+        })}
+      </ul>
     </Copy>
   );
 }
