@@ -67,7 +67,7 @@ function NavLink({ navItem }: { navItem: NavItem }): React.ReactElement | null {
   return (
     <Link
       key={navItem.label}
-      to={`/${navItem.route.current}`}
+      to={`/${navItem.route.current}/`}
       className={`hidden text-base font-medium uppercase md:inline-block ${
         pathname === navItem.route.current ? 'text-teal' : 'text-blue-light'
       } hover:text-gray-900`}
@@ -119,7 +119,7 @@ function MobileMenu({ open }) {
             {siteNavigation.map(({ id, route, label }) => (
               <Link
                 key={id}
-                to={route.current}
+                to={`/${route.current}/`}
                 className="block px-3 py-2 text-base font-medium text-gray-700 rounded-md hover:text-gray-900 hover:bg-gray-50"
               >
                 {label}
