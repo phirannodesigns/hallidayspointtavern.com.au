@@ -12,7 +12,7 @@ export const useGraphQL = () => {
   return useStaticQuery(
     graphql`
       {
-        landingWelcomeImage: file(relativePath: { eq: "landing-welcome.jpg" }) {
+        landingWelcomeImage: file(relativePath: { eq: "welcome.jpg" }) {
           childImageSharp {
             gatsbyImageData(layout: CONSTRAINED)
           }
