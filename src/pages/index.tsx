@@ -5,6 +5,7 @@ import * as React from 'react';
 import { ContactSection } from '../components/contact-section';
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
+import { Hero as HeroComponent } from '../components/hero';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
@@ -29,16 +30,13 @@ function IndexPage(): React.ReactElement {
 
 function Hero() {
   return (
-    <div className="relative max-h-[36rem]">
-      <div className="aspect-w-16 aspect-h-9">
-        <div className="absolute inset-0 flex max-h-[36rem]">
-          <StaticImage src="../images/hero.jpg" alt="" className="flex-1" />
-        </div>
-        <div className="flex items-center justify-center flex-1 px-4 bg-opacity-25 max-h-[36rem] sm:px-6 lg:px-8 bg-teal">
-          <LogoWhite className="w-full max-w-4xl mx-auto" />
-        </div>
-      </div>
-    </div>
+    <HeroComponent
+      backgroundImage={
+        <StaticImage src="../images/hero.jpg" alt="" className="flex-1" />
+      }
+    >
+      <LogoWhite className="w-full max-w-4xl mx-auto" />
+    </HeroComponent>
   );
 }
 
