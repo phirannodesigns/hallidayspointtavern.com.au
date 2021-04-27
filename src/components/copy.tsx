@@ -17,7 +17,7 @@ const BACKGROUND_COLOR_MAP = {
 };
 
 interface CopyProps {
-  heading: {
+  heading?: {
     eyebrow?: string;
     main: string;
     underlineColor?: UnderlineColor;
@@ -52,15 +52,17 @@ function Copy({
       className={`relative flex flex-col items-start justify-center flex-1 px-4 py-12 sm:px-6 lg:px-12 lg:py-24 ${BACKGROUND_COLOR_MAP[backgroundColour]}`}
     >
       <div className={`w-full ${maxWidth}`}>
-        <Heading
-          textColor={onDark ? 'white' : 'black'}
-          underlineColor={heading.underlineColor}
-        >
-          {heading.eyebrow ? (
-            <Heading.Eyebrow>{heading.eyebrow}</Heading.Eyebrow>
-          ) : null}
-          <Heading.Main>{heading.main}</Heading.Main>
-        </Heading>
+        {heading ? (
+          <Heading
+            textColor={onDark ? 'white' : 'black'}
+            underlineColor={heading.underlineColor}
+          >
+            {heading.eyebrow ? (
+              <Heading.Eyebrow>{heading.eyebrow}</Heading.Eyebrow>
+            ) : null}
+            <Heading.Main>{heading.main}</Heading.Main>
+          </Heading>
+        ) : null}
         <div className={`mt-6 prose ${onDark ? 'text-white' : ''}`}>
           {lead ? (
             <p className={`font-semibold lead ${onDark ? '!text-white' : ''}`}>
