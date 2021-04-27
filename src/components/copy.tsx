@@ -18,7 +18,7 @@ const BACKGROUND_COLOR_MAP = {
 
 interface CopyProps {
   heading: {
-    eyebrow: string;
+    eyebrow?: string;
     main: string;
     underlineColor?: UnderlineColor;
   };
@@ -56,7 +56,9 @@ function Copy({
           textColor={onDark ? 'white' : 'black'}
           underlineColor={heading.underlineColor}
         >
-          <Heading.Eyebrow>{heading.eyebrow}</Heading.Eyebrow>
+          {heading.eyebrow ? (
+            <Heading.Eyebrow>{heading.eyebrow}</Heading.Eyebrow>
+          ) : null}
           <Heading.Main>{heading.main}</Heading.Main>
         </Heading>
         <div className={`mt-6 prose ${onDark ? 'text-white' : ''}`}>
