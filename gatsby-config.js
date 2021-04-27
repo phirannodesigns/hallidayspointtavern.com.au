@@ -52,7 +52,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: 'gatsby-plugin-sharp',
       options: {
         // Defaults used for gatsbyImageData and StaticImage
         defaults: {
