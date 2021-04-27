@@ -19,9 +19,7 @@ import openHours from './open-hours';
 import siteSettings from './site-settings';
 import socialLink from './social-link';
 
-const allPlugins = Object.values(plugs).map((plug) => {
-  return { ...plug, fields: plugDefaultFields.concat(plug.fields) };
-});
+const allPlugins = Object.values(plugs).map((plug) => ({ ...plug, fields: [...plugDefaultFields, ...plug.fields] }));
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,7 +27,7 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
+  types: [...schemaTypes,
     // The following are document types which will appear
     // in the studio.
     address,
@@ -42,5 +40,5 @@ export default createSchema({
     navigation,
     siteSettings,
     menuList,
-  ]).concat(allPlugins),
+   ...allPlugins,],
 });
