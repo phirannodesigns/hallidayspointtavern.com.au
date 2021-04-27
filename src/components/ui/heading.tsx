@@ -23,7 +23,7 @@ function Heading({
 }: HeadingProps): React.ReactElement {
   return (
     <h1
-      className={`${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl font-script heading-accent`}
+      className={`${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl heading-accent`}
     >
       {children}
     </h1>

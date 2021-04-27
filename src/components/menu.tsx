@@ -55,13 +55,13 @@ function Menu(): React.ReactElement {
     <article id="menu" className="bg-white">
       <div className="relative w-full px-4 py-24 mx-auto bg-cream max-w-screen-2xl sm:px-6 lg:px-8">
         <Tabs defaultIndex={startingIndex}>
-          <TabList className="flex flex-col px-4 space-y-4 text-4xl font-black text-black font-script md:space-y-0 md:space-x-4 md:flex-row md:justify-between">
+          <TabList className="flex flex-col px-4 space-y-4 text-4xl font-black text-black md:space-y-0 md:space-x-4 md:flex-row md:justify-between">
             <div>
               <div className="flex flex-col">
-                <h2 className="px-4 -mb-4 text-xl font-bold text-black md:text-center font-script">
+                <h2 className="px-4 -mb-4 text-xl font-bold text-black md:text-center">
                   Check out
                 </h2>
-                <h2 className="px-4 py-2 text-4xl font-black text-black font-script">
+                <h2 className="px-4 py-2 text-4xl font-black text-black">
                   The Menu
                 </h2>
               </div>
@@ -118,7 +118,9 @@ interface MenuPanelProps {
   menuData: Array<MenuList>;
 }
 
-function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
+function MenuPanel({
+  dishes, index, menuData, ...rest
+}: MenuPanelProps) {
   const { selectedIndex } = useTabsContext();
   return (
     <TabPanel
@@ -131,18 +133,20 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
         {menuData[selectedIndex].description}
       </p>
       <div className="grid gap-12 mt-8 md:grid-cols-2">
-        {dishes.map(({ id, itemName, description, price }) => (
+        {dishes.map(({
+          id, itemName, description, price,
+        }) => (
           <div
             key={id}
             className="flex items-start justify-between space-x-16 text-black"
           >
             <div>
-              <p className="text-lg font-bold uppercase font-script">
+              <p className="text-lg font-bold uppercase">
                 {itemName}
               </p>
               <p className="mt-1 text-sm leading-tight ">{description}</p>
             </div>
-            <p className="text-lg font-bold uppercase font-script whitespace-nowrap">
+            <p className="text-lg font-bold uppercase whitespace-nowrap">
               {price}
             </p>
           </div>
