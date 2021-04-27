@@ -1,7 +1,6 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import { ContactSection } from '../components/contact-section';
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
@@ -15,7 +14,7 @@ function AboutPage(): React.ReactElement {
       <Layout>
         <About1 />
         <About2 />
-        <ContactSection />
+        <OurHistory />
         <GoogleMap />
       </Layout>
     </>
@@ -102,6 +101,50 @@ function About2() {
           </p>
         </Copy>
       </SideBySide.ThreeCols>
+    </SideBySide>
+  );
+}
+
+function OurHistory(): React.ReactElement {
+  return (
+    <SideBySide>
+      <SideBySide.ThreeCols>
+        <div className="absolute inset-0 flex">
+          <StaticImage src="../images/wallaby.jpg" alt="" className="flex-1" />
+        </div>
+        <Copy
+          heading={{
+            eyebrow: 'Learn About',
+            main: 'Our History',
+            underlineColor: 'olive',
+          }}
+          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          backgroundColour="cream"
+          onDark={false}
+        >
+          <p>
+            At the Tavern, we are focused on delivering the best customer
+            experience by combining great food, exquisite wines and beer, and
+            matched with excellent customer service.
+          </p>
+          <p>
+            The Hallidays Point Tavern is located at the heart of Hallidays
+            Point in New South Wales which is a popular destination for its
+            spectacular coastal towns and rainforests.
+          </p>
+          <p>
+            For more than 30 years, the Tavern has been a favourite spot for
+            locals and tourists to enjoy a delightful meal, to relax over a few
+            schooners of beer or have fun with friends and families. Talk to us
+            about hosting your function today.
+          </p>
+        </Copy>
+      </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        <div className="transform lg:-translate-x-24">
+          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
+        </div>
+      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
