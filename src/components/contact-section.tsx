@@ -15,7 +15,10 @@ function ContactSection(): React.ReactElement {
             alt=""
             className="flex-1"
           />
-          <div aria-hidden className="absolute inset-0 bg-teal-transparent" />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-teal bg-opacity-[0.85]"
+          />
         </div>
       }
     >
