@@ -9,7 +9,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
 export const useGraphQL = () => {
-  const data = useStaticQuery(
+  return useStaticQuery(
     graphql`
       {
         landingWelcomeImage: file(relativePath: { eq: "landing-welcome.jpg" }) {
@@ -20,5 +20,4 @@ export const useGraphQL = () => {
       }
     `
   );
-  return data;
 };

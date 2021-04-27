@@ -1,30 +1,17 @@
 import * as React from 'react';
 
-import { Heading } from '../components/ui/heading';
-import { Link } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import { ContactSection } from '../components/contact-section';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
-import { SideBySide } from '../components/side-by-side';
-import { LogoWhite } from '../icons/logo-white';
-import { useGraphQL } from '../hooks/use-graphql';
-import { ImageWithText } from '../components/image-with-text';
-import { ClippedBackground } from '../components/clipped-background';
 
 function PrivacyPolicyPage(): React.ReactElement {
   return (
     <>
       <SEO title="Privacy Policy" />
       <Layout>
-        <div
-          className={`relative w-full px-4 mx-auto bg-teal-transparent max-w-screen-2xl sm:px-6 lg:px-8`}
-        >
+        <div className="relative w-full px-4 mx-auto bg-teal-transparent max-w-screen-2xl sm:px-6 lg:px-8">
           <div className="px-6 py-24">
-            <h1
-              className={`text-white accent-black-transparent relative text-xl leading-none sm:text-2xl font-script heading-accent-small`}
-            >
+            <h1 className="relative text-xl leading-none text-white accent-black-transparent sm:text-2xl font-script heading-accent-small">
               <span className="block text-5xl font-black sm:text-5xl sm:whitespace-nowrap">
                 Privacy Policy
               </span>

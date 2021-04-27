@@ -1,7 +1,6 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-import config from '../../config.json';
 import { NavItems, useSiteNavigation } from '../hooks/use-site-navigation';
 import { SiteSettings, useSiteSettings } from '../hooks/use-site-settings';
 import { Logo } from '../icons/logo';
@@ -94,6 +93,7 @@ function Footer(): React.ReactElement {
                 const Icon = ICON_MAP[socialNetwork];
                 return (
                   <a
+                    key={link}
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"

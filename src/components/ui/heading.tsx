@@ -12,8 +12,8 @@ const UNDERLINE_COLOR_MAP = {
 
 type HeadingProps = {
   children: React.ReactNode;
-  textColor: 'white' | 'black';
-  underlineColor: 'black' | 'olive';
+  textColor?: 'white' | 'black';
+  underlineColor?: 'black' | 'olive';
 };
 
 function Heading({

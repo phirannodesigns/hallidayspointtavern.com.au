@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import { Heading } from '../components/ui/heading';
-import { Link } from 'gatsby';
-import { ContactForm } from './contact-form';
-import { SideBySide } from './side-by-side';
 import { SiteSettings, useSiteSettings } from '../hooks/use-site-settings';
 import { ICON_MAP } from '../lib/icon-map';
+import { ContactForm } from './contact-form';
+import { SideBySide } from './side-by-side';
+import { Heading } from './ui/heading';
 
 function ContactSection(): React.ReactElement {
   const siteSettings: SiteSettings = useSiteSettings();

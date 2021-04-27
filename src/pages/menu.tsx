@@ -1,18 +1,11 @@
 import * as React from 'react';
 
-import { Heading } from '../components/ui/heading';
-import { Link } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import { ContactSection } from '../components/contact-section';
-import { GoogleMap } from '../components/google-map';
+import { ClippedBackground } from '../components/clipped-background';
 import { Layout } from '../components/layout';
+import { Menu } from '../components/menu';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { Menu } from '../components/menu';
-import { LogoWhite } from '../icons/logo-white';
-import { useGraphQL } from '../hooks/use-graphql';
-import { ImageWithText } from '../components/image-with-text';
-import { ClippedBackground } from '../components/clipped-background';
+import { Heading } from '../components/ui/heading';
 
 function MenuPage(): React.ReactElement {
   return (
@@ -27,8 +20,6 @@ function MenuPage(): React.ReactElement {
 }
 
 function OurMenu() {
-  const { landingWelcomeImage } = useGraphQL();
-
   return (
     <SideBySide
       background={
@@ -47,7 +38,6 @@ function OurMenu() {
       }
     >
       <SideBySide.TwoCols>
-        {' '}
         <div className="p-6 sm:p-24">
           <Heading underlineColor="olive">
             <Heading.Eyebrow>Come check out</Heading.Eyebrow>
@@ -78,7 +68,7 @@ function OurMenu() {
           </div>
         </div>
       </SideBySide.TwoCols>
-      <SideBySide.ThreeCols></SideBySide.ThreeCols>
+      <span aria-hidden className="lg:col-span-3" />
     </SideBySide>
   );
 }

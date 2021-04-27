@@ -1,17 +1,12 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import { Heading } from '../components/ui/heading';
-import { Link } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
-import { ContactSection } from '../components/contact-section';
+import { ClippedBackground } from '../components/clipped-background';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { LogoWhite } from '../icons/logo-white';
-import { useGraphQL } from '../hooks/use-graphql';
-import { ImageWithText } from '../components/image-with-text';
-import { ClippedBackground } from '../components/clipped-background';
+import { Heading } from '../components/ui/heading';
 
 function EventsPage(): React.ReactElement {
   return (
@@ -100,8 +95,6 @@ function EventOfTheWeek() {
 }
 
 function TriviaAtTheTab() {
-  const { landingWelcomeImage } = useGraphQL();
-
   return (
     <SideBySide
       background={
@@ -119,7 +112,7 @@ function TriviaAtTheTab() {
         </div>
       }
     >
-      <SideBySide.TwoCols>{/*  */}</SideBySide.TwoCols>
+      <span aria-hidden className="lg:col-span-2" />
       <SideBySide.ThreeCols>
         <div className="p-6 sm:p-24">
           <Heading>
@@ -141,8 +134,6 @@ function TriviaAtTheTab() {
   );
 }
 function HappyHour() {
-  const { landingWelcomeImage } = useGraphQL();
-
   return (
     <SideBySide
       background={
@@ -160,7 +151,7 @@ function HappyHour() {
         </div>
       }
     >
-      <SideBySide.TwoCols>{/*  */}</SideBySide.TwoCols>
+      <span aria-hidden className="lg:col-span-2" />
       <SideBySide.ThreeCols>
         <div className="p-6 sm:p-24">
           <Heading underlineColor="olive">
@@ -186,8 +177,6 @@ function HappyHour() {
 }
 
 function LiveMusic() {
-  const { landingWelcomeImage } = useGraphQL();
-
   return (
     <SideBySide>
       <SideBySide.ThreeCols bgColorClass="bg-cream">
@@ -233,19 +222,6 @@ function LiveMusic() {
         </div>
       </SideBySide.TwoCols>
     </SideBySide>
-  );
-}
-
-function Hero() {
-  return (
-    <div className="aspect-w-16 aspect-h-9">
-      <div className="flex bg-teal-transparent">
-        {/* image goes here */}
-        <div className="flex items-center justify-center flex-1 px-4 sm:px-6 lg:px-8">
-          <LogoWhite className="w-full max-w-4xl mx-auto" />
-        </div>
-      </div>
-    </div>
   );
 }
 

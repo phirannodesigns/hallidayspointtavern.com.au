@@ -20,6 +20,7 @@ export default {
         source: 'label',
         maxLength: 96,
       },
+      validation: Rule => Rule.required()
     },
     {
       title: 'Footer Only',
