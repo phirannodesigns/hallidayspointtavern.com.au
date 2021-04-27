@@ -11,7 +11,7 @@ function ContactSectionRev(): React.ReactElement {
   return (
     <SideBySide bgColorClass="bg-teal-transparent">
       <SideBySide.TwoCols>
-        <div className="p-6 -mb-24 sm:-mb-0 sm:p-24">
+        <div className="w-full px-4 py-12 mx-auto sm:px-6 lg:px-8 max-w-prose lg:py-24">
           <Heading>
             <Heading.Eyebrow>Have an enquiry?</Heading.Eyebrow>
             <Heading.Main>Contact Us</Heading.Main>

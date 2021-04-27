@@ -1,46 +1,36 @@
 import * as React from 'react';
 import { DeepMap, FieldError } from 'react-hook-form';
 
-type InputProps = {
-  name: string;
-  label: string;
-  type?: 'text' | 'email' | 'number' | 'password' | 'search' | 'tel';
-  errors: DeepMap<Record<string, unknown>, FieldError>;
-};
+import { ErrorMessage } from './error-message';
 
-function Input(
-  { name, label, type = 'text', errors }: InputProps,
-  rest: JSX.IntrinsicAttributes &
-    React.ClassAttributes<HTMLInputElement> &
-    React.InputHTMLAttributes<HTMLInputElement>
-): React.ReactElement {
-  const hasErrors = Boolean(errors?.[name]);
-  return (
-    <div>
-      <label htmlFor={name} className="block">
-        {/* <span className="text-sm font-semibold tracking-wider uppercase">
-          {label}
-        </span> */}
-        <input
-          id={name}
-          name={name}
-          type={type}
-          placeholder={label}
-          aria-invalid={hasErrors}
-          className="block w-full px-4 py-4 mt-0 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-dark"
-          {...rest}
-        />
-      </label>
-      {hasErrors ? (
-        <div
-          role="alert"
-          className="mt-1 text-xs font-semibold tracking-widest text-red-800 uppercase"
-        >
-          {label} is a required field
-        </div>
-      ) : null}
-    </div>
-  );
+interface InputProps {
+  errors: DeepMap<Record<string, unknown>, FieldError>;
+  label: string;
+  name: string;
+  type?: 'email' | 'number' | 'password' | 'search' | 'tel';
 }
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ errors, label, name, type = 'text' }, ref) => {
+    const hasErrors = Boolean(errors?.[name]);
+    return (
+      <div>
+        <label htmlFor={name} className="block">
+          <span className="sr-only">{label}</span>
+          <input
+            id={name}
+            name={name}
+            type={type}
+            placeholder={label}
+            ref={ref}
+            aria-invalid={hasErrors}
+            className="w-full border-transparent focus:ring-blue-500 focus:ring-opacity-50 focus:border-blue-500 focus:border-opacity-50"
+          />
+        </label>
+        <ErrorMessage errors={errors} name={name} label={label} />
+      </div>
+    );
+  }
+);
 
 export { Input };

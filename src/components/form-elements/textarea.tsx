@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { DeepMap, FieldError } from 'react-hook-form';
 
+import { ErrorMessage } from './error-message';
+
 type TextareaProps = {
   name: string;
   label: string;
@@ -14,26 +16,18 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
     return (
       <div>
         <label htmlFor={name} className="block">
-          {/* <span className="text-sm font-semibold tracking-wider uppercase">
-            {label}
-          </span> */}
+          <span className="sr-only">{label}</span>
           <textarea
             id={name}
-            placeholder={label}
             name={name}
             rows={rows}
+            placeholder={label}
             ref={ref}
-            className="block w-full px-4 py-4 mt-0 border-0 border-b-2 border-gray-200 focus:ring-0 focus:border-blue-dark"
+            aria-invalid={hasErrors}
+            className="w-full border-transparent focus:ring-blue-500 focus:ring-opacity-50 focus:border-blue-500 focus:border-opacity-50"
           />
         </label>
-        {hasErrors ? (
-          <div
-            role="alert"
-            className="mt-1 text-xs font-semibold tracking-widest text-red-800 uppercase"
-          >
-            {label} is a required field
-          </div>
-        ) : null}
+        <ErrorMessage errors={errors} name={name} label={label} />
       </div>
     );
   }

@@ -14,14 +14,16 @@ type FormData = {
 };
 
 function ContactForm(): React.ReactElement {
-  // eslint-disable-next-line @typescript-eslint/unbound-method
   const {
     handleSubmit,
     register,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onBlur', reValidateMode: 'onChange' });
   return (
-    <NetlifyForm handleSubmit={handleSubmit} className="p-4 py-24">
+    <NetlifyForm
+      handleSubmit={handleSubmit}
+      className="px-4 py-12 sm:px-6 lg:px-8 lg:py-24"
+    >
       <div className="grid grid-cols-1 gap-6">
         <Input
           label="Full name"
@@ -38,23 +40,20 @@ function ContactForm(): React.ReactElement {
           {...register('contact_number', { required: true })}
           errors={errors}
         />
-        {/* <Input
-          label="Subject"
-          {...register('subject', { required: true })}
-          errors={errors}
-        /> */}
         <Textarea
           label="Message"
           rows={10}
           {...register('message', { required: true })}
           errors={errors}
         />
-        <button
-          type="submit"
-          className="w-56 py-2 text-white uppercase button bg-black-transparent "
-        >
-          Submit
-        </button>
+        <p>
+          <button
+            type="submit"
+            className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black"
+          >
+            Submit
+          </button>
+        </p>
       </div>
     </NetlifyForm>
   );
