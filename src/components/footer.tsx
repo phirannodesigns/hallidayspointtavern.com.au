@@ -14,7 +14,7 @@ function Footer(): React.ReactElement {
       <h2 id="footerHeading" className="sr-only">
         Footer
       </h2>
-      <div className="px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 lg:py-16 lg:px-8">
+      <div className="px-4 py-12 mx-auto max-w-screen-2xl sm:px-6 lg:py-16 lg:px-12">
         <div className="grid items-start lg:grid-cols-2">
           <div className="grid gap-8 md:grid-cols-2">
             <div className="grid col-span-1">

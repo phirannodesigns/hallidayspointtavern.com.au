@@ -79,7 +79,7 @@ function About2() {
       }
     >
       <SideBySide.TwoCols>
-        <div className="transform lg:-translate-x-24">
+        <div className="px-4 py-12 sm:px-6 lg:px-12 lg:py-24">
           <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
         </div>
       </SideBySide.TwoCols>

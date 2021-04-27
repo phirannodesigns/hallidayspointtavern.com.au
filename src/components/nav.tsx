@@ -31,7 +31,7 @@ function Nav(): React.ReactElement {
       {({ open }) => (
         <>
           <div className="relative z-20">
-            <nav className="flex flex-wrap items-center justify-between px-4 py-5 mx-auto md:items-baseline md:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-8 md:space-x-10">
+            <nav className="flex flex-wrap items-center justify-between px-4 py-5 mx-auto md:items-baseline md:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-12 md:space-x-10">
               {firstHalf.map((navItem) => (
                 <NavLink key={navItem.route.current} navItem={navItem} />
               ))}

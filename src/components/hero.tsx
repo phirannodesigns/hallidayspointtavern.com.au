@@ -12,7 +12,7 @@ function Hero({ backgroundImage, children }: HeroProps): React.ReactElement {
         <div className="absolute inset-0 flex max-h-[36rem]">
           {backgroundImage}
         </div>
-        <div className="flex items-center justify-center flex-1 px-4 bg-opacity-25 max-h-[36rem] sm:px-6 lg:px-8 bg-teal">
+        <div className="flex items-center justify-center flex-1 px-4 bg-opacity-25 max-h-[36rem] sm:px-6 lg:px-12 bg-teal">
           {children}
         </div>
       </div>

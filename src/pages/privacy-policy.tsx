@@ -9,7 +9,7 @@ function PrivacyPolicyPage(): React.ReactElement {
     <>
       <SEO title="Privacy Policy" />
       <Layout>
-        <div className="relative w-full px-4 mx-auto bg-teal-transparent max-w-screen-2xl sm:px-6 lg:px-8">
+        <div className="relative w-full px-4 mx-auto bg-teal-transparent max-w-screen-2xl sm:px-6 lg:px-12">
           <div className="px-6 py-24">
             <h1 className="relative text-xl leading-none text-white accent-black-transparent sm:text-2xl heading-accent-small">
               <span className="block text-5xl font-black sm:text-5xl sm:whitespace-nowrap">

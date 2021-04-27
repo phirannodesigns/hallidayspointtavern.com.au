@@ -22,7 +22,7 @@ function ContactForm(): React.ReactElement {
   return (
     <NetlifyForm
       handleSubmit={handleSubmit}
-      className="px-4 py-12 sm:px-6 lg:px-8 lg:py-24"
+      className="px-4 py-12 sm:px-6 lg:px-12 lg:py-24"
     >
       <div className="grid grid-cols-1 gap-6">
         <Input
