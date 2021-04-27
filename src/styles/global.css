@@ -46,16 +46,8 @@
     @apply absolute bottom-0 h-4 -left-24;
     width: 115%;
   }
-  .heading-accent-small > * {
-    @apply relative;
-  }
-  .heading-accent-small::before {
-    content: '';
-    @apply absolute bottom-0 h-4 -left-12;
-    width: 100%;
-  }
-  .accent-black-transparent::before {
-    @apply bg-black-transparent;
+  .accent-black::before {
+    @apply bg-black;
   }
   .accent-olive::before {
     @apply bg-olive;

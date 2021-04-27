@@ -6,7 +6,7 @@ const TEXT_COLOR_MAP = {
 };
 
 const UNDERLINE_COLOR_MAP = {
-  black: 'accent-black-transparent',
+  black: 'accent-black',
   olive: 'accent-olive',
 };
 
