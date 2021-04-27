@@ -70,11 +70,7 @@ function Welcome() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <div className="lg:py-24 lg:-ml-24">
-          <StaticImage
-            src="../images/landing-welcome.jpg"
-            alt=""
-            className="flex-1"
-          />
+          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
         </div>
       </SideBySide.TwoCols>
     </SideBySide>
