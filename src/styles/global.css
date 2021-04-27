@@ -60,16 +60,16 @@
   .accent-olive::before {
     @apply bg-olive;
   }
-  .event-list > li::before {
+  .reset-list > li::before {
     @apply hidden;
   }
-  .event-list > li {
+  .reset-list > li {
     @apply pl-0 !important;
   }
-  .event-list > li > h3 {
+  .reset-list > li > h3 {
     @apply m-0 !important;
   }
-  .event-list > li > p {
+  .reset-list > li > p {
     @apply m-0 !important;
   }
 }
