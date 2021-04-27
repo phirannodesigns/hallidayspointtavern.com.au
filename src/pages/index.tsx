@@ -7,6 +7,7 @@ import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Hero as HeroComponent } from '../components/hero';
 import { Layout } from '../components/layout';
+import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 import { LogoWhite } from '../icons/logo-white';
@@ -72,9 +73,9 @@ function Welcome() {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="transform lg:-translate-x-24">
-          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
-        </div>
+        <OverlappingImageWrapper>
+          <StaticImage src="../images/welcome.jpg" alt="" />
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -168,13 +169,9 @@ function ExcitingEvents() {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="lg:py-24 lg:-ml-24">
-          <StaticImage
-            src="../images/events.jpg"
-            alt="welcome"
-            className="flex-1"
-          />
-        </div>
+        <OverlappingImageWrapper>
+          <StaticImage src="../images/events.jpg" alt="" />
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -190,7 +187,7 @@ function DiscoverHallidaysPoint() {
           className="flex-1"
         />
       </div>
-      <div className="relative flex items-center justify-center px-4 py-64 bg-black bg-opacity-50 sm:px-6 lg:px-8">
+      <div className="relative flex items-center justify-center px-4 py-64 bg-black bg-opacity-50 sm:px-6 lg:px-12">
         <div className="text-center">
           <p className="text-3xl text-white">What are you waiting for?</p>
           <h2 className="block text-5xl font-black text-white sm:text-5xl sm:whitespace-nowrap">
@@ -247,13 +244,9 @@ function CourtesyBus() {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="lg:py-24 lg:-ml-24">
-          <StaticImage
-            src="../images/courtesy-bus.jpg"
-            alt=""
-            className="flex-1"
-          />
-        </div>
+        <OverlappingImageWrapper>
+          <StaticImage src="../images/courtesy-bus.jpg" alt="" />
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
   );
