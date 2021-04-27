@@ -1,25 +1,20 @@
-import { Link } from 'gatsby';
-import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import { ClippedBackground } from '../components/clipped-background';
 import { ContactSection } from '../components/contact-section';
+import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { Heading } from '../components/ui/heading';
-import { useGraphQL } from '../hooks/use-graphql';
-import { LogoWhite } from '../icons/logo-white';
 
 function AboutPage(): React.ReactElement {
   return (
     <>
       <SEO title="About" />
-      <Layout hero={<Hero />}>
-        <Welcome />
-        <OurMenu />
-        <ExcitingEvents />
+      <Layout>
+        <About1 />
+        <About2 />
         <ContactSection />
         <GoogleMap />
       </Layout>
@@ -27,49 +22,38 @@ function AboutPage(): React.ReactElement {
   );
 }
 
-function Welcome() {
+function About1() {
   return (
     <SideBySide>
-      <SideBySide.ThreeCols bgColorClass="bg-teal-transparent">
-        <div className="p-6 sm:p-24">
-          <Heading>
-            <Heading.Eyebrow>Welcome To</Heading.Eyebrow>
-            <Heading.Main>Hallidays Point Tavern</Heading.Main>
-          </Heading>
-          <h2 className="mt-6 text-xl prose text-white sm:text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
-            provident expedita. Earum itaque tempora fugiat.
-          </h2>
-          <div className="mt-6 prose text-white">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-              similique accusantium deserunt necessitatibus dolorum hic natus
-              reiciendis tempora fuga excepturi. Culpa nemo architecto facere
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quis distinctio quaerat veritatis esse labore, deserunt enim
-              eveniet ad obcaecati hic. Deserunt nostrum magnam veritatis rerum
-              non similique reiciendis architecto! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Temporibus, eius non accusantium
-              sequi cum nobis neque. Qui distinctio, eum ad, quae debitis veniam
-              dolor sit amet cum ipsum a quasi. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Doloremque dolorum, earum error sunt
-              corrupti reprehenderit assumenda nobis enim et est, iste veniam
-              aspernatur? Perferendis repudiandae minus voluptatem architecto
-              cupiditate? Tenetur!
-            </p>
-          </div>
-          <div className="flex justify-start mt-8">
-            <Link
-              to="/about"
-              className="px-6 py-2 font-serif tracking-wide text-white uppercase bg-black-transparent"
-            >
-              Read more
-            </Link>
-          </div>
+      <SideBySide.ThreeCols>
+        <div className="absolute inset-0 flex">
+          <StaticImage src="../images/wallaby.jpg" alt="" className="flex-1" />
         </div>
+        <Copy
+          heading={{ eyebrow: 'About The', main: 'Hallidays Point Tavern' }}
+          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          backgroundColour="transparent-teal"
+        >
+          <p>
+            At the Tavern, we are focused on delivering the best customer
+            experience by combining great food, exquisite wines and beer, and
+            matched with excellent customer service.
+          </p>
+          <p>
+            The Hallidays Point Tavern is located at the heart of Hallidays
+            Point in New South Wales which is a popular destination for its
+            spectacular coastal towns and rainforests.
+          </p>
+          <p>
+            For more than 30 years, the Tavern has been a favourite spot for
+            locals and tourists to enjoy a delightful meal, to relax over a few
+            schooners of beer or have fun with friends and families. Talk to us
+            about hosting your function today.
+          </p>
+        </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="lg:py-24 lg:-ml-24">
+        <div className="transform lg:-translate-x-24">
           <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
         </div>
       </SideBySide.TwoCols>
@@ -77,134 +61,48 @@ function Welcome() {
   );
 }
 
-function OurMenu() {
+function About2() {
   return (
     <SideBySide
       background={
         <div className="absolute inset-0 flex">
-          <div className="absolute inset-0 flex">
-            <img
-              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1914&q=80"
-              alt=""
-              className="flex-1 object-cover"
-            />
-          </div>
-          <div className="absolute inset-0 flex">
-            <ClippedBackground className="flex-1" />
-          </div>
+          <StaticImage
+            src="../images/menu.jpg"
+            alt=""
+            className="flex-1 object-cover"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
+          />
         </div>
       }
     >
-      <SideBySide.TwoCols>{/*  */}</SideBySide.TwoCols>
-      <SideBySide.ThreeCols>
-        <div className="p-6 sm:p-24">
-          <Heading>
-            <Heading.Eyebrow>Come check out</Heading.Eyebrow>
-            <Heading.Main>Our Delicious Menu</Heading.Main>
-          </Heading>
-          <h2 className="mt-6 text-xl prose text-white sm:text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
-            provident expedita. Earum itaque tempora fugiat.
-          </h2>
-          <div className="mt-6 prose text-white">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-              similique accusantium deserunt necessitatibus dolorum hic natus
-              reiciendis tempora fuga excepturi. Culpa nemo architecto facere
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quis distinctio quaerat veritatis esse labore, deserunt enim
-              eveniet ad obcaecati hic. Deserunt nostrum magnam veritatis rerum
-              non similique reiciendis architecto! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Temporibus, eius non accusantium
-              sequi cum nobis neque. Qui distinctio, eum ad, quae debitis veniam
-              dolor sit amet cum ipsum a quasi. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Doloremque dolorum, earum error sunt
-              corrupti reprehenderit assumenda nobis enim et est, iste veniam
-              aspernatur? Perferendis repudiandae minus voluptatem architecto
-              cupiditate? Tenetur!
-            </p>
-          </div>
-          <div className="flex justify-start mt-8">
-            <Link
-              to="/about"
-              className="px-6 py-2 font-serif tracking-wide text-white uppercase bg-black-transparent"
-            >
-              See Menu
-            </Link>
-          </div>
-        </div>
-      </SideBySide.ThreeCols>
-    </SideBySide>
-  );
-}
-
-function ExcitingEvents() {
-  const { landingWelcomeImage } = useGraphQL();
-
-  return (
-    <SideBySide>
-      <SideBySide.ThreeCols bgColorClass="bg-cream">
-        <div className="p-6 sm:p-24">
-          <Heading textColor="black" underlineColor="olive">
-            <Heading.Eyebrow>Keep up with our</Heading.Eyebrow>
-            <Heading.Main>Exciting Events</Heading.Main>
-          </Heading>
-          <h2 className="mt-6 text-xl prose text-black sm:text-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus,
-            provident expedita. Earum itaque tempora fugiat.
-          </h2>
-          <div className="mt-6 prose text-black">
-            <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis
-              similique accusantium deserunt necessitatibus dolorum hic natus
-              reiciendis tempora fuga excepturi. Culpa nemo architecto facere
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
-              quis distinctio quaerat veritatis esse labore, deserunt enim
-              eveniet ad obcaecati hic. Deserunt nostrum magnam veritatis rerum
-              non similique reiciendis architecto! Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Temporibus, eius non accusantium
-              sequi cum nobis neque. Qui distinctio, eum ad, quae debitis veniam
-              dolor sit amet cum ipsum a quasi. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Doloremque dolorum, earum error sunt
-              corrupti reprehenderit assumenda nobis enim et est, iste veniam
-              aspernatur? Perferendis repudiandae minus voluptatem architecto
-              cupiditate? Tenetur!
-            </p>
-          </div>
-          <div className="flex justify-start mt-8">
-            <Link
-              to="/about"
-              className="px-6 py-2 font-serif tracking-wide text-black uppercase bg-olive"
-            >
-              Upcoming Events
-            </Link>
-          </div>
-        </div>
-      </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="lg:py-24 lg:-ml-24">
-          {' '}
-          <GatsbyImage
-            alt="welcome"
-            image={landingWelcomeImage.childImageSharp.gatsbyImageData}
-            className="flex-1"
-          />
+        <div className="transform lg:-translate-x-24">
+          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
         </div>
       </SideBySide.TwoCols>
+      <SideBySide.ThreeCols>
+        <Copy>
+          <p>
+            Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse
+            quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat
+            quo voluptas nulla pariatur.
+          </p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+            quae ab illo inventore veritatis et quasi architecto beatae vitae
+            dicta sunt explicabo. Quis ipsum suspendisse. ultrices gravida.
+            Risus commodo viverra maecenas accumsan lacus vel facilisis. Sed ut
+            perspiciatis unde omnis iste natus errot sit voluptatem accusantium
+            doloremque laudantium, totam rer aperiam, eaque ipsa quae ab illo
+            inventore
+          </p>
+        </Copy>
+      </SideBySide.ThreeCols>
     </SideBySide>
-  );
-}
-
-function Hero() {
-  return (
-    <div className="aspect-w-16 aspect-h-9">
-      <div className="flex bg-teal-transparent">
-        {/* image goes here */}
-        <div className="flex items-center justify-center flex-1 px-4 sm:px-6 lg:px-8">
-          <LogoWhite className="w-full max-w-4xl mx-auto" />
-        </div>
-      </div>
-    </div>
   );
 }
 

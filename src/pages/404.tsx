@@ -38,7 +38,11 @@ function NotFound() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <div className="py-24 transform lg:-translate-x-24">
-          <StaticImage src="../images/hero.jpg" alt="" className="flex-1" />
+          <StaticImage
+            src="../images/not-found-image.jpg"
+            alt=""
+            className="flex-1"
+          />
         </div>
       </SideBySide.TwoCols>
     </SideBySide>
