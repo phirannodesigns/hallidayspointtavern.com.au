@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-function ClippedBackground(props) {
+function ClippedBackground(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>
+): React.ReactElement {
   return (
     <svg
       clipRule="evenodd"
