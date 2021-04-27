@@ -25,7 +25,7 @@ function Success() {
       <SideBySide.ThreeCols>
         <div className="absolute inset-0 flex">
           <StaticImage
-            src="../images/contact-background.jpg"
+            src="../images/headlands.jpg"
             alt=""
             className="flex-1"
           />
@@ -39,7 +39,11 @@ function Success() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <div className="py-24 transform lg:-translate-x-24">
-          <StaticImage src="../images/hero.jpg" alt="" className="flex-1" />
+          <StaticImage
+            src="../images/success-image.jpg"
+            alt=""
+            className="flex-1"
+          />
         </div>
       </SideBySide.TwoCols>
     </SideBySide>
