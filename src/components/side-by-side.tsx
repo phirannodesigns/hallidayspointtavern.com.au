@@ -34,7 +34,7 @@ function TwoCols({
 }: TwoColsProps): React.ReactElement {
   return (
     <div
-      className={`relative flex flex-col justify-center lg:col-span-2 ${bgColorClass}`}
+      className={`relative flex flex-col justify-center lg:col-span-2 order-last lg:order-none ${bgColorClass}`}
     >
       {children}
     </div>
@@ -52,7 +52,7 @@ function ThreeCols({
 }: ThreeColsProps): React.ReactElement {
   return (
     <div
-      className={`relative flex flex-col justify-center order-last lg:col-span-3 lg:order-none ${bgColorClass}`}
+      className={`relative flex flex-col justify-center lg:col-span-3 ${bgColorClass}`}
     >
       {children}
     </div>
