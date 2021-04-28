@@ -1,7 +1,5 @@
 const dotenv = require('dotenv');
 
-const config = require('./config.json');
-
 dotenv.config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -9,10 +7,11 @@ dotenv.config({
 // Check what node environment is running for Sanity plugin
 const isProd = process.env.NODE_ENV === 'production';
 
+const siteUrl = 'https://www.hallidayspointtavern.com.au/'
+
 module.exports = {
   siteMetadata: {
-    title: config.siteTitle,
-    siteUrl: config.siteUrl,
+    siteUrl,
   },
   flags: {
     DEV_SSR: true,
@@ -26,25 +25,13 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    // {
-    //   resolve: 'gatsby-plugin-google-gtag',
-    //   options: {
-    //     // You can add multiple tracking ids and a pageview event will be fired for all of them.
-    //     trackingIds: [''],
-    //     // This object gets passed directly to the gtag config command
-    //     // This config will be shared across all trackingIds
-    //     gtagConfig: {
-    //       anonymize_ip: true,
-    //     },
-    //     // This object is used for configuration specific to this plugin
-    //     pluginConfig: {
-    //       // Puts tracking script in the head instead of the body
-    //       head: false,
-    //       // Setting this parameter is also optional
-    //       respectDNT: true,
-    //     },
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl,
+        stripQueryString: true,
+      },
+    },
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
