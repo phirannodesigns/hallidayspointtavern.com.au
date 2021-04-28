@@ -102,7 +102,6 @@ function SpectacularPlaces() {
               main: 'Spectacular Places',
               underlineColor: 'olive',
             }}
-            maxWidth="max-w-prose"
           >
             <p>
               Visiting Hallidays Point is an absolute escape to nature as it
@@ -133,10 +132,9 @@ function SpectacularPlaces() {
           </Copy>
         </SideBySide.ThreeCols>
       </SideBySide>
-
       <SideBySide bgColorClass="bg-transparent">
         <SideBySide.ThreeCols>
-          <Copy maxWidth="max-w-prose">
+          <Copy>
             <ul className="divide-y divide-white reset-list">
               <li className="py-4">
                 <p className="text-xl font-semibold">
@@ -304,7 +302,6 @@ function FunEvents() {
             underlineColor: 'olive',
           }}
           backgroundColour="transparent-black"
-          maxWidth="max-w-prose"
         >
           <ul className="divide-y divide-white reset-list">
             <li className="py-4">
@@ -406,7 +403,7 @@ function DelightfulCuisines() {
       <div className="relative px-4 py-12 bg-black bg-opacity-50 lg:py-24 sm:px-6 lg:px-12">
         <div className="text-center">
           <p className="text-3xl text-white">You've got to try our</p>
-          <h2 className="block text-5xl font-black text-white sm:text-5xl sm:whitespace-nowrap">
+          <h2 className="block text-5xl font-black text-white sm:text-5xl">
             Delightful Hallidays Point Tavern Cuisines
           </h2>
         </div>
