@@ -1,5 +1,9 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import PropTypes from 'prop-types';
+
+import { graphql } from 'gatsby';
+import BlockContent from '@sanity/block-content-to-react';
 
 import { ClippedBackground } from '../components/clipped-background';
 import { GoogleMap } from '../components/google-map';
@@ -8,14 +12,18 @@ import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 import { Heading } from '../components/ui/heading';
 
-function EventsPage(): React.ReactElement {
+function EventsPage({
+  data: {
+    allSanityLiveMusic: { nodes },
+  },
+}): React.ReactElement {
   return (
     <>
       <SEO title="Events" />
       <Layout>
         <EventOfTheWeek />
         <HappyHour />
-        <LiveMusic />
+        <LiveMusic nodes={nodes} />
         <TriviaAtTheTab />
         <FootyTipping />
         <GoogleMap />
@@ -176,39 +184,27 @@ function HappyHour() {
   );
 }
 
-function LiveMusic() {
+function LiveMusic(nodes) {
   return (
     <SideBySide>
       <SideBySide.ThreeCols bgColorClass="bg-cream">
         <div className="p-6 sm:p-24">
           <Heading textColor="black" underlineColor="olive">
             <Heading.Eyebrow>Our Upcoming</Heading.Eyebrow>
-            <Heading.Main>Live Music</Heading.Main>
+            <Heading.Main>{nodes.nodes[0].heading}</Heading.Main>
           </Heading>
-          <h2 className="mt-6 text-xl font-semibold prose text-black sm:text-2xl">
-            Friday Night Live Music - Acoustic Andy
-          </h2>
-          <div className="pb-4 prose text-black border-b-2 border-black">
-            <p>19th Feb 5pm - 7pm</p>
-          </div>
-          <h2 className="mt-6 text-xl font-semibold prose text-black sm:text-2xl">
-            Sunday Sesh - AJ & Annie
-          </h2>
-          <div className="pb-4 prose text-black border-b-2 border-black">
-            <p>21st Feb 3pm - 6pm</p>
-          </div>
-          <h2 className="mt-6 text-xl font-semibold prose text-black sm:text-2xl">
-            Summer Showcase - Taylor & El
-          </h2>
-          <div className="pb-4 prose text-black border-b-2 border-black">
-            <p>28th Feb 4pm - 7pm</p>
-          </div>
-          <h2 className="mt-6 text-xl font-semibold prose text-black sm:text-2xl">
-            Sunday Sesh - AJ & Annie
-          </h2>
-          <div className="pb-4 prose text-black border-b-2 border-black">
-            <p>30th Feb 3pm - 6pm</p>
-          </div>
+          {nodes.nodes[0].gigs.map((gig) => (
+            <React.Fragment key={gig._key}>
+              <h2 className="mt-6 text-xl font-semibold prose text-black sm:text-2xl">
+                {gig.overview}
+              </h2>
+              {gig._rawDescription && (
+                <div className="pb-4 prose text-black border-b-2 border-black">
+                  <BlockContent blocks={gig._rawDescription} />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
         </div>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
@@ -224,5 +220,29 @@ function LiveMusic() {
     </SideBySide>
   );
 }
+
+EventsPage.propTypes = {
+  data: PropTypes.object,
+};
+
+export const query = graphql`
+  query {
+    allSanityLiveMusic {
+      nodes {
+        heading
+        gigs {
+          _key
+          overview
+          _rawDescription
+        }
+        mainImage {
+          asset {
+            gatsbyImageData(width: 1920)
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default EventsPage;

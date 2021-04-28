@@ -15,6 +15,7 @@ import googleMaps from './google-maps';
 import menuList from './menuList';
 import navItem from './nav-item';
 import navigation from './navigation';
+import liveMusic from './liveMusic';
 import openHours from './open-hours';
 import siteSettings from './site-settings';
 import socialLink from './social-link';
@@ -39,6 +40,7 @@ export default createSchema({
     // Documents
     navigation,
     siteSettings,
+    liveMusic,
     menuList,
    ...allPlugins,],
 });
