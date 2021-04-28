@@ -12,11 +12,34 @@ import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 import { Heading } from '../components/ui/heading';
 
-function EventsPage({
-  data: {
-    allSanityLiveMusic: { nodes },
-  },
-}): React.ReactElement {
+interface Gig {
+  _key: string;
+  overview: string;
+  _rawDescription: [];
+}
+
+interface Node {
+  heading: string;
+  gigs: Array<Gig>;
+  mainImage: {
+    asset: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+}
+
+interface Data {
+  allSanityLiveMusic: {
+    nodes: Array<Node>;
+  };
+}
+
+interface EventsPageProps {
+  data: Data;
+}
+
+function EventsPage({ data }: EventsPageProps): React.ReactElement {
+  const { nodes } = data.allSanityLiveMusic;
   return (
     <>
       <SEO title="Events" />
