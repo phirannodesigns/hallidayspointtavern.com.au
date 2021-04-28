@@ -1,40 +1,50 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-type SiteSettings = {
-  address: {
-    googleMaps: {
-      embed: string;
-      link: string;
-    };
-    streetAddress: string;
-    suburb: string;
+interface Address {
+  googleMaps: {
+    embed: string;
+    link: string;
   };
+  streetAddress: string;
+  suburb: string;
+}
+
+interface Hours {
+  id: string;
+  days: string;
+  hours: string;
+}
+
+interface ShareImage {
+  asset: {
+    url: string;
+  };
+}
+
+interface SocialLink {
+  id: string;
+  link: string;
+  socialNetwork: string;
+}
+
+interface SiteSettings {
+  address: Address;
   description: string;
   email: string;
-  hours: Array<{
-    id: string;
-    days: string;
-    hours: string;
-  }>;
+  hours: Array<Hours>;
   phoneNumber: string;
-  shareImage: {
-    asset: {
-      url: string;
-    };
-  };
+  shareImage: ShareImage;
   siteUrl: string;
-  socialLinks: Array<{
-    id: string;
-    link: string;
-    socialNetwork: string;
-  }>;
+  socialLinks: Array<SocialLink>;
   title: string;
-};
+}
+
+interface SiteSettingsQueryResponse {
+  sanitySiteSettings: SiteSettings;
+}
 
 function useSiteSettings(): SiteSettings {
-  const {
-    sanitySiteSettings,
-  }: { sanitySiteSettings: SiteSettings } = useStaticQuery(
+  const { sanitySiteSettings }: SiteSettingsQueryResponse = useStaticQuery(
     graphql`
       query SiteSettingsQuery {
         sanitySiteSettings {

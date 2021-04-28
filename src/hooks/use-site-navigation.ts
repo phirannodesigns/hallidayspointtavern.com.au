@@ -1,24 +1,26 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-type NavItem = {
+interface NavItem {
   id: string;
   footerOnly: true | false | null;
   label: string;
   route: {
     current: string;
   };
-};
+}
 
 type NavItems = Array<NavItem>;
 
-type SiteSettings = {
+interface SiteSettings {
   navItems: NavItems;
-};
+}
+
+interface SiteNavigationQueryResponse {
+  sanityNavigation: SiteSettings;
+}
 
 function useSiteNavigation(): NavItems {
-  const {
-    sanityNavigation,
-  }: { sanityNavigation: SiteSettings } = useStaticQuery(
+  const { sanityNavigation }: SiteNavigationQueryResponse = useStaticQuery(
     graphql`
       query SiteNavigationQuery {
         sanityNavigation {
