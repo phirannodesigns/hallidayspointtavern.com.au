@@ -21,6 +21,11 @@
     height: -webkit-fill-available;
   }
 
+  /* Tell Reach UI we're handling our own styling */
+  :root {
+    --reach-tabs: 1;
+  }
+
   /* Use Smooth Scroll for jump links */
   html:focus-within {
     scroll-behavior: smooth;
