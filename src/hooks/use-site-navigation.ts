@@ -23,7 +23,7 @@ function useSiteNavigation(): NavItems {
   const { sanityNavigation }: SiteNavigationQueryResponse = useStaticQuery(
     graphql`
       query SiteNavigationQuery {
-        sanityNavigation {
+        sanityNavigation(_id: { eq: "navigation" }) {
           navItems {
             id: _key
             footerOnly

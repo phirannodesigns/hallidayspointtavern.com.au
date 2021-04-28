@@ -47,7 +47,7 @@ function useSiteSettings(): SiteSettings {
   const { sanitySiteSettings }: SiteSettingsQueryResponse = useStaticQuery(
     graphql`
       query SiteSettingsQuery {
-        sanitySiteSettings {
+        sanitySiteSettings(_id: { eq: "siteSettings" }) {
           address {
             googleMaps {
               embed
