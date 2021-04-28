@@ -33,7 +33,7 @@ function Footer(): React.ReactElement {
                 {siteNavigation.map(({ label, route, id }) => (
                   <div key={id} className="text-sm">
                     <Link
-                      to={route.current}
+                      to={`/${route.current}/`}
                       className="font-medium tracking-wider uppercase transition duration-150 ease-in-out hover:underline hover:text-gray-500"
                     >
                       {label}

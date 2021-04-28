@@ -33,7 +33,7 @@ function ContactInfo(): React.ReactElement {
       <h3 className="uppercase !mb-0 !text-white">Open Hours</h3>
       <dl className="mt-2">
         {siteSettings.hours.map(({ days, hours }) => (
-          <div className="font-medium">
+          <div key={days} className="font-medium">
             <dt className="inline">{days}: </dt>
             <dd className="inline">{hours}</dd>
           </div>
@@ -59,7 +59,7 @@ function ContactInfo(): React.ReactElement {
         {siteSettings.socialLinks.map(({ link, socialNetwork }) => {
           const Icon = ICON_MAP[socialNetwork];
           return (
-            <li className="!my-0">
+            <li key={link} className="!my-0">
               <a
                 href={link}
                 target="_blank"
