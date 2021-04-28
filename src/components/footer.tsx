@@ -1,4 +1,5 @@
 import { Link } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import * as React from 'react';
 
 import { NavItems, useSiteNavigation } from '../hooks/use-site-navigation';
@@ -92,7 +93,7 @@ function Footer(): React.ReactElement {
               {siteSettings.socialLinks.map(({ link, socialNetwork }) => {
                 const Icon = ICON_MAP[socialNetwork];
                 return (
-                  <a
+                  <OutboundLink
                     key={link}
                     href={link}
                     target="_blank"
@@ -101,7 +102,7 @@ function Footer(): React.ReactElement {
                   >
                     <span className="sr-only">{socialNetwork}</span>
                     <Icon aria-hidden className="w-6 h-6" />
-                  </a>
+                  </OutboundLink>
                 );
               })}
             </div>

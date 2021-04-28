@@ -1,3 +1,4 @@
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import * as React from 'react';
 
 import { useSiteSettings } from '../hooks/use-site-settings';
@@ -60,7 +61,7 @@ function ContactInfo(): React.ReactElement {
           const Icon = ICON_MAP[socialNetwork];
           return (
             <li key={link} className="!my-0">
-              <a
+              <OutboundLink
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,7 +69,7 @@ function ContactInfo(): React.ReactElement {
               >
                 <span className="sr-only">{socialNetwork}</span>
                 <Icon aria-hidden className="w-8 h-8 text-white" />
-              </a>
+              </OutboundLink>
             </li>
           );
         })}
