@@ -1,3 +1,4 @@
+import BlockContent from '@sanity/block-content-to-react';
 import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
@@ -10,6 +11,7 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import { useLiveMusic } from '../hooks/use-live-music';
 import { LogoWhite } from '../icons/logo-white';
 
 function IndexPage(): React.ReactElement {
@@ -50,15 +52,10 @@ function Welcome() {
         </div>
         <Copy
           heading={{ eyebrow: 'Welcome To', main: 'Hallidays Point Tavern' }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="At the Tavern, we are focused on delivering the best customer experience by combining great food, exquisite wines and beer, and matched with excellent customer service."
           cta={{ route: '/about-us/', text: 'Read more' }}
           backgroundColour="transparent-teal"
         >
-          <p>
-            At the Tavern, we are focused on delivering the best customer
-            experience by combining great food, exquisite wines and beer, and
-            matched with excellent customer service.
-          </p>
           <p>
             The Hallidays Point Tavern is located at the heart of Hallidays
             Point in New South Wales which is a popular destination for its
@@ -106,14 +103,9 @@ function OurMenu() {
             main: 'Our Delicious Menu',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="The Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
           cta={{ route: '/menu/', text: 'See Menu' }}
         >
-          <p>
-            The Hallidays Point Tavern is a unique casual restaurant featuring a
-            diverse menu, and enjoy a full bar selection of wines and spirits or
-            beer.
-          </p>
           <p>
             Our menu offers you a vast array of delectable meals to choose from,
             anytime from a late morning brunch of coffee/cake, to our main meals
@@ -133,6 +125,7 @@ function OurMenu() {
 }
 
 function ExcitingEvents() {
+  const liveMusic = useLiveMusic();
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
@@ -142,29 +135,22 @@ function ExcitingEvents() {
             main: 'Exciting Events',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
           cta={{ route: '/events/', text: 'Upcoming Events' }}
           backgroundColour="cream"
           onDark={false}
         >
           <ul className="divide-y divide-gray-700 reset-list">
-            <li className="py-4">
-              <h3>Raffles Every Monday &amp; Thursdays 5pm – 6:30pm</h3>
-              <p>
-                Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis.
-              </p>
-            </li>
-            <li className="py-4">
-              <h3>Valentines Day Date Night – 14th Feb</h3>
-              <p>Quis ipsum suspendisse ultrices gravida.</p>
-            </li>
-            <li className="py-4">
-              <h3>Friday Night Live Music – Acoustic Andy | 19th Feb</h3>
-            </li>
-            <li className="py-4">
-              <h3>Sunday Sesh – AJ & Annie 21st Feb</h3>
-            </li>
+            {liveMusic.gigs.map((gig) => (
+              <li key={gig._key} className="py-4">
+                <h3>{gig.overview}</h3>
+                {gig._rawDescription ? (
+                  <BlockContent
+                    blocks={gig._rawDescription}
+                    className="!mt-0"
+                  />
+                ) : null}
+              </li>
+            ))}
           </ul>
         </Copy>
       </SideBySide.ThreeCols>
@@ -229,7 +215,6 @@ function CourtesyBus() {
             main: 'Get the Courtesy Bus',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
           backgroundColour="transparent-black"
         >
           <dl className="divide-y-2 divide-white">
