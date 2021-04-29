@@ -209,7 +209,7 @@ function DiscoverHallidaysPoint() {
 
 function CourtesyBus() {
   return (
-    <SideBySide>
+    <SideBySide id="courtesy_bus">
       <SideBySide.ThreeCols>
         <div className="absolute inset-0 flex overflow-hidden">
           <StaticImage
