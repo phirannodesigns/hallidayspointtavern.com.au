@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import * as React from 'react';
 
-import { Heading, UnderlineColor } from './ui/heading';
+import { Heading, HeadingLevel, UnderlineColor } from './ui/heading';
 
 const UNDERLINE_COLOR_MAP = {
   black: 'bg-black',
@@ -18,6 +18,7 @@ const BACKGROUND_COLOR_MAP = {
 
 interface CopyProps {
   heading?: {
+    as?: HeadingLevel;
     eyebrow?: string;
     main: string;
     underlineColor?: UnderlineColor;
@@ -54,6 +55,7 @@ function Copy({
       <div className={`w-full ${maxWidth}`}>
         {heading ? (
           <Heading
+            as={heading.as}
             textColor={onDark ? 'white' : 'black'}
             underlineColor={heading.underlineColor}
           >
