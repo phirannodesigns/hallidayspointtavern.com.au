@@ -26,15 +26,19 @@ function SideBySide({
 interface TwoColsProps {
   children: React.ReactNode;
   bgColorClass?: string;
+  wrapFirst?: boolean;
 }
 
 function TwoCols({
   children,
   bgColorClass = '',
+  wrapFirst = false,
 }: TwoColsProps): React.ReactElement {
   return (
     <div
-      className={`relative flex flex-col justify-center lg:col-span-2 order-last lg:order-none ${bgColorClass}`}
+      className={`relative flex flex-col justify-center lg:col-span-2 ${
+        wrapFirst ? '' : 'order-last lg:order-none'
+      } ${bgColorClass}`}
     >
       {children}
     </div>
