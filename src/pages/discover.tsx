@@ -71,11 +71,7 @@ function SpectacularPlaces() {
   return (
     <div className="relative w-full mx-auto overflow-hidden bg-white max-w-screen-2xl">
       <div className="absolute inset-0 flex">
-        <StaticImage
-          src="../images/bridge.jpg"
-          alt=""
-          className="flex-1 object-cover"
-        />
+        <StaticImage src="../images/bridge.jpg" alt="" className="flex-1" />
         <span
           aria-hidden
           className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
@@ -83,17 +79,13 @@ function SpectacularPlaces() {
       </div>
       <SideBySide bgColorClass="bg-transparent">
         <SideBySide.TwoCols>
-          <div className="h-full px-4 pt-12 sm:px-6 lg:px-12 lg:py-24">
-            <div className="relative w-full h-full">
-              <div className="inset-0 flex lg:absolute">
-                <StaticImage
-                  src="../images/platform.jpg"
-                  alt=""
-                  className="flex-1"
-                />
-              </div>
-            </div>
-          </div>
+          <OverlappingImageWrapper overlapDirection="right">
+            <StaticImage
+              src="../images/platform.jpg"
+              alt=""
+              className="flex-1"
+            />
+          </OverlappingImageWrapper>
         </SideBySide.TwoCols>
         <SideBySide.ThreeCols>
           <Copy
@@ -183,17 +175,13 @@ function SpectacularPlaces() {
           </Copy>
         </SideBySide.ThreeCols>
         <SideBySide.TwoCols>
-          <div className="h-full px-4 pt-12 sm:px-6 lg:px-12 lg:py-24">
-            <div className="relative w-full h-full lg:-ml-36">
-              <div className="inset-0 flex lg:absolute">
-                <StaticImage
-                  src="../images/rainforest.jpg"
-                  alt=""
-                  className="flex-1"
-                />
-              </div>
-            </div>
-          </div>
+          <OverlappingImageWrapper>
+            <StaticImage
+              src="../images/rainforest.jpg"
+              alt=""
+              className="flex-1"
+            />
+          </OverlappingImageWrapper>
         </SideBySide.TwoCols>
       </SideBySide>
     </div>
@@ -204,22 +192,21 @@ function ExcitingEvents() {
   return (
     <SideBySide bgColorClass="bg-cream">
       <SideBySide.TwoCols>
-        <div className="px-4 pt-12 sm:px-6 lg:px-12 lg:py-24">
-          <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4">
-            <div className="inset-0 flex lg:absolute">
-              <StaticImage
-                src="../images/dolphin.jpg"
-                alt=""
-                className="flex-1"
-              />
-            </div>
+        <OverlappingImageWrapper overlapDirection="right">
+          <div className="space-y-8">
+            <StaticImage
+              src="../images/dolphin.jpg"
+              alt=""
+              className="max-h-96"
+            />
+            <StaticImage
+              src="../images/golf.jpg"
+              alt=""
+              objectPosition="0"
+              className="max-h-96"
+            />
           </div>
-          <div className="relative mt-8 aspect-w-4 aspect-h-3 lg:aspect-h-4">
-            <div className="inset-0 flex lg:absolute">
-              <StaticImage src="../images/golf.jpg" alt="" className="flex-1" />
-            </div>
-          </div>
-        </div>
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
