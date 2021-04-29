@@ -16,7 +16,10 @@ function PrivacyPolicyPage(): React.ReactElement {
             </h1>
             <p>
               This Privacy Policy describes how{' '}
-              <a href="www.hallidayspointtavern.com.au" className="!text-white">
+              <a
+                href="www.hallidayspointtavern.com.au"
+                className="!text-white break-words"
+              >
                 www.hallidayspointtavern.com.au
               </a>
               (the “Site” or “we”) collects, uses, and discloses your Personal
@@ -73,14 +76,14 @@ function PrivacyPolicyPage(): React.ReactElement {
               Personal Information here:
               <a
                 href="https://policies.google.com/privacy?hl=en"
-                className="!text-white"
+                className="!text-white break-words"
               >
                 https://policies.google.com/privacy?hl=en
               </a>
               . You can also opt-out of Google Analytics here:{' '}
               <a
                 href="https://tools.google.com/dlpage/gaoptout"
-                className="!text-white"
+                className="!text-white break-words"
               >
                 https://tools.google.com/dlpage/gaoptout
               </a>
@@ -89,10 +92,10 @@ function PrivacyPolicyPage(): React.ReactElement {
             <p>
               For more information about how targeted advertising works, you can
               visit the Network Advertising Initiative’s (“NAI”) educational
-              page at
+              page at{' '}
               <a
                 href="http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work"
-                className="!text-white"
+                className="!text-white break-words"
               >
                 http://www.networkadvertising.org/understanding-online-advertising/how-does-it-work
               </a>
@@ -101,7 +104,10 @@ function PrivacyPolicyPage(): React.ReactElement {
             <p>
               Additionally, you can opt-out of some of these services by
               visiting the Digital Advertising Alliance’s opt-out portal at:
-              <a href="http://optout.aboutads.info/" className="!text-white">
+              <a
+                href="http://optout.aboutads.info/"
+                className="!text-white break-words"
+              >
                 http://optout.aboutads.info/
               </a>
             </p>
@@ -180,7 +186,10 @@ function PrivacyPolicyPage(): React.ReactElement {
               more information on how to modify your browser settings or how to
               block, manage or filter cookies can be found in your browser’s
               help file or through such sites as{' '}
-              <a href="www.allaboutcookies.org" className="!text-white">
+              <a
+                href="www.allaboutcookies.org"
+                className="!text-white break-words"
+              >
                 www.allaboutcookies.org
               </a>
               .
@@ -212,7 +221,7 @@ function PrivacyPolicyPage(): React.ReactElement {
               contact us by email at{' '}
               <a
                 href="mailto:hallidayspointtavern@gmail.com"
-                className="!text-white"
+                className="!text-white break-words"
               >
                 hallidayspointtavern@gmail.com
               </a>{' '}
