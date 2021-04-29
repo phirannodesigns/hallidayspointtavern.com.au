@@ -1,7 +1,9 @@
+import { IoRestaurantOutline as icon } from 'react-icons/io5';
+
 export default {
   name: 'menuItem',
   type: 'object',
-
+  icon,
   fields: [
     {
       name: 'itemName',

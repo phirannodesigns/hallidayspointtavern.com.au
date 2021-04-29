@@ -1,8 +1,8 @@
-import { IoIosHappy as icon } from 'react-icons/io';
+import { IoCalendarOutline as icon } from 'react-icons/io5';
 
 export default {
   name: 'homeEvents',
-  title: 'Home Page Events',
+  title: 'Events',
   type: 'document',
   icon,
   fields: [

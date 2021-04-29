@@ -1,4 +1,4 @@
-import { IoIosMegaphone as icon } from 'react-icons/io';
+import { IoMusicalNotesOutline as icon } from 'react-icons/io5';
 
 export default {
   name: 'liveMusic',

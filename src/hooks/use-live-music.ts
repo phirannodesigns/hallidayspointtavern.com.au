@@ -27,7 +27,7 @@ function useLiveMusic(): SanityLiveMusic {
   const { sanityLiveMusic } = useStaticQuery<LiveMusicQueryResponse>(
     graphql`
       query LiveMusicQuery {
-        sanityLiveMusic(_id: { eq: "282edf1f-e33b-41a6-8cd7-db9919dd18c1" }) {
+        sanityLiveMusic(_id: { eq: "liveMusic" }) {
           _id
           heading
           gigs {

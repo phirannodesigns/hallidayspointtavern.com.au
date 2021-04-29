@@ -1,11 +1,6 @@
 import BlockContent from '@sanity/block-content-to-react';
-import { Link, graphql } from 'gatsby';
-import {
-  GatsbyImage,
-  IGatsbyImageData,
-  StaticImage,
-} from 'gatsby-plugin-image';
-
+import { Link } from 'gatsby';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
 import { ContactSection } from '../components/contact-section';
@@ -16,46 +11,17 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { useLiveMusic } from '../hooks/use-live-music';
+import { useHomeEvent } from '../hooks/use-home-event';
 import { LogoWhite } from '../icons/logo-white';
 
-interface Gig {
-  _key: string;
-  overview: string;
-  _rawDescription: [];
-}
-
-interface Node {
-  heading1: string;
-  heading2: string;
-  description: string;
-  gigs: Array<Gig>;
-  mainImage: {
-    asset: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-}
-
-interface Data {
-  allSanityHomeEvents: {
-    nodes: Array<Node>;
-  };
-}
-
-interface EventsPageProps {
-  data: Data;
-}
-
-function IndexPage({ data }: EventsPageProps): React.ReactElement {
-  const { nodes } = data.allSanityHomeEvents;
+function IndexPage(): React.ReactElement {
   return (
     <>
       <SEO title="Home" />
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
-        <ExcitingEvents nodes={nodes} />
+        <ExcitingEvents />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
         <ContactSection />
@@ -158,13 +124,8 @@ function OurMenu() {
   );
 }
 
-interface ExcitingEventsProps {
-  nodes: Array<Node>;
-}
-
-function ExcitingEvents({ nodes }: ExcitingEventsProps) {
-  const [events] = nodes;
-
+function ExcitingEvents() {
+  const events = useHomeEvent();
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
@@ -196,7 +157,6 @@ function ExcitingEvents({ nodes }: ExcitingEventsProps) {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          {/* <StaticImage src="../images/events.jpg" alt="" /> */}
           <GatsbyImage
             image={events.mainImage.asset.gatsbyImageData}
             alt="Current events"
@@ -286,27 +246,5 @@ function CourtesyBus() {
     </SideBySide>
   );
 }
-
-export const query = graphql`
-  query {
-    allSanityHomeEvents {
-      nodes {
-        heading1
-        heading2
-        gigs {
-          _key
-          _rawDescription
-          overview
-        }
-        description
-        mainImage {
-          asset {
-            gatsbyImageData(width: 1920)
-          }
-        }
-      }
-    }
-  }
-`;
 
 export default IndexPage;

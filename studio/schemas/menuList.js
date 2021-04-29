@@ -1,9 +1,9 @@
-import { IoIosRestaurant } from 'react-icons/io';
+import { IoFastFoodOutline as icon } from 'react-icons/io5';
 
 export default {
   name: 'menuList',
-  title: 'Menu list',
-  icon: IoIosRestaurant,
+  title: 'Menu',
+  icon,
   type: 'document',
   fields: [
     {
