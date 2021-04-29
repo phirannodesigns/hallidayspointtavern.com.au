@@ -142,7 +142,7 @@ function ExcitingEvents() {
         >
           <ul className="divide-y divide-gray-700 reset-list">
             {events.gigs.map((gig) => (
-              <li className="py-4">
+              <li key={gig._key} className="py-4">
                 <h3>{gig.overview}</h3>
                 {gig._rawDescription ? (
                   <BlockContent
