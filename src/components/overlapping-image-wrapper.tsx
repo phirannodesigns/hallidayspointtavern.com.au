@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 const OVERLAP_DIRECTION_MAP = {
-  left: 'lg:-ml-36',
-  right: 'lg:-mr-12',
+  left: 'lg:-ml-36 xl:-ml-48',
+  right: 'lg:-mr-12 xl:-mr-24',
 };
 
 interface OverlappingImageWrapperProps {
