@@ -7,7 +7,7 @@ dotenv.config({
 // Check what node environment is running for Sanity plugin
 const isProd = process.env.NODE_ENV === 'production';
 
-const siteUrl = 'https://www.hallidayspointtavern.com.au/'
+const siteUrl = 'https://www.hallidayspointtavern.com.au/';
 
 module.exports = {
   siteMetadata: {

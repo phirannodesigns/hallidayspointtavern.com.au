@@ -16,6 +16,7 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import { useLiveMusic } from '../hooks/use-live-music';
 import { LogoWhite } from '../icons/logo-white';
 
 interface Gig {
@@ -85,15 +86,10 @@ function Welcome() {
         </div>
         <Copy
           heading={{ eyebrow: 'Welcome To', main: 'Hallidays Point Tavern' }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="At the Tavern, we are focused on delivering the best customer experience by combining great food, exquisite wines and beer, and matched with excellent customer service."
           cta={{ route: '/about-us/', text: 'Read more' }}
           backgroundColour="transparent-teal"
         >
-          <p>
-            At the Tavern, we are focused on delivering the best customer
-            experience by combining great food, exquisite wines and beer, and
-            matched with excellent customer service.
-          </p>
           <p>
             The Hallidays Point Tavern is located at the heart of Hallidays
             Point in New South Wales which is a popular destination for its
@@ -141,14 +137,9 @@ function OurMenu() {
             main: 'Our Delicious Menu',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="The Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
           cta={{ route: '/menu/', text: 'See Menu' }}
         >
-          <p>
-            The Hallidays Point Tavern is a unique casual restaurant featuring a
-            diverse menu, and enjoy a full bar selection of wines and spirits or
-            beer.
-          </p>
           <p>
             Our menu offers you a vast array of delectable meals to choose from,
             anytime from a late morning brunch of coffee/cake, to our main meals
@@ -219,31 +210,36 @@ function ExcitingEvents({ nodes }: ExcitingEventsProps) {
 
 function DiscoverHallidaysPoint() {
   return (
-    <div className="relative w-full mx-auto max-w-screen-2xl">
-      <div className="absolute inset-0 flex overflow-hidden">
-        <StaticImage
-          src="../images/discover-hallidays-point.jpg"
-          alt=""
-          className="flex-1"
-        />
-      </div>
-      <div className="relative flex items-center justify-center px-4 py-64 bg-black bg-opacity-50 sm:px-6 lg:px-12">
-        <div className="text-center">
-          <p className="text-3xl text-white">What are you waiting for?</p>
-          <h2 className="block text-5xl font-black text-white sm:text-5xl sm:whitespace-nowrap">
-            Discover Hallidays Point
-          </h2>
-          <div className="mt-6">
-            <Link
-              to="/about"
-              className="px-12 py-2 tracking-wide text-white uppercase bg-transparent border border-white"
-            >
-              Discover more
-            </Link>
-          </div>
+    <HeroComponent
+      backgroundImage={
+        <>
+          <StaticImage
+            src="../images/discover-hallidays-point.jpg"
+            alt=""
+            className="flex-1"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 flex-1 bg-black bg-opacity-25"
+          />
+        </>
+      }
+    >
+      <div className="flex-1 text-center">
+        <p className="text-3xl text-white">What are you waiting for?</p>
+        <h2 className="text-5xl font-black text-white">
+          Discover Hallidays Point
+        </h2>
+        <div className="mt-6">
+          <Link
+            to="/about"
+            className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-transparent border border-white"
+          >
+            Discover more
+          </Link>
         </div>
       </div>
-    </div>
+    </HeroComponent>
   );
 }
 
@@ -264,7 +260,6 @@ function CourtesyBus() {
             main: 'Get the Courtesy Bus',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
           backgroundColour="transparent-black"
         >
           <dl className="divide-y-2 divide-white">

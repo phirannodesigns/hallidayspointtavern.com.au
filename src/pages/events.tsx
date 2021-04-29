@@ -1,52 +1,24 @@
 import BlockContent from '@sanity/block-content-to-react';
 import { graphql } from 'gatsby';
-import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import { ClippedBackground } from '../components/clipped-background';
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { Heading } from '../components/ui/heading';
+import { useLiveMusic } from '../hooks/use-live-music';
 
-interface Gig {
-  _key: string;
-  overview: string;
-  _rawDescription: [];
-}
-
-interface Node {
-  heading: string;
-  gigs: Array<Gig>;
-  mainImage: {
-    asset: {
-      gatsbyImageData: IGatsbyImageData;
-    };
-  };
-}
-
-interface Data {
-  allSanityLiveMusic: {
-    nodes: Array<Node>;
-  };
-}
-
-interface EventsPageProps {
-  data: Data;
-}
-
-function EventsPage({ data }: EventsPageProps): React.ReactElement {
-  const { nodes } = data.allSanityLiveMusic;
+function EventsPage(): React.ReactElement {
   return (
     <>
       <SEO title="Events" />
       <Layout>
         <EventOfTheWeek />
         <HappyHour />
-        <LiveMusic nodes={nodes} />
+        <LiveMusic />
         <TriviaAtTheTab />
         <FootyTipping />
         <GoogleMap />
@@ -127,12 +99,8 @@ function HappyHour() {
   );
 }
 
-interface LiveMusicProps {
-  nodes: Array<Node>;
-}
-
-function LiveMusic({ nodes }: LiveMusicProps) {
-  const [events] = nodes;
+function LiveMusic() {
+  const liveMusic = useLiveMusic();
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
@@ -146,7 +114,7 @@ function LiveMusic({ nodes }: LiveMusicProps) {
           onDark={false}
         >
           <ul className="divide-y divide-gray-700 reset-list">
-            {events.gigs.map((gig) => (
+            {liveMusic.gigs.map((gig) => (
               <li key={gig._key} className="py-4">
                 <h3>{gig.overview}</h3>
                 {gig._rawDescription ? (
@@ -188,7 +156,11 @@ function TriviaAtTheTab() {
     >
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <StaticImage src="../images/trivia.jpg" alt="" />
+          <StaticImage
+            src="../images/trivia.jpg"
+            alt=""
+            className="relative z-10"
+          />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
@@ -201,7 +173,7 @@ function TriviaAtTheTab() {
           lead="Starting March 8th"
         >
           <p>
-            Welcom to our first ever Trivia event. We will be hosting Trivia
+            Welcome to our first ever Trivia event. We will be hosting Trivia
             every second Monday starting Monday 8th March from 6:30pm
           </p>
         </Copy>
