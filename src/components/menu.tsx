@@ -32,7 +32,7 @@ interface AllSanityMenuList {
 function Menu(): React.ReactElement {
   const { allSanityMenuList } = useStaticQuery<AllSanityMenuList>(graphql`
     {
-      allSanityMenuList(sort: { fields: _createdAt }) {
+      allSanityMenuList(sort: { fields: _updatedAt }) {
         nodes {
           id
           category
@@ -136,13 +136,19 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
             key={id}
             className="flex items-start justify-between space-x-16 text-black"
           >
-            <div>
-              <p className="text-lg font-bold">{itemName}</p>
-              <p className="mt-1 text-sm leading-tight ">{description}</p>
-            </div>
-            <p className="text-lg font-bold uppercase whitespace-nowrap">
-              {price}
-            </p>
+            {description !== 'Heading' ? (
+              <>
+                <div>
+                  <p className="text-lg font-bold">{itemName}</p>
+                  <p className="mt-1 text-sm leading-tight ">{description}</p>
+                </div>
+                <p className="text-lg font-bold sm:whitespace-nowrap">
+                  {price}
+                </p>
+              </>
+            ) : (
+              <p className="text-2xl font-black">{itemName}</p>
+            )}
           </div>
         ))}
       </div>
