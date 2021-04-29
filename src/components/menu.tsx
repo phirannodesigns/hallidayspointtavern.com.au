@@ -147,7 +147,9 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
                 </p>
               </>
             ) : (
-              <p className="text-2xl font-black">{itemName}</p>
+              <h3 className="text-2xl font-semibold uppercase md:col-span-2">
+                {itemName}
+              </h3>
             )}
           </div>
         ))}
