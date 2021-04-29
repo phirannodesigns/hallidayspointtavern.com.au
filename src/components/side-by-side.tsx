@@ -1,18 +1,20 @@
 import * as React from 'react';
 
 interface SideBySideProps {
+  id?: string;
   background?: React.ReactNode;
   children: React.ReactNode;
   bgColorClass?: string;
 }
 
 function SideBySide({
+  id,
   background = null,
   children,
   bgColorClass = 'bg-white',
 }: SideBySideProps): React.ReactElement {
   return (
-    <div className="relative overflow-hidden">
+    <div id={id} className="relative overflow-hidden scroll-margin-top-24">
       <div
         className={`relative w-full mx-auto overflow-hidden max-w-screen-2xl ${bgColorClass}`}
       >
