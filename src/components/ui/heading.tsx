@@ -10,26 +10,31 @@ const UNDERLINE_COLOR_MAP = {
   olive: 'accent-olive',
 };
 
+type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4';
+
 type TextColor = 'white' | 'black';
+
 type UnderlineColor = 'black' | 'olive';
 
 interface HeadingProps {
+  as?: HeadingLevel;
   children: React.ReactNode;
   textColor?: TextColor;
   underlineColor?: UnderlineColor;
 }
 
 function Heading({
+  as = 'h2',
   children,
   textColor = 'white',
   underlineColor = 'black',
 }: HeadingProps): React.ReactElement {
-  return (
-    <h1
-      className={`${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl heading-accent`}
-    >
-      {children}
-    </h1>
+  return React.createElement(
+    as,
+    {
+      className: `${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl heading-accent`,
+    },
+    children
   );
 }
 
@@ -49,4 +54,4 @@ Heading.Eyebrow = Eyebrow;
 Heading.Main = Main;
 
 export { Heading };
-export type { TextColor, UnderlineColor };
+export type { HeadingLevel, TextColor, UnderlineColor };

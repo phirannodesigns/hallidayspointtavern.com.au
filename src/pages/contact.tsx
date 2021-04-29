@@ -37,7 +37,7 @@ function ContactSection(): React.ReactElement {
         </div>
       }
     >
-      <SideBySide.TwoCols>
+      <SideBySide.TwoCols wrapFirst>
         <ContactInfo />
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
