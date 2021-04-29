@@ -300,7 +300,7 @@ function Gallery(): React.ReactElement {
                   </div>
                 </div>
                 <p className="font-semibold text-white">
-                  Original House, now Senior Citizens
+                  Original House, now Senior Citizens
                 </p>
               </div>
 
@@ -308,7 +308,7 @@ function Gallery(): React.ReactElement {
                 <div className="relative h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
-                      src="../images/ariel-view-tavern.png"
+                      src="../images/ariel-view-tavern-c1990.jpg"
                       alt=""
                       className="flex-1"
                     />
