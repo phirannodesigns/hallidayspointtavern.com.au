@@ -69,4 +69,7 @@
   .reset-list > li > p {
     @apply m-0 !important;
   }
+  [id] {
+    scroll-margin-top: theme('spacing.48');
+  }
 }

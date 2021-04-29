@@ -26,11 +26,11 @@ function Nav(): React.ReactElement {
   return (
     <Popover
       as="header"
-      className="sticky inset-x-0 top-0 z-10 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md"
+      className="sticky inset-x-0 top-0 z-10 flex items-center h-24 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md"
     >
       {({ open }) => (
         <>
-          <div className="relative z-20">
+          <div className="relative z-20 flex-1">
             <nav className="flex flex-wrap items-center justify-between px-4 py-5 mx-auto md:items-baseline md:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-12 md:space-x-10">
               {firstHalf.map((navItem) => (
                 <NavLink key={navItem.route.current} navItem={navItem} />
@@ -67,7 +67,9 @@ function NavLink({ navItem }: { navItem: NavItem }): React.ReactElement | null {
   return (
     <Link
       key={navItem.label}
-      to={`/${navItem.route.current}/`}
+      to={`/${navItem.route.current}${
+        navItem.route.current.startsWith('#') ? '' : '/'
+      }`}
       className={`hidden text-base font-medium uppercase md:inline-block ${
         pathname === navItem.route.current ? 'text-teal' : 'text-blue-light'
       } hover:text-gray-900`}
