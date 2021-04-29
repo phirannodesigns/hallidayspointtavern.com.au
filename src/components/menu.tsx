@@ -137,7 +137,7 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
             className="flex items-start justify-between space-x-16 text-black"
           >
             <div>
-              <p className="text-lg font-bold uppercase">{itemName}</p>
+              <p className="text-lg font-bold">{itemName}</p>
               <p className="mt-1 text-sm leading-tight ">{description}</p>
             </div>
             <p className="text-lg font-bold uppercase whitespace-nowrap">
