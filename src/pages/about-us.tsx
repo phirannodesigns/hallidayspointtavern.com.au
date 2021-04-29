@@ -188,8 +188,8 @@ function OurHistory2(): React.ReactElement {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="space-y-8 transform lg:-translate-x-24">
-          <figure>
+        <div className="px-4 py-12 space-y-8 transform lg:-translate-x-24 sm:px-6 lg:px-12 lg:py-24">
+          <figure className="flex flex-col items-center lg:block">
             <StaticImage
               src="../images/looking-north.jpg"
               alt=""
@@ -199,7 +199,7 @@ function OurHistory2(): React.ReactElement {
               Looking north towards beach
             </figcaption>
           </figure>
-          <figure>
+          <figure className="flex flex-col items-center lg:block">
             <StaticImage
               src="../images/elvis-and-brother.jpg"
               alt=""
@@ -218,12 +218,12 @@ function OurHistory2(): React.ReactElement {
 function Gallery(): React.ReactElement {
   return (
     <div className="w-full px-4 py-12 mx-auto overflow-hidden max-w-screen-2xl bg-teal sm:px-6 lg:px-12 lg:py-24">
-      <div className="relative aspect-w-4 aspect-h-6 md:aspect-w-16 md:aspect-h-10">
+      <div className="relative aspect-w-4 aspect-h-9 lg:aspect-w-16 lg:aspect-h-10">
         <div className="absolute inset-0 flex">
           <div className="flex-1">
-            <div className="grid h-full grid-flow-col grid-cols-2 grid-rows-6 gap-4 md:grid-cols-3">
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+            <div className="grid h-full grid-cols-2 gap-4 lg:grid-flow-col lg:grid-rows-6 lg:grid-cols-3">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/original-bar-c1982.jpg"
@@ -234,8 +234,8 @@ function Gallery(): React.ReactElement {
                 </div>
                 <p className="font-semibold text-white">Original Bar c1982</p>
               </div>
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/looking-north-toward-tavern.jpg"
@@ -248,8 +248,8 @@ function Gallery(): React.ReactElement {
                   Looking north toward tavern c1982
                 </p>
               </div>
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/elga-1982.jpg"
@@ -261,8 +261,8 @@ function Gallery(): React.ReactElement {
                 <p className="font-semibold text-white">Elga 1982</p>
               </div>
 
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/date-of-elga-foundation.jpg"
@@ -275,8 +275,8 @@ function Gallery(): React.ReactElement {
                   Date of Elga foundation pouring 1-6-82
                 </p>
               </div>
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/lookin-toward-black-head-rd.jpg"
@@ -289,8 +289,8 @@ function Gallery(): React.ReactElement {
                   Looking toward Black Head Rd
                 </p>
               </div>
-              <div className="row-span-2">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 ">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/original-house.jpg"
@@ -304,8 +304,8 @@ function Gallery(): React.ReactElement {
                 </p>
               </div>
 
-              <div className="row-span-3">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 lg:row-span-3">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/ariel-view-tavern-c1990.jpg"
@@ -318,8 +318,8 @@ function Gallery(): React.ReactElement {
                   Ariel view of tavern c1990
                 </p>
               </div>
-              <div className="row-span-3">
-                <div className="relative h-[90%] bg-white ">
+              <div className="row-span-2 lg:row-span-3">
+                <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">
                     <StaticImage
                       src="../images/elga-1982.jpg"
