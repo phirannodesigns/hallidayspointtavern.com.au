@@ -109,11 +109,10 @@ function HappyHour() {
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'We sure to be here for',
+            eyebrow: 'Be sure to be here for',
             main: 'Our Happy Hour',
             underlineColor: 'olive',
           }}
-          lead="March Madness"
         >
           <ul>
             <li>Punter's Day Happy Hour</li>
