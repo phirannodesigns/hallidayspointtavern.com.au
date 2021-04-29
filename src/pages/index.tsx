@@ -1,6 +1,11 @@
 import BlockContent from '@sanity/block-content-to-react';
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { Link, graphql } from 'gatsby';
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage,
+} from 'gatsby-plugin-image';
+
 import * as React from 'react';
 
 import { ContactSection } from '../components/contact-section';
@@ -14,14 +19,43 @@ import { SideBySide } from '../components/side-by-side';
 import { useLiveMusic } from '../hooks/use-live-music';
 import { LogoWhite } from '../icons/logo-white';
 
-function IndexPage(): React.ReactElement {
+interface Gig {
+  _key: string;
+  overview: string;
+  _rawDescription: [];
+}
+
+interface Node {
+  heading1: string;
+  heading2: string;
+  description: string;
+  gigs: Array<Gig>;
+  mainImage: {
+    asset: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+}
+
+interface Data {
+  allSanityHomeEvents: {
+    nodes: Array<Node>;
+  };
+}
+
+interface EventsPageProps {
+  data: Data;
+}
+
+function IndexPage({ data }: EventsPageProps): React.ReactElement {
+  const { nodes } = data.allSanityHomeEvents;
   return (
     <>
       <SEO title="Home" />
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
-        <ExcitingEvents />
+        <ExcitingEvents nodes={nodes} />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
         <ContactSection />
@@ -124,24 +158,30 @@ function OurMenu() {
   );
 }
 
-function ExcitingEvents() {
-  const liveMusic = useLiveMusic();
+interface ExcitingEventsProps {
+  nodes: Array<Node>;
+}
+
+function ExcitingEvents({ nodes }: ExcitingEventsProps) {
+  const [events] = nodes;
+
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Keep up with our',
-            main: 'Exciting Events',
+            eyebrow: events.heading1,
+            main: events.heading2,
             underlineColor: 'olive',
           }}
+          lead={events.description}
           cta={{ route: '/events/', text: 'Upcoming Events' }}
           backgroundColour="cream"
           onDark={false}
         >
           <ul className="divide-y divide-gray-700 reset-list">
-            {liveMusic.gigs.map((gig) => (
-              <li key={gig._key} className="py-4">
+            {events.gigs.map((gig) => (
+              <li className="py-4">
                 <h3>{gig.overview}</h3>
                 {gig._rawDescription ? (
                   <BlockContent
@@ -156,7 +196,12 @@ function ExcitingEvents() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/events.jpg" alt="" />
+          {/* <StaticImage src="../images/events.jpg" alt="" /> */}
+          <GatsbyImage
+            image={events.mainImage.asset.gatsbyImageData}
+            alt="Current events"
+            className="flex-1"
+          />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
@@ -241,5 +286,27 @@ function CourtesyBus() {
     </SideBySide>
   );
 }
+
+export const query = graphql`
+  query {
+    allSanityHomeEvents {
+      nodes {
+        heading1
+        heading2
+        gigs {
+          _key
+          _rawDescription
+          overview
+        }
+        description
+        mainImage {
+          asset {
+            gatsbyImageData(width: 1920)
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
