@@ -43,13 +43,8 @@ function OurMenu() {
             main: 'Our Delicious Menu',
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="The Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
         >
-          <p>
-            The Hallidays Point Tavern is a unique casual restaurant featuring a
-            diverse menu, and enjoy a full bar selection of wines and spirits or
-            beer.
-          </p>
           <p>
             The Hallidays Point Tavern is a unique casual restaurant featuring a
             diverse menu, and enjoy a full bar selection of wines and spirits or
@@ -67,6 +62,7 @@ function OurMenu() {
             Sit back, relax, and let us show you why our patrons brand us as one
             of the best restaurants in Hallidays Point, New South Wales.
           </p>
+          {/* // TODO: Add Reschs Appreciation Society link/CTA here */}
         </Copy>
       </SideBySide.ThreeCols>
       <span aria-hidden className="lg:col-span-2" />
