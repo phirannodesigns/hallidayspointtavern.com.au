@@ -41,7 +41,6 @@ function EventOfTheWeek() {
         <Copy
           heading={{ eyebrow: 'Come check out our', main: 'Event of the Week' }}
           lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
-          cta={{ route: '/about-us/', text: 'Read more' }}
           backgroundColour="transparent-teal"
         >
           <p>Friday 30th March 4pm – 8pm</p>
