@@ -3,14 +3,12 @@ import { graphql } from 'gatsby';
 import { IGatsbyImageData, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 
-import { ClippedBackground } from '../components/clipped-background';
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { Heading } from '../components/ui/heading';
 
 interface Gig {
   _key: string;
