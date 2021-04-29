@@ -52,7 +52,7 @@ function Copy({
     <div
       className={`relative flex flex-col items-start justify-center flex-1 px-4 py-12 sm:px-6 lg:px-12 lg:py-24 ${BACKGROUND_COLOR_MAP[backgroundColour]}`}
     >
-      <div className={`w-full ${maxWidth}`}>
+      <div className={`w-full mx-auto lg:mx-0 xl:mx-auto ${maxWidth}`}>
         {heading ? (
           <Heading
             as={heading.as}
