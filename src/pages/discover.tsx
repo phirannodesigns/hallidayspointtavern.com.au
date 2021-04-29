@@ -412,7 +412,7 @@ function DelightfulCuisines() {
             <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4">
               <div className="inset-0 flex lg:absolute">
                 <StaticImage
-                  src="../images/surf-n-turf.jpg"
+                  src="../images/grilled-barramundi-fillet.jpg"
                   alt=""
                   className="flex-1"
                 />
@@ -431,7 +431,7 @@ function DelightfulCuisines() {
             <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4">
               <div className="inset-0 flex lg:absolute">
                 <StaticImage
-                  src="../images/grilled-barramundi-fillet.jpg"
+                  src="../images/surf-n-turf.jpg"
                   alt=""
                   className="flex-1"
                 />
