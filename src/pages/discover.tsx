@@ -45,16 +45,16 @@ function WhatAreYouWaiting() {
           backgroundColour="transparent-teal"
         >
           <p>
-            On top of the beautiful coastal view of the Pacific Ocean and laid
+            More than the beautiful coastal view of the Pacific Ocean and laid
             back towns scattered around the region, there is more to Hallidays
-            Point than you might expect. It features several world-renowned
-            beaches and lush rainforests you can explore that will definitely
-            get you stoked.
+            Point than you can expect. Hallidays Point features several
+            world-renowned beaches and lush rainforests that would fascinate
+            you.
           </p>
           <p>
-            Hallidays Point’s coast lies between Taree and Foster, where you
-            will find some of the most popular beaches, including the Red Head,
-            Black Head, Diamond Beach and Back Beach.
+            Hallidays Point’s coasts lie between Taree and Foster where you will
+            find some of the most popular beaches, including Red Head, Black
+            Head, Diamond Beach and Back Beach.
           </p>
         </Copy>
       </SideBySide.ThreeCols>
@@ -115,10 +115,10 @@ function SpectacularPlaces() {
               <li className="py-4">
                 <p className="text-xl font-semibold">1. Black Head Beach</p>
                 <p>
-                  The Black Head Beach is one of the places you should not miss
-                  when going to Hallidays Point. Recognised under the Keep
-                  Australia Beautiful Program, the Black Head beach is one of
-                  Manning Valley’s finest swimming beaches.
+                  Black Head Beach is one of the places you should not miss when
+                  going to Hallidays Point. Recognised under the Keep Australia
+                  Beautiful Program, Black Head beach is one of Manning Valley’s
+                  finest swimming beaches.
                 </p>
                 <br />
                 <p>
