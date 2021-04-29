@@ -77,7 +77,7 @@ function Copy({
               to={cta.route}
               className={`px-6 py-2 font-medium tracking-wider uppercase ${
                 onDark ? 'text-white' : ''
-              } ${UNDERLINE_COLOR_MAP[heading.underlineColor || 'black']}`}
+              } ${UNDERLINE_COLOR_MAP[heading?.underlineColor || 'black']}`}
             >
               {cta.text}
             </Link>
