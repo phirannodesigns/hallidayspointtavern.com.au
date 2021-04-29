@@ -70,6 +70,6 @@
     @apply m-0 !important;
   }
   [id] {
-    scroll-margin-top: theme('spacing.48');
+    scroll-margin-top: theme('spacing.24');
   }
 }
