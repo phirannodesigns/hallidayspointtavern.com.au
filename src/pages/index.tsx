@@ -1,5 +1,11 @@
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import BlockContent from '@sanity/block-content-to-react';
+import { Link, graphql } from 'gatsby';
+import {
+  GatsbyImage,
+  IGatsbyImageData,
+  StaticImage,
+} from 'gatsby-plugin-image';
+
 import * as React from 'react';
 
 import { ContactSection } from '../components/contact-section';
@@ -12,14 +18,43 @@ import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 import { LogoWhite } from '../icons/logo-white';
 
-function IndexPage(): React.ReactElement {
+interface Gig {
+  _key: string;
+  overview: string;
+  _rawDescription: [];
+}
+
+interface Node {
+  heading1: string;
+  heading2: string;
+  description: string;
+  gigs: Array<Gig>;
+  mainImage: {
+    asset: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
+}
+
+interface Data {
+  allSanityHomeEvents: {
+    nodes: Array<Node>;
+  };
+}
+
+interface EventsPageProps {
+  data: Data;
+}
+
+function IndexPage({ data }: EventsPageProps): React.ReactElement {
+  const { nodes } = data.allSanityHomeEvents;
   return (
     <>
       <SEO title="Home" />
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
-        <ExcitingEvents />
+        <ExcitingEvents nodes={nodes} />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
         <ContactSection />
@@ -132,45 +167,50 @@ function OurMenu() {
   );
 }
 
-function ExcitingEvents() {
+interface ExcitingEventsProps {
+  nodes: Array<Node>;
+}
+
+function ExcitingEvents({ nodes }: ExcitingEventsProps) {
+  const [events] = nodes;
+
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Keep up with our',
-            main: 'Exciting Events',
+            eyebrow: events.heading1,
+            main: events.heading2,
             underlineColor: 'olive',
           }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead={events.description}
           cta={{ route: '/events/', text: 'Upcoming Events' }}
           backgroundColour="cream"
           onDark={false}
         >
           <ul className="divide-y divide-gray-700 reset-list">
-            <li className="py-4">
-              <h3>Raffles Every Monday &amp; Thursdays 5pm – 6:30pm</h3>
-              <p>
-                Quis ipsum suspendisse ultrices gravida. Risus commodo viverra
-                maecenas accumsan lacus vel facilisis.
-              </p>
-            </li>
-            <li className="py-4">
-              <h3>Valentines Day Date Night – 14th Feb</h3>
-              <p>Quis ipsum suspendisse ultrices gravida.</p>
-            </li>
-            <li className="py-4">
-              <h3>Friday Night Live Music – Acoustic Andy | 19th Feb</h3>
-            </li>
-            <li className="py-4">
-              <h3>Sunday Sesh – AJ & Annie 21st Feb</h3>
-            </li>
+            {events.gigs.map((gig) => (
+              <li className="py-4">
+                <h3>{gig.overview}</h3>
+                {gig._rawDescription ? (
+                  <BlockContent
+                    blocks={gig._rawDescription}
+                    className="!mt-0"
+                  />
+                ) : null}
+              </li>
+            ))}
           </ul>
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/events.jpg" alt="" />
+          {/* <StaticImage src="../images/events.jpg" alt="" /> */}
+          <GatsbyImage
+            image={events.mainImage.asset.gatsbyImageData}
+            alt="Current events"
+            className="flex-1"
+          />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
@@ -251,5 +291,27 @@ function CourtesyBus() {
     </SideBySide>
   );
 }
+
+export const query = graphql`
+  query {
+    allSanityHomeEvents {
+      nodes {
+        heading1
+        heading2
+        gigs {
+          _key
+          _rawDescription
+          overview
+        }
+        description
+        mainImage {
+          asset {
+            gatsbyImageData(width: 1920)
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
