@@ -39,16 +39,23 @@ function EventOfTheWeek() {
           />
         </div>
         <Copy
-          heading={{ eyebrow: 'Come check out our', main: 'Event of the Week' }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          heading={{
+            eyebrow: 'Come check out our',
+            main: 'Upcoming Special Events',
+          }}
+          lead=""
           backgroundColour="transparent-teal"
         >
-          <p>Friday 30th March 4pm – 8pm</p>
+          <ul>
+            <li>Mother’s Day 9th May</li>
+            <li>Trivia 17th and 31st May, 14th and 28th June</li>
+            <li>Paint ‘n Sip 23rd May</li>
+          </ul>
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/event-of-the-week.jpg" alt="" />
+          <StaticImage src="../images/mothers-day.png" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
