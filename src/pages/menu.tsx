@@ -13,6 +13,34 @@ function MenuPage(): React.ReactElement {
       <SEO title="Menu" />
       <Layout>
         <OurMenu />
+        <div className="relative w-full mx-auto overflow-hidden max-w-screen-2xl">
+          <div className="flex flex-wrap">
+            <div className="w-full sm:w-1/2">
+              <StaticImage
+                src="../images/monday-night-promo.png"
+                alt=""
+                className="flex-1"
+              />
+            </div>
+            <div className="w-full sm:w-1/2">
+              <StaticImage
+                src="../images/thursday-night-promo.png"
+                alt=""
+                className="flex-1"
+              />
+            </div>
+          </div>
+          <StaticImage
+            src="../images/schnitzel-night.jpg"
+            alt=""
+            className="flex-1"
+          />
+          <StaticImage
+            src="../images/wednesday-pizza.png"
+            alt=""
+            className="flex-1"
+          />
+        </div>
         <Menu />
       </Layout>
     </>
