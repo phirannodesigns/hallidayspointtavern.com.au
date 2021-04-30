@@ -25,6 +25,7 @@ interface CopyProps {
   };
   lead?: string;
   children?: React.ReactNode;
+  lessSpace?: boolean;
   cta?: {
     route: string;
     text: string;
@@ -43,6 +44,7 @@ function Copy({
   heading,
   lead,
   children,
+  lessSpace = false,
   cta,
   backgroundColour = '',
   onDark = true,
@@ -50,7 +52,9 @@ function Copy({
 }: CopyProps): React.ReactElement {
   return (
     <div
-      className={`relative flex flex-col items-start justify-center flex-1 px-4 py-12 sm:px-6 lg:px-12 lg:py-24 ${BACKGROUND_COLOR_MAP[backgroundColour]}`}
+      className={`relative flex flex-col items-start justify-center flex-1 px-4 py-12 sm:px-6 lg:px-12 ${
+        lessSpace ? 'lg:py-0' : 'lg:py-24'
+      } ${BACKGROUND_COLOR_MAP[backgroundColour]}`}
     >
       <div className={`w-full mx-auto lg:mx-0 xl:mx-auto ${maxWidth}`}>
         {heading ? (

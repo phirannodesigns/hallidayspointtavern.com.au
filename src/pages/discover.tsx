@@ -123,9 +123,9 @@ function SpectacularPlaces() {
           </Copy>
         </SideBySide.ThreeCols>
       </SideBySide>
-      <SideBySide bgColorClass="bg-transparent">
+      <SideBySide lessTopMargin bgColorClass="bg-transparent">
         <SideBySide.ThreeCols>
-          <Copy>
+          <Copy lessSpace>
             <ul className="divide-y divide-white reset-list">
               <li className="py-4">
                 <p className="text-xl font-semibold">

@@ -5,18 +5,22 @@ interface SideBySideProps {
   background?: React.ReactNode;
   children: React.ReactNode;
   bgColorClass?: string;
+  lessTopMargin?: boolean;
 }
 
 function SideBySide({
   id,
   background = null,
   children,
+  lessTopMargin = false,
   bgColorClass = 'bg-white',
 }: SideBySideProps): React.ReactElement {
   return (
     <div id={id} className="relative overflow-hidden scroll-margin-top-24">
       <div
-        className={`relative w-full mx-auto overflow-hidden max-w-screen-2xl ${bgColorClass}`}
+        className={`${
+          lessTopMargin && '-mt-24'
+        } relative w-full mx-auto overflow-hidden max-w-screen-2xl ${bgColorClass}`}
       >
         {background}
         <div className="relative grid gap-8 lg:grid-cols-5">{children}</div>

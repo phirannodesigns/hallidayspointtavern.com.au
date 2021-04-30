@@ -134,7 +134,9 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
         {dishes.map(({ id, itemName, description, price }) => (
           <div
             key={id}
-            className="flex items-start justify-between space-x-16 text-black"
+            className={`${
+              description === 'Heading' && 'col-span-2'
+            } flex items-start justify-between space-x-16 text-black`}
           >
             {description !== 'Heading' ? (
               <>
@@ -147,9 +149,9 @@ function MenuPanel({ dishes, index, menuData, ...rest }: MenuPanelProps) {
                 </p>
               </>
             ) : (
-              <h3 className="text-2xl font-semibold uppercase md:col-span-2">
-                {itemName}
-              </h3>
+              <>
+                <h3 className="text-2xl font-semibold uppercase">{itemName}</h3>
+              </>
             )}
           </div>
         ))}
