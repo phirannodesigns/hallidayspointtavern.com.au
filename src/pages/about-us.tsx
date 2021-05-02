@@ -31,14 +31,11 @@ function About1() {
         </div>
         <Copy
           heading={{ eyebrow: 'About The', main: 'Hallidays Point Tavern' }}
-          lead="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, provident expedita. Earum itaque tempora fugiat."
+          lead="At the Tavern, we are focused on delivering the best customer
+          experience by combining great food, exquisite wines and beer, and
+          matched with excellent customer service."
           backgroundColour="transparent-teal"
         >
-          <p>
-            At the Tavern, we are focused on delivering the best customer
-            experience by combining great food, exquisite wines and beer, and
-            matched with excellent customer service.
-          </p>
           <p>
             The Hallidays Point Tavern is located at the heart of Hallidays
             Point in New South Wales which is a popular destination for its
