@@ -16,7 +16,7 @@ function ErrorMessage({
   return hasErrors ? (
     <div
       role="alert"
-      className="mt-1 text-xs font-semibold tracking-widest text-red-800 uppercase"
+      className="mt-1 text-xs font-semibold tracking-widest text-red-300 uppercase"
     >
       {label} is a required field
     </div>
