@@ -13,10 +13,10 @@ interface SEOProps {
 }
 
 function SEO({
-  title = '',
-  description = '',
-  pathname = '',
-  image = '',
+  title,
+  description,
+  pathname,
+  image,
   children = null,
 }: SEOProps): React.ReactElement {
   const location = useLocation();
@@ -34,7 +34,7 @@ function SEO({
     title,
     description: description || siteDescription,
     url: pathname ? `${siteUrl}${pathname}` : location.href,
-    image: `${siteUrl}${image}` || shareImage.asset.url,
+    image: image ? `${siteUrl}${image}` : shareImage.asset.url,
   };
 
   return (
