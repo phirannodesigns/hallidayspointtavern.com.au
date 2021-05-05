@@ -26,7 +26,7 @@ function Nav(): React.ReactElement {
   return (
     <Popover
       as="header"
-      className="sticky inset-x-0 top-0 z-10 flex items-center h-24 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md"
+      className="sticky inset-x-0 top-0 z-20 flex items-center h-24 bg-white bg-opacity-80 backdrop-filter backdrop-blur-md"
     >
       {({ open }) => (
         <>

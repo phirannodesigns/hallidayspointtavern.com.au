@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
 import { Layout } from '../components/layout';
+import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
 
@@ -50,9 +51,9 @@ function About1() {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="transform lg:-translate-x-24">
-          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
-        </div>
+        <OverlappingImageWrapper>
+          <StaticImage src="../images/welcome.jpg" alt="" />
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -76,18 +77,14 @@ function OurHistory() {
       }
     >
       <SideBySide.TwoCols>
-        <div className="px-4 py-12 sm:px-6 lg:px-12 lg:py-24">
-          <figure>
-            <StaticImage
-              src="../images/advert-for-elga.png"
-              alt=""
-              className="flex-1"
-            />
-            <figcaption className="font-semibold text-center text-white">
-              1st Advert for Elga, Manning River Times March 1982
+        <OverlappingImageWrapper overlapDirection="right">
+          <figure className="text-white">
+            <StaticImage src="../images/advert-for-elga.jpg" alt="" />
+            <figcaption className="font-semibold">
+              1st Advert for Elga, Manning River Times March&nbsp;1982
             </figcaption>
           </figure>
-        </div>
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
@@ -237,28 +234,22 @@ function OurHistory2(): React.ReactElement {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <div className="px-4 py-12 space-y-8 transform lg:-translate-x-24 sm:px-6 lg:px-12 lg:py-24">
-          <figure className="flex flex-col items-center lg:block">
-            <StaticImage
-              src="../images/looking-north.jpg"
-              alt=""
-              className="flex-1"
-            />
-            <figcaption className="font-semibold text-center lg:text-left">
-              Looking north towards beach
-            </figcaption>
-          </figure>
-          <figure className="flex flex-col items-center lg:block">
-            <StaticImage
-              src="../images/elvis-and-brother.jpg"
-              alt=""
-              className="flex-1"
-            />
-            <figcaption className="font-semibold text-center lg:text-left">
-              Elvis &amp; his brother Andrew building 2nd storey of tavern
-            </figcaption>
-          </figure>
-        </div>
+        <OverlappingImageWrapper>
+          <div className="space-y-8">
+            <figure>
+              <StaticImage src="../images/looking-north.jpg" alt="" />
+              <figcaption className="font-semibold">
+                Looking north towards beach
+              </figcaption>
+            </figure>
+            <figure>
+              <StaticImage src="../images/elvis-and-brother.jpg" alt="" />
+              <figcaption className="font-semibold">
+                Elvis &amp; his brother Andrew building 2nd storey of tavern
+              </figcaption>
+            </figure>
+          </div>
+        </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -352,7 +343,6 @@ function Gallery(): React.ReactElement {
                   Original House, now Senior Citizens
                 </p>
               </div>
-
               <div className="row-span-2 lg:row-span-3">
                 <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">

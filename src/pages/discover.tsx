@@ -79,11 +79,7 @@ function SpectacularPlaces() {
       <SideBySide bgColorClass="bg-transparent">
         <SideBySide.TwoCols>
           <OverlappingImageWrapper overlapDirection="right">
-            <StaticImage
-              src="../images/platform.jpg"
-              alt=""
-              className="flex-1"
-            />
+            <StaticImage src="../images/platform.jpg" alt="" />
           </OverlappingImageWrapper>
         </SideBySide.TwoCols>
         <SideBySide.ThreeCols>
@@ -175,11 +171,7 @@ function SpectacularPlaces() {
         </SideBySide.ThreeCols>
         <SideBySide.TwoCols>
           <OverlappingImageWrapper>
-            <StaticImage
-              src="../images/rainforest.jpg"
-              alt=""
-              className="flex-1"
-            />
+            <StaticImage src="../images/rainforest.jpg" alt="" />
           </OverlappingImageWrapper>
         </SideBySide.TwoCols>
       </SideBySide>
@@ -192,18 +184,9 @@ function ExcitingEvents() {
     <SideBySide bgColorClass="bg-cream">
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <div className="space-y-8">
-            <StaticImage
-              src="../images/dolphin.jpg"
-              alt=""
-              className="max-h-96"
-            />
-            <StaticImage
-              src="../images/golf.jpg"
-              alt=""
-              objectPosition="0"
-              className="max-h-96"
-            />
+          <div className="flex flex-col mx-auto space-y-8">
+            <StaticImage src="../images/dolphin.jpg" alt="" />
+            <StaticImage src="../images/golf.jpg" alt="" />
           </div>
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
@@ -358,20 +341,12 @@ function FunEvents() {
         <div className="px-4 pt-12 sm:px-6 lg:px-12 lg:py-24 ">
           <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4 lg:-ml-36">
             <div className="inset-0 flex lg:absolute">
-              <StaticImage
-                src="../images/events.jpg"
-                alt=""
-                className="flex-1"
-              />
+              <StaticImage src="../images/events.jpg" alt="" />
             </div>
           </div>
           <div className="relative mt-8 aspect-w-4 aspect-h-3 lg:aspect-h-4 lg:-ml-36">
             <div className="inset-0 flex lg:absolute">
-              <StaticImage
-                src="../images/live-music.jpg"
-                alt=""
-                className="flex-1"
-              />
+              <StaticImage src="../images/live-music.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -396,7 +371,7 @@ function DelightfulCuisines() {
         <ul className="grid max-w-screen-lg gap-16 mx-auto mt-6 lg:grid-cols-2">
           <li className="text-left text-white ">
             <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4">
-              <div className="inset-0 flex lg:absolute">
+              <div className="flex">
                 <StaticImage
                   src="../images/grilled-barramundi-fillet.jpg"
                   alt=""
@@ -412,7 +387,7 @@ function DelightfulCuisines() {
           </li>
           <li className="text-left text-white ">
             <div className="relative aspect-w-4 aspect-h-3 lg:aspect-h-4">
-              <div className="inset-0 flex lg:absolute">
+              <div className="flex">
                 <StaticImage
                   src="../images/surf-n-turf.jpg"
                   alt=""

@@ -1,3 +1,5 @@
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import {
   Tab,
   TabList,
@@ -9,8 +11,6 @@ import {
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { Fragment } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
 interface MenuItem {
   id: string;
@@ -103,7 +103,7 @@ function Menu(): React.ReactElement {
                         >
                           {menuList.map((menu, index) => (
                             <Listbox.Option
-                              key={index}
+                              key={menu.id}
                               className={({ active }) =>
                                 `${
                                   active
@@ -114,7 +114,7 @@ function Menu(): React.ReactElement {
                               }
                               value={index}
                             >
-                              {({ selected, active }) => (
+                              {({ selected }) => (
                                 <>
                                   <span
                                     className={`${
@@ -124,14 +124,7 @@ function Menu(): React.ReactElement {
                                     {menu.category}
                                   </span>
                                   {selected ? (
-                                    <span
-                                      className={`${
-                                        active
-                                          ? 'text-amber-600'
-                                          : 'text-amber-600'
-                                      }
-                                absolute inset-y-0 left-0 flex items-center pl-3`}
-                                    >
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                       <CheckIcon
                                         className="w-5 h-5"
                                         aria-hidden="true"

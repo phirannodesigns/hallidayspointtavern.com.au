@@ -70,7 +70,7 @@ function HappyHour() {
           <StaticImage
             src="../images/happy-hour-background.jpg"
             alt=""
-            className="flex-1 object-cover"
+            className="flex-1"
           />
           <span
             aria-hidden
@@ -151,7 +151,7 @@ function TriviaAtTheTab() {
           <StaticImage
             src="../images/trivia-background.jpg"
             alt=""
-            className="flex-1 object-cover"
+            className="flex-1"
           />
           <span
             aria-hidden
@@ -162,11 +162,7 @@ function TriviaAtTheTab() {
     >
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <StaticImage
-            src="../images/trivia.jpg"
-            alt=""
-            className="relative z-10"
-          />
+          <StaticImage src="../images/trivia.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>

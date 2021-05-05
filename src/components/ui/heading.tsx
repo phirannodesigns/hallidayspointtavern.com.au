@@ -1,20 +1,38 @@
 import * as React from 'react';
 
+type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4';
+
+type TextColor = 'white' | 'black';
+
+type UnderlineColor = 'black' | 'olive';
+
+interface HeadingContextValue {
+  underlineColor: UnderlineColor;
+}
+
+const HeadingContext = React.createContext<HeadingContextValue | undefined>(
+  undefined
+);
+
+function useHeadingContext(): HeadingContextValue {
+  const context = React.useContext(HeadingContext);
+  if (context === undefined) {
+    throw new Error(
+      `<Heading.Main> must be used inside of a <Heading>, otherwise it will not function correctly.`
+    );
+  }
+  return context;
+}
+
 const TEXT_COLOR_MAP = {
   white: 'text-white',
   black: 'text-black',
 };
 
 const UNDERLINE_COLOR_MAP = {
-  black: 'accent-black',
-  olive: 'accent-olive',
+  black: 'bg-black',
+  olive: 'bg-olive',
 };
-
-type HeadingLevel = 'h1' | 'h2' | 'h3' | 'h4';
-
-type TextColor = 'white' | 'black';
-
-type UnderlineColor = 'black' | 'olive';
 
 interface HeadingProps {
   as?: HeadingLevel;
@@ -29,24 +47,41 @@ function Heading({
   textColor = 'white',
   underlineColor = 'black',
 }: HeadingProps): React.ReactElement {
-  return React.createElement(
-    as,
-    {
-      className: `${TEXT_COLOR_MAP[textColor]} ${UNDERLINE_COLOR_MAP[underlineColor]} relative text-xl leading-none sm:text-2xl heading-accent`,
-    },
-    children
+  return (
+    <HeadingContext.Provider value={{ underlineColor }}>
+      {React.createElement(
+        as,
+        {
+          className: `${TEXT_COLOR_MAP[textColor]} relative flex-col text-xl inline-flex leading-none sm:text-2xl`,
+        },
+        children
+      )}
+    </HeadingContext.Provider>
   );
 }
 
 function Eyebrow({ children }): React.ReactElement {
-  return <span className="ml-12">{children}</span>;
+  return (
+    <span className="relative pl-12">
+      {children}
+      <br />
+    </span>
+  );
 }
 
 function Main({ children }): React.ReactElement {
+  const { underlineColor } = useHeadingContext();
   return (
-    <span className="block text-5xl font-black sm:text-5xl sm:whitespace-nowrap">
-      {children}
-    </span>
+    <div className="relative inline-block">
+      <div className="relative inline text-5xl font-black sm:text-5xl">
+        <span className="relative z-10">{children}</span>
+        <span
+          aria-hidden
+          style={{ width: `calc(100% + 6rem)` }}
+          className={`absolute bottom-0 -right-4 bg-black h-4 ${UNDERLINE_COLOR_MAP[underlineColor]}`}
+        />
+      </div>
+    </div>
   );
 }
 
