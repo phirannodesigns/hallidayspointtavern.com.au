@@ -7,6 +7,7 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import HistoryCarousel from '../components/history-carousel';
 
 function AboutPage(): React.ReactElement {
   return (
@@ -16,7 +17,8 @@ function AboutPage(): React.ReactElement {
         <About1 />
         <OurHistory />
         <OurHistory2 />
-        <Gallery />
+        {/* <Gallery /> */}
+        <HistoryCarousel />
         <GoogleMap />
       </Layout>
     </>

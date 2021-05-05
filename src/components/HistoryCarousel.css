@@ -1,0 +1,11 @@
+#carousel .slider-frame {
+  @apply py-0 !important;
+}
+
+.slider-list {
+  @apply m-0 !important;
+}
+
+.slide-current {
+  @apply shadow-none !important;
+}
