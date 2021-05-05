@@ -52,7 +52,7 @@ function About1() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/welcome.jpg" alt="" className="flex-1" />
+          <StaticImage src="../images/welcome.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
@@ -79,11 +79,7 @@ function OurHistory() {
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
           <figure className="text-white">
-            <StaticImage
-              src="../images/advert-for-elga.jpg"
-              alt=""
-              className="flex-1"
-            />
+            <StaticImage src="../images/advert-for-elga.jpg" alt="" />
             <figcaption className="font-semibold">
               1st Advert for Elga, Manning River Times March&nbsp;1982
             </figcaption>
@@ -225,21 +221,13 @@ function OurHistory2(): React.ReactElement {
         <OverlappingImageWrapper>
           <div className="space-y-8">
             <figure>
-              <StaticImage
-                src="../images/looking-north.jpg"
-                alt=""
-                className="flex-1"
-              />
+              <StaticImage src="../images/looking-north.jpg" alt="" />
               <figcaption className="font-semibold">
                 Looking north towards beach
               </figcaption>
             </figure>
             <figure>
-              <StaticImage
-                src="../images/elvis-and-brother.jpg"
-                alt=""
-                className="flex-1"
-              />
+              <StaticImage src="../images/elvis-and-brother.jpg" alt="" />
               <figcaption className="font-semibold">
                 Elvis &amp; his brother Andrew building 2nd storey of tavern
               </figcaption>
@@ -339,7 +327,6 @@ function Gallery(): React.ReactElement {
                   Original House, now Senior Citizens
                 </p>
               </div>
-
               <div className="row-span-2 lg:row-span-3">
                 <div className="relative h-[80%] lg:h-[90%] bg-white ">
                   <div className="absolute inset-0 flex">

@@ -23,7 +23,7 @@ function ContactForm(): React.ReactElement {
       handleSubmit={handleSubmit}
       className="px-4 py-12 sm:px-6 lg:px-12 lg:py-24"
     >
-      <div className="grid w-full grid-cols-1 gap-6 max-w-prose">
+      <div className="grid w-full grid-cols-1 gap-6 mx-auto max-w-prose">
         <Input
           label="Full name"
           {...register('full_name', { required: true })}

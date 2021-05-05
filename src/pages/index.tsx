@@ -83,11 +83,7 @@ function OurMenu() {
     <SideBySide
       background={
         <div className="absolute inset-0 flex">
-          <StaticImage
-            src="../images/menu.jpg"
-            alt=""
-            className="flex-1 object-cover"
-          />
+          <StaticImage src="../images/menu.jpg" alt="" className="flex-1" />
           <span
             aria-hidden
             className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
@@ -160,7 +156,6 @@ function ExcitingEvents() {
           <GatsbyImage
             image={events.mainImage.asset.gatsbyImageData}
             alt="Current events"
-            className="flex-1"
           />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
