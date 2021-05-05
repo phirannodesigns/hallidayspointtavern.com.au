@@ -10,12 +10,12 @@
     "build:serve": "npm run build && npm run serve",
     "clean": "gatsby clean",
     "develop": "gatsby develop --host=0.0.0.0",
-    "dev": "netlify dev",
-    "format": "prettier \"**/*.{md,mdx,json,yaml,js,jsx}\" --write",
+    "dev": "npm run develop",
+    "format": "prettier . --write --ignore-unknown",
     "eslint:fix": "npm run eslint -- --fix",
     "eslint": "eslint --color --ext .js,.json,.jsx,.ts,.tsx src",
     "serve": "gatsby serve",
-    "start": "netlify dev",
+    "start": "npm run develop",
     "prepare": "husky install"
   },
   "dependencies": {
