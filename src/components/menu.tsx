@@ -114,7 +114,7 @@ function Menu(): React.ReactElement {
                               }
                               value={index}
                             >
-                              {({ selected, active }) => (
+                              {({ selected }) => (
                                 <>
                                   <span
                                     className={`${
@@ -124,14 +124,7 @@ function Menu(): React.ReactElement {
                                     {menu.category}
                                   </span>
                                   {selected ? (
-                                    <span
-                                      className={`${
-                                        active
-                                          ? 'text-amber-600'
-                                          : 'text-amber-600'
-                                      }
-                                absolute inset-y-0 left-0 flex items-center pl-3`}
-                                    >
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                       <CheckIcon
                                         className="w-5 h-5"
                                         aria-hidden="true"
