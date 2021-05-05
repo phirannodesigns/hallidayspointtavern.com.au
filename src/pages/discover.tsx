@@ -261,7 +261,7 @@ function ExcitingEvents() {
               <p>
                 Enjoy a round of golf at Tallwoods, a world-class, magnificent
                 18-hole championship course, designed by top-notch golf course
-                designer Dr Michael Hurdzan. Tallwoods Village also features 6
+                designer Dr Michael Hurdzan. Tallwoods Village also features 15
                 exquisitely furnished bungalows where you and your family or
                 friends can stay while enjoying a relaxed and friendly
                 atmosphere.
@@ -293,10 +293,10 @@ function FunEvents() {
             <li className="py-4">
               <p className="text-xl font-semibold">
                 8.{' '}
-                <span className="italic underline">The Blackhead Bazaar</span>
+                <span className="italic underline">The Black Head Bazaar</span>
               </p>
               <p>
-                Don’t forget to shop around the Blackhead Bazaar if you’re
+                Don’t forget to shop around the Black Head Bazaar if you’re
                 visiting Hallidays Point between September and May. This
                 community market is open on the first Sunday of every month with
                 a good mix of shops offering a wide array of products from arts
@@ -404,13 +404,10 @@ function DelightfulCuisines() {
                 />
               </div>
             </div>
-            <p className="mt-4 text-xl font-semibold">11. Surf and Turf</p>
+            <p className="mt-4 text-xl font-semibold">11. Lamb Backstrap</p>
             <p>
-              Indulge in a feast for a South Australian Rump Steak. Enjoy the
-              Tavern’s original tender beef recipe topped with luscious
-              Australian King Prawns and green Lip Mussels in freshly made
-              tomato sauce. It’s an excellent meat and seafood mix that
-              complement the chips and garden fresh salad on the side.
+              Lamb back strap served (med rare) on grilled halloumi, spinach
+              pine nuts sun dried tomato with balsamic glaze and rosemary oil.
             </p>
           </li>
           <li className="text-left text-white ">
@@ -424,13 +421,11 @@ function DelightfulCuisines() {
               </div>
             </div>
             <p className="mt-4 text-xl font-semibold">
-              12. Grilled Barramundi Fillet
+              12. Fresh Tasmania Salmon Fillet
             </p>
             <p>
-              If you’re hungry for an excellent fillet, check out the Tavern’s
-              Grilled Barramundi Fillet. Served in a white wine and butter
-              sauce, the Tavern’s Grilled Barramundi Fillet is truly a
-              gastronomic delight.
+              Fresh Tasmania salmon fillet served with creamy mash and
+              broccolini with hollandaise sauce.
             </p>
           </li>
         </ul>
