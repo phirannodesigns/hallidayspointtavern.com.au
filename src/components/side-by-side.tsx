@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { classNames } from '../lib/classnames';
+
 interface SideBySideProps {
   id?: string;
   background?: React.ReactNode;
@@ -42,9 +44,11 @@ function TwoCols({
 }: TwoColsProps): React.ReactElement {
   return (
     <div
-      className={`relative flex flex-col justify-center lg:col-span-2 ${
-        wrapFirst ? '' : 'order-last lg:order-none'
-      } ${bgColorClass}`}
+      className={classNames(
+        'relative flex flex-col justify-center lg:col-span-2',
+        bgColorClass,
+        !wrapFirst && 'order-last lg:order-none'
+      )}
     >
       {children}
     </div>

@@ -4,8 +4,10 @@ import * as React from 'react';
 import { Copy } from '../components/copy';
 import { Layout } from '../components/layout';
 import { Menu } from '../components/menu';
+import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import logo from '../images/reschs-logo.svg';
 
 function MenuPage(): React.ReactElement {
   return (
@@ -62,10 +64,21 @@ function OurMenu() {
             Sit back, relax, and let us show you why our patrons brand us as one
             of the best restaurants in Hallidays Point, New South Wales.
           </p>
-          {/* // TODO: Add Reschs Appreciation Society link/CTA here */}
         </Copy>
       </SideBySide.ThreeCols>
-      <span aria-hidden className="lg:col-span-2" />
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper>
+          <figure className="flex flex-col pb-12 mx-auto prose text-center text-white max-w-none">
+            <img src={logo} alt="" className="max-w-xs mx-auto" />
+            <figcaption className="!mt-0">
+              Preferred venue of the <br />
+              <a href="/" className="!text-white">
+                Resch's Appreciation society
+              </a>
+            </figcaption>
+          </figure>
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
