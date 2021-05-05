@@ -2380,6 +2380,11 @@
   resolved "https://registry.yarnpkg.com/@types/semver/-/semver-6.2.2.tgz#5c27df09ca39e3c9beb4fae6b95f4d71426df0a9"
   integrity sha512-RxAwYt4rGwK5GyoRwuP0jT6ZHAVTdz2EqgsHmX0PYNjGsko+OeT4WFXXTs/lM3teJUJodM+SNtAL5/pXIJ61IQ==
 
+"@types/tailwindcss@^2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@types/tailwindcss/-/tailwindcss-2.0.2.tgz#7757f3821507c149e6bb09a45f1ac99502e77d49"
+  integrity sha512-C6gthGtfP/rDf0GhN6HhgdSGDbpvs0R8LElnSm3jnTPjYt1sCw9ZJ9cR841AsU8cQYiCqB5rzaRAUW6tF19X8Q==
+
 "@types/tmp@^0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/tmp/-/tmp-0.0.33.tgz#1073c4bc824754ae3d10cfab88ab0237ba964e4d"
