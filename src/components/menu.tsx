@@ -1,3 +1,5 @@
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 import {
   Tab,
   TabList,
@@ -9,8 +11,6 @@ import {
 import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { Fragment } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
-import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
 interface MenuItem {
   id: string;
