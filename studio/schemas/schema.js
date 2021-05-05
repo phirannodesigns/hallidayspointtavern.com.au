@@ -6,22 +6,21 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 // eslint-disable-next-line import/no-unresolved
 import createSchema from 'part:@sanity/base/schema-creator';
 
-import * as plugs from '../plugins';
-import plugDefaultFields from '../plugins/_plugDefaultFields';
 // We import object and document schemas
 import address from './address';
 import blockContent from './block-content';
+import gig from './gig';
 import googleMaps from './google-maps';
-import menuList from './menuList';
+import homeEvents from './home-events';
+import liveMusic from './live-music';
+import menuHeading from './menu-heading';
+import menuItem from './menu-item';
+import menuList from './menu-list';
 import navItem from './nav-item';
 import navigation from './navigation';
-import liveMusic from './liveMusic';
-import homeEvents from './homeEvents';
 import openHours from './open-hours';
 import siteSettings from './site-settings';
 import socialLink from './social-link';
-
-const allPlugins = Object.values(plugs).map((plug) => ({ ...plug, fields: [...plugDefaultFields, ...plug.fields] }));
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,20 +28,24 @@ export default createSchema({
   name: 'default',
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
-  types: [...schemaTypes,
+  types: [
+    ...schemaTypes,
     // The following are document types which will appear
     // in the studio.
     address,
+    blockContent,
+    gig,
     googleMaps,
+    menuHeading,
+    menuItem,
     navItem,
     openHours,
     socialLink,
-    blockContent,
     // Documents
-    navigation,
-    siteSettings,
+    homeEvents,
     liveMusic,
     menuList,
-    homeEvents,
-   ...allPlugins,],
+    navigation,
+    siteSettings,
+  ],
 });
