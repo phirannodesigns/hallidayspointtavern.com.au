@@ -43,20 +43,6 @@
 }
 
 @layer components {
-  .heading-accent > * {
-    @apply relative;
-  }
-  .heading-accent::before {
-    content: '';
-    @apply absolute bottom-0 h-4 -left-24;
-    width: 115%;
-  }
-  .accent-black::before {
-    @apply bg-black;
-  }
-  .accent-olive::before {
-    @apply bg-olive;
-  }
   .reset-list > li::before {
     @apply hidden;
   }
