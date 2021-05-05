@@ -16,7 +16,7 @@ function OverlappingImageWrapper({
 }: OverlappingImageWrapperProps): React.ReactElement {
   return (
     <div
-      className={`px-4 py-12 sm:px-6 mx-auto lg:px-12 lg:py-24 ${OVERLAP_DIRECTION_MAP[overlapDirection]}`}
+      className={`relative z-10 w-full max-w-lg px-4 py-12 mx-auto sm:px-6 lg:px-12 lg:py-24 ${OVERLAP_DIRECTION_MAP[overlapDirection]}`}
     >
       {children}
     </div>
