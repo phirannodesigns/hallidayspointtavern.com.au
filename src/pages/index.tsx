@@ -21,6 +21,7 @@ function IndexPage(): React.ReactElement {
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
+        <SeeOurHistory />
         <ExcitingEvents />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
@@ -160,6 +161,41 @@ function ExcitingEvents() {
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
+  );
+}
+
+function SeeOurHistory() {
+  return (
+    <HeroComponent
+      backgroundImage={
+        <>
+          <StaticImage src="../images/elga-bg.jpg" alt="" className="flex-1" />
+          <span
+            aria-hidden
+            className="absolute inset-0 flex-1 bg-black bg-opacity-25"
+          />
+        </>
+      }
+    >
+      <div className="flex-1 text-center">
+        <h2 className="text-5xl font-black text-white">
+          See The History Of Our Pub
+        </h2>
+        <p className="mt-6 text-white">
+          Once considered unusable grazing land by the Australian Agricultural
+          Company, the coastal land of the Manning was handed back to the Crown
+          who classified it as part of the Gloucester Gold Fields...
+        </p>
+        <div className="mt-6">
+          <Link
+            to="/about-us"
+            className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-transparent border border-white"
+          >
+            Find out more
+          </Link>
+        </div>
+      </div>
+    </HeroComponent>
   );
 }
 
