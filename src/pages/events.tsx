@@ -16,18 +16,20 @@ function EventsPage(): React.ReactElement {
     <>
       <SEO title="Events" />
       <Layout>
-        <EventOfTheWeek />
-        <HappyHour />
-        <LiveMusic />
+        <UpcomingSpecialEvents />
         <TriviaAtTheTab />
+        <LiveMusic />
+        <PaintAndSip />
         <FootyTipping />
+        <MeatRaffles />
+        <HappyHour />
         <GoogleMap />
       </Layout>
     </>
   );
 }
 
-function EventOfTheWeek() {
+function UpcomingSpecialEvents() {
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
@@ -62,42 +64,40 @@ function EventOfTheWeek() {
   );
 }
 
-function HappyHour() {
+function TriviaAtTheTab() {
   return (
     <SideBySide
       background={
         <div className="absolute inset-0 flex">
           <StaticImage
-            src="../images/happy-hour-background.jpg"
+            src="../images/trivia-background.jpg"
             alt=""
             className="flex-1"
           />
           <span
             aria-hidden
-            className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
+            className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-black"
           />
         </div>
       }
     >
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <StaticImage src="../images/happy-hour.jpg" alt="" />
+          <StaticImage src="../images/trivia.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Be sure to be here for',
-            main: 'Our Happy Hour',
+            eyebrow: 'Come and join our',
+            main: 'Trivia at the Tav',
             underlineColor: 'olive',
           }}
+          lead="Starting March 8th"
         >
-          <ul>
-            <li>Punter's Day Happy Hour</li>
-            <li>Every Saturday 3:30pm until 5:30pm</li>
-          </ul>
           <p>
-            <small>Schooners $5* Conditions Apply</small>
+            Welcome to our first ever Trivia event. We will be hosting Trivia on
+            the following dates: 17th and 31st May, 14th and 28th June
           </p>
         </Copy>
       </SideBySide.ThreeCols>
@@ -143,7 +143,7 @@ function LiveMusic() {
   );
 }
 
-function TriviaAtTheTab() {
+function PaintAndSip() {
   return (
     <SideBySide
       background={
@@ -168,15 +168,26 @@ function TriviaAtTheTab() {
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Come and join our',
-            main: 'Trivia at the Tav',
-            underlineColor: 'olive',
+            eyebrow: 'Paint your town',
+            main: 'Paint and Sip',
+            underlineColor: 'black',
           }}
-          lead="Starting March 8th"
+          lead="Sunday 23rd May"
         >
+          <p>Grab your friends and get ready for a creative afternoon out</p>
           <p>
-            Welcome to our first ever Trivia event. We will be hosting Trivia on
-            the following dates: 17th and 31st May, 14th and 28th June
+            Painting begins at 4pm and we'll walk you through step-by-step in
+            painting the above art- work. Our classes are for beginners so no
+            experience required, plus it's FUN art, not FINE art :)
+          </p>
+          <p>
+            Bookings are essential! go to{' '}
+            <a href="https://paintyourtown.com.au/" className="!text-white">
+              paintyourtown.com.au
+            </a>{' '}
+            and click events Price includes your 1/2 hour paint class, canvas,
+            and all paint supplies for $50. Food and drinks can be purchased at
+            Hallidays Point Tavern during the event to enjoy while painting.
           </p>
         </Copy>
       </SideBySide.ThreeCols>
@@ -221,6 +232,79 @@ function FootyTipping() {
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
           <StaticImage src="../images/footy-tipping.jpg" alt="" />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
+    </SideBySide>
+  );
+}
+
+function MeatRaffles() {
+  return (
+    <SideBySide
+      background={<span aria-hidden className="absolute inset-0 bg-cream" />}
+    >
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper overlapDirection="right">
+          <StaticImage src="../images/meat-raffles.jpg" alt="" />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
+      <SideBySide.ThreeCols>
+        <Copy
+          heading={{
+            eyebrow: 'Our weekly',
+            main: 'Friday Raffle',
+            underlineColor: 'olive',
+          }}
+          onDark={false}
+        >
+          <p>
+            Come down every Friday for your chance to take home a meat tray and
+            be in the draw in our weekly membership draw.
+          </p>
+          <p>This is proudly sponsored by Hallidays Point Social Golf Club.</p>
+        </Copy>
+      </SideBySide.ThreeCols>
+    </SideBySide>
+  );
+}
+
+function HappyHour() {
+  return (
+    <SideBySide
+      background={
+        <div className="absolute inset-0 flex">
+          <StaticImage
+            src="../images/happy-hour-background.jpg"
+            alt=""
+            className="flex-1"
+          />
+          <span
+            aria-hidden
+            className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-teal"
+          />
+        </div>
+      }
+    >
+      <SideBySide.ThreeCols>
+        <Copy
+          heading={{
+            eyebrow: 'Be sure to be here for',
+            main: 'Our Happy Hour',
+            underlineColor: 'black',
+          }}
+        >
+          <ul>
+            <li>Punter's Day Happy Hour</li>
+            <li>Every Saturday 3:30pm until 5:30pm</li>
+          </ul>
+          <p>
+            <small>Schooners $5* Conditions Apply</small>
+          </p>
+        </Copy>
+      </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper>
+          <StaticImage src="../images/happy-hour.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
