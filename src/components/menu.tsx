@@ -8,50 +8,13 @@ import {
   Tabs,
   useTabsContext,
 } from '@reach/tabs';
-import { graphql, useStaticQuery } from 'gatsby';
 import * as React from 'react';
 import { Fragment } from 'react';
 
-interface MenuItem {
-  id: string;
-  price: string;
-  itemName: string;
-  description: string;
-}
-
-interface MenuList {
-  id: string;
-  category: string;
-  description: string;
-  items: Array<MenuItem>;
-}
-
-interface AllSanityMenuList {
-  allSanityMenuList: {
-    nodes: Array<MenuList>;
-  };
-}
+import { MenuItems, MenuList, Menus, useMenus } from '../hooks/use-menus';
 
 function Menu(): React.ReactElement {
-  const { allSanityMenuList } = useStaticQuery<AllSanityMenuList>(graphql`
-    {
-      allSanityMenuList(sort: { fields: _updatedAt }) {
-        nodes {
-          id
-          category
-          description
-          items {
-            id: _key
-            price
-            itemName
-            description
-          }
-        }
-      }
-    }
-  `);
-
-  const { nodes: menuList } = allSanityMenuList;
+  const menus = useMenus();
   const [tabIndex, setTabIndex] = React.useState(0);
 
   return (
@@ -81,7 +44,7 @@ function Menu(): React.ReactElement {
                     <div className="relative mt-1">
                       <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-xl text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
                         <span className="block truncate">
-                          {menuList[tabIndex].category}
+                          {menus[tabIndex].category}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                           <SelectorIcon
@@ -101,7 +64,7 @@ function Menu(): React.ReactElement {
                           static
                           className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                         >
-                          {menuList.map((menu, index) => (
+                          {menus.map((menu, index) => (
                             <Listbox.Option
                               key={menu.id}
                               className={({ active }) =>
@@ -143,19 +106,14 @@ function Menu(): React.ReactElement {
               </Listbox>
             </div>
             <div className="hidden sm:block">
-              {menuList.map((item, index) => (
+              {menus.map((item, index) => (
                 <MenuTab key={item.id} item={item} index={index} />
               ))}
             </div>
           </TabList>
           <TabPanels className="grid gap-16 mt-12 bg-white">
-            {menuList.map(({ items, id }, index) => (
-              <MenuPanel
-                key={id}
-                dishes={items}
-                menuList={menuList}
-                index={index}
-              />
+            {menus.map(({ items, id }, index) => (
+              <MenuPanel key={id} dishes={items} menus={menus} index={index} />
             ))}
           </TabPanels>
         </Tabs>
@@ -190,11 +148,11 @@ function MenuTab({ index, item, ...rest }: MenuTabProps) {
 
 interface MenuPanelProps {
   index: number;
-  dishes: Array<MenuItem>;
-  menuList: Array<MenuList>;
+  dishes: MenuItems;
+  menus: Menus;
 }
 
-function MenuPanel({ dishes, index, menuList, ...rest }: MenuPanelProps) {
+function MenuPanel({ dishes, index, menus, ...rest }: MenuPanelProps) {
   const { selectedIndex } = useTabsContext();
   return (
     <TabPanel
@@ -204,7 +162,7 @@ function MenuPanel({ dishes, index, menuList, ...rest }: MenuPanelProps) {
       {...rest}
     >
       <p className="text-center text-black">
-        {menuList[selectedIndex].description}
+        {menus[selectedIndex].description}
       </p>
       <div className="grid gap-12 mt-8 md:grid-cols-2">
         {dishes.map(({ id, itemName, description, price }) => (
