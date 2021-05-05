@@ -59,7 +59,7 @@ function WhatAreYouWaiting() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/lake.jpg" alt="" />
+          <StaticImage src="../images/things-you-should-not-miss.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
