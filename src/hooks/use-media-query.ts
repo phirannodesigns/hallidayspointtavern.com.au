@@ -1,8 +1,9 @@
 import React from 'react';
 
-const formatDebugValue = ({ query, state }) => `\`${query}\` => ${state}`;
+const formatDebugValue = ({ query, state }): string =>
+  `\`${query as string}\` => ${state as string}`;
 
-function useMediaQuery(query, initialState = false) {
+function useMediaQuery(query: string, initialState = false): boolean {
   const [state, setState] = React.useState(initialState);
   React.useDebugValue({ query, state }, formatDebugValue);
 
