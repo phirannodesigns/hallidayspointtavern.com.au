@@ -192,18 +192,9 @@ function ExcitingEvents() {
     <SideBySide bgColorClass="bg-cream">
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <div className="space-y-8">
-            <StaticImage
-              src="../images/dolphin.jpg"
-              alt=""
-              className="max-h-96"
-            />
-            <StaticImage
-              src="../images/golf.jpg"
-              alt=""
-              objectPosition="0"
-              className="max-h-96"
-            />
+          <div className="flex flex-col mx-auto space-y-8">
+            <StaticImage src="../images/dolphin.jpg" alt="" />
+            <StaticImage src="../images/golf.jpg" alt="" />
           </div>
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
