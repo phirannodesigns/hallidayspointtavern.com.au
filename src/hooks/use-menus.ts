@@ -1,13 +1,20 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
+interface MenuHeading {
+  _type: 'menuHeading';
+  id: string;
+  heading: string;
+}
+
 interface MenuItem {
+  _type: 'menuItem';
   id: string;
   price: string;
   itemName: string;
   description: string;
 }
 
-type MenuItems = MenuItem[];
+type MenuItems = Array<MenuItem | MenuHeading>;
 
 interface MenuList {
   id: string;
@@ -34,10 +41,19 @@ function useMenus(): Menus {
             category
             description
             items {
-              id: _key
-              price
-              itemName
-              description
+              ... on SanityMenuHeading {
+                _type
+                _key
+                id: _key
+                heading
+              }
+              ... on SanityMenuItem {
+                _type
+                id: _key
+                price
+                itemName
+                description
+              }
             }
           }
         }
@@ -48,4 +64,4 @@ function useMenus(): Menus {
 }
 
 export { useMenus };
-export type { MenuItem, MenuItems, MenuList, Menus };
+export type { MenuHeading, MenuItem, MenuItems, MenuList, Menus };

@@ -26,24 +26,25 @@ function Menu(): React.ReactElement {
             setTabIndex(index);
           }}
         >
-          <TabList className="flex flex-col px-4 space-y-4 text-4xl font-black text-black md:space-y-0 md:space-x-4 md:flex-row md:justify-between">
-            <div>
-              <div className="flex flex-col">
-                <span className="px-4 -mb-4 text-xl font-normal text-black md:text-center">
-                  Check out
-                </span>
-                <span className="px-4 py-2 text-4xl font-black text-black">
-                  The Menu
-                </span>
+          <TabList className="flex flex-col space-y-4 font-black text-black md:space-y-0 md:space-x-4 md:flex-row md:justify-between md:items-end">
+            <h2 className="relative inline-flex flex-col text-xl leading-none sm:text-2xl">
+              <span className="relative pl-12">
+                Check out
+                <br />
+              </span>
+              <div className="relative inline-block">
+                <div className="relative inline text-5xl font-black sm:text-5xl">
+                  <span className="relative z-10">The Menu</span>
+                </div>
               </div>
-            </div>
+            </h2>
             <div className="block w-full mx-auto sm:hidden">
               <Listbox value={tabIndex} onChange={setTabIndex}>
                 {({ open }) => (
                   <>
                     <div className="relative mt-1">
-                      <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
-                        <span className="block truncate">
+                      <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white cursor-default focus:outline-none sm:text-sm">
+                        <span className="block text-lg font-black truncate">
                           {menus[tabIndex].category}
                         </span>
                         <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
@@ -62,16 +63,14 @@ function Menu(): React.ReactElement {
                       >
                         <Listbox.Options
                           static
-                          className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                          className="absolute z-10 w-full py-1 mt-1 overflow-auto text-base bg-white shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
                         >
                           {menus.map((menu, index) => (
                             <Listbox.Option
                               key={menu.id}
                               className={({ active }) =>
                                 `${
-                                  active
-                                    ? 'text-amber-900 bg-amber-100'
-                                    : 'text-gray-900'
+                                  active ? 'bg-gray-100 z-10' : 'text-gray-900'
                                 }
                           cursor-default select-none relative py-2 pl-10 pr-4`
                               }
@@ -105,15 +104,22 @@ function Menu(): React.ReactElement {
                 )}
               </Listbox>
             </div>
-            <div className="hidden sm:block">
-              {menus.map((item, index) => (
-                <MenuTab key={item.id} item={item} index={index} />
-              ))}
+            <div className="flex-1 hidden -mr-2 sm:flex">
+              <div className="mx-auto">
+                {menus.map((item, index) => (
+                  <MenuTab key={item.id} item={item} index={index} />
+                ))}
+              </div>
             </div>
           </TabList>
-          <TabPanels className="grid gap-16 mt-12 bg-white">
+          <TabPanels className="grid gap-16 mt-4 bg-white">
             {menus.map(({ items, id }, index) => (
-              <MenuPanel key={id} dishes={items} menus={menus} index={index} />
+              <MenuPanel
+                key={id}
+                menuItems={items}
+                menus={menus}
+                index={index}
+              />
             ))}
           </TabPanels>
         </Tabs>
@@ -133,64 +139,74 @@ function MenuTab({ index, item, ...rest }: MenuTabProps) {
     <Tab
       className={`${
         index === selectedIndex ? '' : 'text-gray-400'
-      } relative self-center px-3 py-2 leading-none focus:outline-none focus:ring`}
+      } relative self-center px-3 py-2 focus:outline-none focus:ring`}
       {...rest}
     >
-      <div
-        className={`absolute bottom-0 left-0 w-full h-4 transition ease-in-out duration-300 ${
-          index === selectedIndex ? 'bg-olive' : ''
-        } `}
-      />
-      <span className="relative">{item.category}</span>
+      <div className="relative text-3xl font-black leading-none">
+        <span className="relative z-10">{item.category}</span>
+        <span
+          aria-hidden
+          style={{ width: 'calc(100% + 0.5rem)' }}
+          className={`absolute block z-0 bottom-0 -left-1 -right-1 h-3 transition ease-in-out duration-300
+           ${index === selectedIndex ? 'bg-olive' : ''}`}
+        />
+      </div>
     </Tab>
   );
 }
 
 interface MenuPanelProps {
   index: number;
-  dishes: MenuItems;
+  menuItems: MenuItems;
   menus: Menus;
 }
 
-function MenuPanel({ dishes, index, menus, ...rest }: MenuPanelProps) {
+function MenuPanel({ menuItems, index, menus, ...rest }: MenuPanelProps) {
   const { selectedIndex } = useTabsContext();
   return (
     <TabPanel
-      className={`p-8 focus:outline-none ${
+      className={`px-4 sm:px-6 lg:px-8 py-8 focus:outline-none ${
         index === selectedIndex ? 'block' : ''
       }`}
       {...rest}
     >
-      <p className="text-center text-black">
-        {menus[selectedIndex].description}
-      </p>
-      <div className="grid gap-12 mt-8 md:grid-cols-2">
-        {dishes.map(({ id, itemName, description, price }) => (
-          <div
-            key={id}
-            className={`${
-              description === 'Heading'
-                ? 'col-span-2'
-                : 'col-span-2 sm:col-span-1'
-            }  flex items-start justify-between space-x-16 text-black`}
-          >
-            {description !== 'Heading' ? (
-              <>
-                <div>
-                  <p className="text-lg font-bold">{itemName}</p>
-                  <p className="mt-1 text-sm leading-tight ">{description}</p>
+      <div className="w-full max-w-lg mx-auto text-black md:max-w-none">
+        {menus[selectedIndex].description ? (
+          <p className="text-black md:text-center">
+            {menus[selectedIndex].description}
+          </p>
+        ) : null}
+        <div className="grid mt-8 gap-x-12 gap-y-8 md:grid-cols-2">
+          {menuItems.map((menuItem) => {
+            if (menuItem._type === 'menuHeading') {
+              return (
+                <div key={menuItem.id} className="prose md:col-span-2">
+                  <h3 className="text-2xl font-semibold !uppercase">
+                    {menuItem.heading}
+                  </h3>
                 </div>
-                <p className="text-lg font-bold sm:whitespace-nowrap">
-                  {price}
-                </p>
-              </>
-            ) : (
-              <>
-                <h3 className="text-2xl font-semibold uppercase">{itemName}</h3>
-              </>
-            )}
-          </div>
-        ))}
+              );
+            }
+            if (menuItem._type === 'menuItem') {
+              return (
+                <div key={menuItem.id} className="prose">
+                  <React.Fragment key={menuItem.id}>
+                    <div className="sm:flex sm:items-start sm:justify-between sm:space-x-4 sm:col-span-2">
+                      <h4 className="text-lg !my-0 font-bold">
+                        {menuItem.itemName}
+                      </h4>
+                      <p className="text-sm font-bold !my-0 sm:text-lg sm:text-right whitespace-nowrap">
+                        {menuItem.price}
+                      </p>
+                    </div>
+                    <p className="!mt-1 text-sm">{menuItem.description}</p>
+                  </React.Fragment>
+                </div>
+              );
+            }
+            return null;
+          })}
+        </div>
       </div>
     </TabPanel>
   );
