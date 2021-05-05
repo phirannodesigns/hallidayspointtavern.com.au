@@ -103,7 +103,7 @@ function Menu(): React.ReactElement {
                         >
                           {menuList.map((menu, index) => (
                             <Listbox.Option
-                              key={index}
+                              key={menu.id}
                               className={({ active }) =>
                                 `${
                                   active
