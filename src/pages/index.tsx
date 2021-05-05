@@ -57,9 +57,9 @@ function Welcome() {
           backgroundColour="transparent-teal"
         >
           <p>
-            The Hallidays Point Tavern is located at the heart of Hallidays
-            Point in New South Wales which is a popular destination for its
-            spectacular coastal towns and rainforests.
+            Hallidays Point Tavern is located at the heart of Hallidays Point in
+            New South Wales which is a popular destination for its spectacular
+            coastal towns and rainforests.
           </p>
           <p>
             For more than 30 years, the Tavern has been a favourite spot for
@@ -220,15 +220,11 @@ function CourtesyBus() {
           <dl className="divide-y-2 divide-white">
             <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
               <dt className="inline">Monday - Thursdays, </dt>
-              <dd className="inline">6pm - 10:30pm</dd>
+              <dd className="inline">5pm till late</dd>
             </div>
             <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
-              <dt className="inline">Fridays &amp; Saturdays, </dt>
-              <dd className="inline">7pm - 12am</dd>
-            </div>
-            <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
-              <dt className="inline">Sunday - </dt>
-              <dd className="inline">Not Operating</dd>
+              <dt className="inline">Fridays - Sundays, </dt>
+              <dd className="inline">12pm noon till late</dd>
             </div>
           </dl>
         </Copy>

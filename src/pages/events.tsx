@@ -175,8 +175,8 @@ function TriviaAtTheTab() {
           lead="Starting March 8th"
         >
           <p>
-            Welcome to our first ever Trivia event. We will be hosting Trivia
-            every second Monday starting Monday 8th March from 6:30pm
+            Welcome to our first ever Trivia event. We will be hosting Trivia on
+            the following dates: 17th and 31st May, 14th and 28th June
           </p>
         </Copy>
       </SideBySide.ThreeCols>
