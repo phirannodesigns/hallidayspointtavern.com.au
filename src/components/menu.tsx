@@ -63,7 +63,7 @@ function Menu(): React.ReactElement {
             setTabIndex(index);
           }}
         >
-          <TabList className="flex flex-col px-4 space-y-4 text-4xl font-black text-black md:space-y-0 md:space-x-4 md:flex-row md:justify-between">
+          <TabList className="flex flex-col space-y-4 text-4xl font-black text-black sm:px-4 md:space-y-0 md:space-x-4 md:flex-row md:justify-between">
             <div>
               <div className="flex flex-col">
                 <span className="px-4 -mb-4 text-xl font-normal text-black md:text-center">
@@ -79,7 +79,7 @@ function Menu(): React.ReactElement {
                 {({ open }) => (
                   <>
                     <div className="relative mt-1">
-                      <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
+                      <Listbox.Button className="relative w-full py-2 pl-3 pr-10 text-xl text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
                         <span className="block truncate">
                           {menuList[tabIndex].category}
                         </span>
@@ -214,11 +214,11 @@ function MenuPanel({ dishes, index, menuList, ...rest }: MenuPanelProps) {
               description === 'Heading'
                 ? 'col-span-2'
                 : 'col-span-2 sm:col-span-1'
-            }  flex items-start justify-between space-x-16 text-black`}
+            }  flex sm:items-start flex-wrap sm:flex-nowrap justify-between sm:space-x-16 text-black`}
           >
             {description !== 'Heading' ? (
               <>
-                <div>
+                <div className="">
                   <p className="text-lg font-bold">{itemName}</p>
                   <p className="mt-1 text-sm leading-tight ">{description}</p>
                 </div>
