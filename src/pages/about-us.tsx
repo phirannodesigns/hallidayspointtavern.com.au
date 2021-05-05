@@ -3,11 +3,11 @@ import * as React from 'react';
 
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
+import HistoryCarousel from '../components/history-carousel';
 import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import HistoryCarousel from '../components/history-carousel';
 
 function AboutPage(): React.ReactElement {
   return (
@@ -17,7 +17,6 @@ function AboutPage(): React.ReactElement {
         <About1 />
         <OurHistory />
         <OurHistory2 />
-        {/* <Gallery /> */}
         <HistoryCarousel />
         <GoogleMap />
       </Layout>
@@ -263,128 +262,6 @@ function OurHistory2(): React.ReactElement {
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
-  );
-}
-
-function Gallery(): React.ReactElement {
-  return (
-    <div className="w-full px-4 py-12 mx-auto overflow-hidden max-w-screen-2xl bg-teal sm:px-6 lg:px-12 lg:py-24">
-      <div className="relative aspect-w-4 aspect-h-9 lg:aspect-w-16 lg:aspect-h-10">
-        <div className="absolute inset-0 flex">
-          <div className="flex-1">
-            <div className="grid h-full grid-cols-2 gap-4 lg:grid-flow-col lg:grid-rows-6 lg:grid-cols-3">
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/original-bar-c1982.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">Original Bar c1982</p>
-              </div>
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/looking-north-toward-tavern.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">
-                  Looking north toward tavern c1982
-                </p>
-              </div>
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/elga-1982.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">Elga 1982</p>
-              </div>
-
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/date-of-elga-foundation.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">
-                  Date of Elga foundation pouring 1-6-82
-                </p>
-              </div>
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/lookin-toward-black-head-rd.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">
-                  Looking toward Black Head Rd
-                </p>
-              </div>
-              <div className="row-span-2 ">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/original-house.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">
-                  Original House, now Senior Citizens
-                </p>
-              </div>
-              <div className="row-span-2 lg:row-span-3">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/ariel-view-tavern-c1990.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">
-                  Ariel view of tavern c1990
-                </p>
-              </div>
-              <div className="row-span-2 lg:row-span-3">
-                <div className="relative h-[80%] lg:h-[90%] bg-white ">
-                  <div className="absolute inset-0 flex">
-                    <StaticImage
-                      src="../images/elga-1982.jpg"
-                      alt=""
-                      className="flex-1"
-                    />
-                  </div>
-                </div>
-                <p className="font-semibold text-white">Elga Motel 1982</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
