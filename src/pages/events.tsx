@@ -149,7 +149,7 @@ function PaintAndSip() {
       background={
         <div className="absolute inset-0 flex">
           <StaticImage
-            src="../images/trivia-background.jpg"
+            src="../images/paint-and-sip-background.jpg"
             alt=""
             className="flex-1"
           />
@@ -162,7 +162,7 @@ function PaintAndSip() {
     >
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <StaticImage src="../images/trivia.jpg" alt="" />
+          <StaticImage src="../images/paint-and-sip.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
@@ -172,22 +172,24 @@ function PaintAndSip() {
             main: 'Paint and Sip',
             underlineColor: 'black',
           }}
-          lead="Sunday 23rd May"
+          lead="Grab your friends and get ready for a creative afternoon out Sunday 23rd May @ 3:30pm - 6:30pm"
         >
-          <p>Grab your friends and get ready for a creative afternoon out</p>
           <p>
             Painting begins at 4pm and we'll walk you through step-by-step in
-            painting the above art- work. Our classes are for beginners so no
-            experience required, plus it's FUN art, not FINE art :)
+            painting the above art-work. Our classes are for beginners so no
+            experience required, plus it's FUN art, not FINEart
           </p>
           <p>
             Bookings are essential! go to{' '}
             <a href="https://paintyourtown.com.au/" className="!text-white">
               paintyourtown.com.au
             </a>{' '}
-            and click events Price includes your 1/2 hour paint class, canvas,
-            and all paint supplies for $50. Food and drinks can be purchased at
-            Hallidays Point Tavern during the event to enjoy while painting.
+            and click events Price includes your 2 1/2 hour paint class, canvas,
+            and all paint supplies for $50.
+          </p>
+          <p>
+            Food and drinks can be purchased at Hallidays Point Tavern during
+            the event to enjoy while painting.
           </p>
         </Copy>
       </SideBySide.ThreeCols>
@@ -201,7 +203,7 @@ function FootyTipping() {
       <SideBySide.ThreeCols>
         <div className="absolute inset-0 flex overflow-hidden">
           <StaticImage
-            src="../images/footy-tipping-background.jpg"
+            src="../images/state-of-origin-background.jpg"
             alt=""
             className="flex-1"
           />
@@ -212,26 +214,18 @@ function FootyTipping() {
             main: 'Footy Tipping',
             underlineColor: 'olive',
           }}
-          lead="Join Our 2021 Footy Tipping Comp!"
+          lead="Come down enjoy Pizza Night and watch the State of Origin 9th June 2021 kick off 8pm"
           backgroundColour="transparent-black"
         >
-          <ul>
-            <li>$50 entry to be paid before Thursday, 11 March - Round 1</li>
-            <li>Tips to be in by 1st game of each round (no phone-ins)</li>
-            <li>Lowest individual round score for missed tips.</li>
-            <li>Perfect Round will receive 1 bonus point</li>
-            <li>Prize breakdown - 1st - 50%, 2nd - 30% and 3rd - 20%</li>
-          </ul>
           <p>
-            <strong className="!text-white">
-              To enter the 2021 Competition, please enquire at the tavern!
-            </strong>
+            $4 Schooner of house beer from kick off until 1/2 time on Game Night
           </p>
+          <p>Courtesy Bus From 5pm</p>
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <StaticImage src="../images/footy-tipping.jpg" alt="" />
+          <StaticImage src="../images/state-of-origin.jpg" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
     </SideBySide>
