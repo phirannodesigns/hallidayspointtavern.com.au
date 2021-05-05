@@ -215,22 +215,31 @@ function OurHistory2(): React.ReactElement {
             standing behind and the dining room can seat well over one hundred
             cliental.
           </p>
-          <p>
-            <strong>By Tracey Wilson</strong>
-            <br /> Resources: Bill Wilson, interview by Tracey Wilson,
-            recording, Tuncurry, 22 April 2021, in author’s possession. <br />
+          <div className="mt-12 prose-sm prose">
+            <h2 className="!text-base">By Tracey Wilson</h2>
+            <p>
+              Resources: Bill Wilson, interview by Tracey Wilson, recording,
+              Tuncurry, 22 April 2021, in author’s possession.
+            </p>
             Brian Lynch, interview by Tracey Wilson, recording, Black Head, 5
-            April 2021, in author’s possession. <br />
-            Elvis Castelletto, interview by Tracey Wilson, recording, Taree, 20
             April 2021, in author’s possession.
-            <br />
-            Maps and Land Registry, Department of Lands Registry NSW,
-            https://hlrv.nswlrs.com.au <br />
-            Roger Lynch, interview by Tracey Wilson, recording, Forster, 21
-            April 2021, in author’s possession. <br />
-            The Elga – Now Opened, Advertisement, Manning River Times, 5 March
-            1982, p.33
-          </p>
+            <p>
+              Elvis Castelletto, interview by Tracey Wilson, recording, Taree,
+              20 April 2021, in author’s possession.
+            </p>
+            <p>
+              Maps and Land Registry, Department of Lands Registry NSW,
+              https://hlrv.nswlrs.com.au
+            </p>
+            <p>
+              Roger Lynch, interview by Tracey Wilson, recording, Forster, 21
+              April 2021, in author’s possession.
+            </p>
+            <p>
+              The Elga – Now Opened, Advertisement, Manning River Times, 5 March
+              1982, p.33
+            </p>
+          </div>
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
