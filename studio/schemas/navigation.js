@@ -13,14 +13,11 @@ export default {
       of: [{ type: 'navItem' }],
     },
   ],
-
   preview: {
-    select: {
-      title: 'title',
-      media: 'shareImage',
-    },
-    prepare(selection) {
-      return { ...selection };
+    prepare() {
+      return {
+        title: 'Navigation',
+      };
     },
   },
 };

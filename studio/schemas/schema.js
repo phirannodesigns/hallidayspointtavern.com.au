@@ -12,6 +12,7 @@ import blockContent from './block-content';
 import gig from './gig';
 import googleMaps from './google-maps';
 import homeEvents from './home-events';
+import imageGallery from './image-gallery';
 import liveMusic from './live-music';
 import menuHeading from './menu-heading';
 import menuItem from './menu-item';
@@ -20,6 +21,7 @@ import navItem from './nav-item';
 import navigation from './navigation';
 import openHours from './open-hours';
 import siteSettings from './site-settings';
+import slide from './slide';
 import socialLink from './social-link';
 
 // Then we give our schema to the builder and provide the result to Sanity
@@ -40,9 +42,11 @@ export default createSchema({
     menuItem,
     navItem,
     openHours,
+    slide,
     socialLink,
     // Documents
     homeEvents,
+    imageGallery,
     liveMusic,
     menuList,
     navigation,

@@ -55,14 +55,11 @@ export default {
       of: [{ type: 'socialLink' }],
     },
   ],
-
   preview: {
-    select: {
-      title: 'title',
-      media: 'shareImage',
-    },
-    prepare(selection) {
-      return { ...selection };
+    prepare() {
+      return {
+        title: 'Site Settings',
+      };
     },
   },
 };

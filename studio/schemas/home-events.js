@@ -40,4 +40,11 @@ export default {
       ],
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Events',
+      };
+    },
+  },
 };

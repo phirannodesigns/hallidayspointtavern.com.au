@@ -30,4 +30,11 @@ export default {
       ],
     },
   ],
+  preview: {
+    prepare() {
+      return {
+        title: 'Live Music',
+      };
+    },
+  },
 };
