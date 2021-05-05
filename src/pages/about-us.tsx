@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
-import HistoryCarousel from '../components/history-carousel';
+import { HistoryCarousel } from '../components/history-carousel';
 import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
