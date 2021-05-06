@@ -23,10 +23,10 @@ function IndexPage(): React.ReactElement {
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
-        <ExcitingEvents data={data.upcomingEvents} />
         <SeeOurHistory />
-        <Trivia data={data.trivia} />
+        <ExcitingEvents data={data.upcomingEvents} />
         <DiscoverHallidaysPoint />
+        <Trivia data={data.trivia} />
         <CourtesyBus />
         <ContactSection />
         <GoogleMap />
