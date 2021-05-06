@@ -179,7 +179,7 @@ function SeeOurHistory() {
     >
       <div className="flex-1 text-center">
         <h2 className="text-5xl font-black text-white">
-          See The History Of Our Pub
+          See The History Of The Tavern
         </h2>
         <p className="mt-6 text-white">
           Once considered unusable grazing land by the Australian Agricultural
