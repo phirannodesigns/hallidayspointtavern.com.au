@@ -136,7 +136,7 @@ function SpectacularPlaces() {
                 </p>
               </li>
               <li className="py-4">
-                <p className="text-xl font-semibold">3. The Diamond Beach</p>
+                <p className="text-xl font-semibold">3. Diamond Beach</p>
                 <p>
                   Whether you’d like to go fishing, surfing or even just have a
                   relaxing stroll along the coastline, Diamond Beach is another
@@ -399,8 +399,8 @@ function DelightfulCuisines() {
               12. Fresh Tasmania Salmon Fillet
             </p>
             <p>
-              Fresh Tasmania salmon fillet served with creamy mash and
-              broccolini with hollandaise sauce.
+              Fresh Tasmanian Salmon fillet served atop creamy mash and
+              broccolini finished with hollandaise.
             </p>
           </li>
         </ul>
