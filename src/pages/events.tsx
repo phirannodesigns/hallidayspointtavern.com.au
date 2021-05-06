@@ -143,7 +143,7 @@ function SpecialEvent({ data }: SpecialEventProps) {
     >
       <SideBySide.TwoCols>
         <OverlappingImageWrapper overlapDirection="right">
-          <StaticImage src="../images/paint-and-sip.jpg" alt="" />
+          <StaticImage src="../images/flam.png" alt="" />
         </OverlappingImageWrapper>
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
