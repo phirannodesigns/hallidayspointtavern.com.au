@@ -24,6 +24,7 @@ interface Event {
 }
 
 interface EventsSection {
+  backgroundImage?: SanityImage;
   description?: string;
   events: Event[];
   heading1?: string;
@@ -68,6 +69,11 @@ function useEvents(): EventsPage {
             }
           }
           liveMusic {
+            backgroundImage {
+              asset {
+                gatsbyImageData
+              }
+            }
             description
             events {
               id: _key

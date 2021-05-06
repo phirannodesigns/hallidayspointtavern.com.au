@@ -17,9 +17,9 @@ function EventsPage(): React.ReactElement {
       <SEO title="Events" />
       <Layout>
         <UpcomingEvents data={events.upcomingEvents} />
-        <LiveMusic data={events.liveMusic} />
         <SpecialEvent data={events.specialEvent} />
         <SportsEvent data={events.sportsEvent} />
+        <LiveMusic data={events.liveMusic} />
         <MeatRaffles data={events.raffleSection} />
         <HappyHour data={events.happyHour} />
         <GoogleMap />
@@ -79,7 +79,28 @@ function LiveMusic({ data }: LiveMusicProps) {
     return null;
   }
   return (
-    <SideBySide>
+    <SideBySide
+      background={
+        data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-teal"
+            />
+          </div>
+        ) : undefined
+      }
+    >
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper overlapDirection="right">
+          <StaticImage src="../images/events.jpg" alt="" />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
@@ -87,10 +108,8 @@ function LiveMusic({ data }: LiveMusicProps) {
             main: data.heading2,
             underlineColor: 'olive',
           }}
-          backgroundColour="cream"
-          onDark={false}
         >
-          <ul className="divide-y divide-gray-700 reset-list">
+          <ul className="divide-y divide-gray-white reset-list">
             {data.events.map((event) => (
               <li key={event.id} className="py-4">
                 <h3>{event.overview}</h3>
@@ -105,11 +124,6 @@ function LiveMusic({ data }: LiveMusicProps) {
           </ul>
         </Copy>
       </SideBySide.ThreeCols>
-      <SideBySide.TwoCols>
-        <OverlappingImageWrapper>
-          <StaticImage src="../images/events.jpg" alt="" />
-        </OverlappingImageWrapper>
-      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
@@ -134,7 +148,7 @@ function SpecialEvent({ data }: SpecialEventProps) {
             />
             <span
               aria-hidden
-              className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-teal"
+              className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-black"
             />
           </div>
         ) : undefined
@@ -150,7 +164,7 @@ function SpecialEvent({ data }: SpecialEventProps) {
           heading={{
             eyebrow: data.heading1,
             main: data.heading2,
-            underlineColor: 'black',
+            underlineColor: 'olive',
           }}
           lead={data.description}
         >
@@ -192,7 +206,8 @@ function SportsEvent({ data }: SportsEventProps) {
             underlineColor: 'olive',
           }}
           lead={data.description}
-          backgroundColour="transparent-black"
+          backgroundColour="cream"
+          onDark={false}
         >
           <BlockContent
             renderContainerOnSingleChild
@@ -220,13 +235,8 @@ function MeatRaffles({ data }: MeatRafflesProps) {
   }
   return (
     <SideBySide
-      background={<span aria-hidden className="absolute inset-0 bg-cream" />}
+      background={<span aria-hidden className="absolute inset-0 bg-black" />}
     >
-      <SideBySide.TwoCols>
-        <OverlappingImageWrapper overlapDirection="right">
-          <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-        </OverlappingImageWrapper>
-      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
@@ -234,7 +244,6 @@ function MeatRaffles({ data }: MeatRafflesProps) {
             main: data.heading2,
             underlineColor: 'olive',
           }}
-          onDark={false}
         >
           <BlockContent
             renderContainerOnSingleChild
@@ -243,6 +252,11 @@ function MeatRaffles({ data }: MeatRafflesProps) {
           />
         </Copy>
       </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper>
+          <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
     </SideBySide>
   );
 }

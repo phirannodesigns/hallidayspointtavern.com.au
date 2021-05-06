@@ -14,6 +14,7 @@ interface Event {
 }
 
 interface EventsSection {
+  backgroundImage?: SanityImage;
   description?: string;
   events: Event[];
   heading1?: string;

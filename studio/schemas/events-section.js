@@ -43,6 +43,14 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'backgroundImage',
+      title: 'Background image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
   ],
   preview: {
     prepare() {
