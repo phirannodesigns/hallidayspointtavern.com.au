@@ -1,4 +1,4 @@
-/* eslint-disable global-require, import/no-extraneous-dependencies */
+/* eslint-disable global-require, import/no-extraneous-dependencies, sonarjs/no-duplicate-string */
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
@@ -25,6 +25,33 @@ module.exports = {
       fontFamily: {
         sans: ['Metropolis', ...defaultTheme.fontFamily.sans],
       },
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: theme('colors.white'),
+            a: {
+              color: theme('colors.white'),
+              '&:hover': {
+                color: theme('colors.white')
+              },
+            },
+            'h2, h3, h4': {
+              color: theme('colors.white'),
+            },
+            ol: {
+              li: {
+                '&:before': { color: theme('colors.white') }
+              }
+            },
+            ul: {
+              li: {
+                '&:before': { backgroundColor: theme('colors.white') }
+              }
+            },
+            strong: { color: theme('colors.white') },
+          }
+        }
+      })
     },
   },
   variants: {

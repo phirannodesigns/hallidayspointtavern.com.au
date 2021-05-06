@@ -69,7 +69,7 @@ function Copy({
             <Heading.Main>{heading.main}</Heading.Main>
           </Heading>
         ) : null}
-        <div className={`mt-6 prose ${onDark ? 'text-white' : ''}`}>
+        <div className={`mt-6 prose ${onDark ? 'text-white prose-dark' : ''}`}>
           {lead ? (
             <p className={`font-semibold lead ${onDark ? '!text-white' : ''}`}>
               {lead}
