@@ -101,7 +101,7 @@ function OurMenu() {
             main: 'Our Delicious Menu',
             underlineColor: 'olive',
           }}
-          lead="The Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
+          lead="Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
           cta={{ route: '/menu/', text: 'See Menu' }}
         >
           <p>
@@ -183,7 +183,7 @@ function SeeOurHistory() {
     >
       <div className="flex-1 text-center">
         <h2 className="text-5xl font-black text-white">
-          See The History Of Our Pub
+          See The History Of The Tavern
         </h2>
         <p className="mt-6 text-white">
           Once considered unusable grazing land by the Australian Agricultural
@@ -192,7 +192,7 @@ function SeeOurHistory() {
         </p>
         <div className="mt-6">
           <Link
-            to="/about-us"
+            to="/about-us#our-history"
             className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-transparent border border-white"
           >
             Find out more

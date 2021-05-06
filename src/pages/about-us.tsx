@@ -39,9 +39,9 @@ function About1() {
           backgroundColour="transparent-teal"
         >
           <p>
-            The Hallidays Point Tavern is located at the heart of Hallidays
-            Point in New South Wales which is a popular destination for its
-            spectacular coastal towns and rainforests.
+            Hallidays Point Tavern is located at the heart of Hallidays Point in
+            New South Wales which is a popular destination for its spectacular
+            coastal towns and rainforests.
           </p>
           <p>
             For more than 30 years, the Tavern has been a favourite spot for
@@ -64,7 +64,7 @@ function OurHistory() {
   return (
     <SideBySide
       background={
-        <div className="absolute inset-0 flex">
+        <div id="our-history" className="absolute inset-0 flex">
           <StaticImage
             src="../images/elga-motel-1982.jpg"
             alt=""

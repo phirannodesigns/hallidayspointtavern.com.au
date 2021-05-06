@@ -45,10 +45,10 @@ function OurMenu() {
             main: 'Our Delicious Menu',
             underlineColor: 'olive',
           }}
-          lead="The Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
+          lead="Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
         >
           <p>
-            The Hallidays Point Tavern is a unique casual restaurant featuring a
+            Hallidays Point Tavern is a unique casual restaurant featuring a
             diverse menu, and enjoy a full bar selection of wines and spirits or
             beer.
           </p>
