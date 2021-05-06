@@ -26,13 +26,15 @@ function CarouselSlide({ slide, isActive }: CarouselSlideProps): JSX.Element {
           />
         </div>
       </div>
-      <p
-        className={`w-full max-w-md pb-12 mx-auto mt-8 tracking-wider text-center transition duration-300 ease-in-out md:max-w-xl ${
-          isActive ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        {slide.caption}
-      </p>
+      {slide.caption ? (
+        <p
+          className={`w-full max-w-md pb-12 mx-auto mt-8 tracking-wider text-center transition duration-300 ease-in-out md:max-w-xl ${
+            isActive ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          {slide.caption}
+        </p>
+      ) : null}
     </div>
   );
 }
