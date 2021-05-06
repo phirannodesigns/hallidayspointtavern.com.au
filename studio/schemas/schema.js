@@ -9,17 +9,19 @@ import createSchema from 'part:@sanity/base/schema-creator';
 // We import object and document schemas
 import address from './address';
 import blockContent from './block-content';
-import gig from './gig';
+import copyWithImage from './copy-with-image';
+import event from './event';
+import eventsPage from './events-page';
+import eventsSection from './events-section';
 import googleMaps from './google-maps';
-import homeEvents from './home-events';
 import imageGallery from './image-gallery';
-import liveMusic from './live-music';
 import menuHeading from './menu-heading';
 import menuItem from './menu-item';
 import menuList from './menu-list';
 import navItem from './nav-item';
 import navigation from './navigation';
 import openHours from './open-hours';
+import richText from './rich-text';
 import siteSettings from './site-settings';
 import slide from './slide';
 import socialLink from './social-link';
@@ -36,18 +38,20 @@ export default createSchema({
     // in the studio.
     address,
     blockContent,
-    gig,
+    copyWithImage,
+    event,
+    eventsSection,
     googleMaps,
     menuHeading,
     menuItem,
     navItem,
     openHours,
+    richText,
     slide,
     socialLink,
     // Documents
-    homeEvents,
+    eventsPage,
     imageGallery,
-    liveMusic,
     menuList,
     navigation,
     siteSettings,

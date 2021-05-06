@@ -4,13 +4,11 @@ import {
   IoCogOutline,
   IoImagesOutline,
   IoMenuOutline,
-  IoMusicalNotesOutline,
 } from 'react-icons/io5';
 
 const hiddenDocTypes = (listItem) => ![
-  'homeEvents',
+  'eventsPage',
   'imageGallery',
-  'liveMusic',
   'navigation',
   'siteSettings',
 ].includes(
@@ -26,12 +24,7 @@ export default () => S.list()
     S.listItem()
       .title('Events')
       .icon(IoCalendarOutline)
-      .child(S.document().schemaType('homeEvents').documentId('homeEvents')),
-    // Live Music
-    S.listItem()
-      .title('Live Music')
-      .icon(IoMusicalNotesOutline)
-      .child(S.document().schemaType('liveMusic').documentId('liveMusic')),
+      .child(S.document().schemaType('eventsPage').documentId('eventsPage')),
     // Image Gallery
     S.listItem()
       .title('Image Gallery')

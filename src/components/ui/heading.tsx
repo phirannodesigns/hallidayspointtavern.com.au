@@ -72,15 +72,13 @@ function Eyebrow({ children }): React.ReactElement {
 function Main({ children }): React.ReactElement {
   const { underlineColor } = useHeadingContext();
   return (
-    <div className="relative inline-block">
-      <div className="relative inline text-5xl font-black sm:text-5xl">
-        <span className="relative z-10">{children}</span>
-        <span
-          aria-hidden
-          style={{ width: `calc(100% + 6rem)` }}
-          className={`absolute bottom-0 -right-4 bg-black h-4 ${UNDERLINE_COLOR_MAP[underlineColor]}`}
-        />
-      </div>
+    <div className="relative inline-block text-5xl font-black sm:text-5xl">
+      <span className="relative z-10">{children}</span>
+      <span
+        aria-hidden
+        style={{ width: `calc(100% + 6rem)` }}
+        className={`absolute top-8 -right-4 bg-black h-4 ${UNDERLINE_COLOR_MAP[underlineColor]}`}
+      />
     </div>
   );
 }
