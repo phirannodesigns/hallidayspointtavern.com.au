@@ -310,7 +310,7 @@ function CourtesyBus() {
             </div>
             <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
               <dt className="inline">Fridays - Sundays, </dt>
-              <dd className="inline">12pm noon till late</dd>
+              <dd className="inline">12 noon till late</dd>
             </div>
           </dl>
         </Copy>
