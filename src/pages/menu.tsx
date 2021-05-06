@@ -68,9 +68,25 @@ function OurMenu() {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <figure className="flex flex-col pb-12 mx-auto prose text-center text-white max-w-none">
-            <img src={logo} alt="" className="max-w-xs mx-auto" />
-            <figcaption className="!mt-0">
+          <figure className="flex flex-col w-full pb-12 mx-auto prose text-center text-white max-w-none">
+            <StaticImage
+              src="../images/dine-and-discover-nsw.jpg"
+              alt=""
+              className="max-w-xs mx-auto max-h-48"
+              objectFit="contain"
+            />
+            <figcaption className="mt-5 font-medium">
+              Dine &amp; Discover <br />
+              voucher accepted here 7 days a week
+            </figcaption>
+          </figure>
+          <figure className="flex flex-col w-full pb-12 mx-auto prose text-center text-white max-w-none">
+            <img
+              src={logo}
+              alt=""
+              className="max-w-xs mx-auto !mb-0 max-h-48"
+            />
+            <figcaption className="mt-5 font-medium">
               Preferred venue of the <br />
               <a href="/" className="!text-white">
                 Resch's Appreciation society
