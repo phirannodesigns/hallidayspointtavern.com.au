@@ -188,7 +188,7 @@ function SeeOurHistory() {
         </p>
         <div className="mt-6">
           <Link
-            to="/about-us"
+            to="/about-us#our-history"
             className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-transparent border border-white"
           >
             Find out more

@@ -64,7 +64,7 @@ function OurHistory() {
   return (
     <SideBySide
       background={
-        <div className="absolute inset-0 flex">
+        <div id="our-history" className="absolute inset-0 flex">
           <StaticImage
             src="../images/elga-motel-1982.jpg"
             alt=""
