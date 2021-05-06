@@ -11,11 +11,12 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { useEvents } from '../hooks/use-events';
-// import { useHomeEvent } from '../hooks/use-home-event';
+import { EventsSection } from '../hooks/use-events';
+import { useHomePage } from '../hooks/use-home-page';
 import { LogoWhite } from '../icons/logo-white';
 
 function IndexPage(): React.ReactElement {
+  const data = useHomePage();
   return (
     <>
       <SEO title="Home" />
@@ -23,7 +24,7 @@ function IndexPage(): React.ReactElement {
         <Welcome />
         <OurMenu />
         <SeeOurHistory />
-        {/* <ExcitingEvents /> */}
+        <ExcitingEvents data={data.upcomingEvents} />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
         <ContactSection />
@@ -122,51 +123,54 @@ function OurMenu() {
   );
 }
 
-// function ExcitingEvents() {
-//   const {upcomingEvents} = useEvents();
-//   if (!upcomingEvents || upcomingEvents.isHidden) {
-//     return null;
-//   }
-//   return (
-//     <SideBySide>
-//       <SideBySide.ThreeCols>
-//         <Copy
-//           heading={{
-//             eyebrow: upcomingEvents.heading1,
-//             main: upcomingEvents.heading2,
-//             underlineColor: 'olive',
-//           }}
-//           lead={upcomingEvents.description}
-//           cta={{ route: '/events/', text: 'Upcoming Events' }}
-//           backgroundColour="cream"
-//           onDark={false}
-//         >
-//           <ul className="divide-y divide-gray-700 reset-list">
-//             {upcomingEvents.map((gig) => (
-//               <li key={gig._key} className="py-4">
-//                 <h3>{gig.overview}</h3>
-//                 {gig._rawDescription ? (
-//                   <BlockContent
-//                     blocks={gig._rawDescription}
-//                     className="!mt-0"
-//                   />
-//                 ) : null}
-//               </li>
-//             ))}
-//           </ul>
-//         </Copy>
-//       </SideBySide.ThreeCols>
-//       <SideBySide.TwoCols>
-//         <OverlappingImageWrapper>
-//           <GatsbyImage
-//             image={events.mainImage.asset.gatsbyImageData}
-//             alt="Current events"
-//           />
-//         </OverlappingImageWrapper>
-//       </SideBySide.TwoCols>
-//     </SideBySide>
-//   );
-// }
+interface ExcitingEventsProps {
+  data?: EventsSection;
+}
+
+function ExcitingEvents({ data }: ExcitingEventsProps) {
+  if (!data || data.isHidden) {
+    return null;
+  }
+  return (
+    <SideBySide>
+      <SideBySide.ThreeCols>
+        <Copy
+          heading={{
+            eyebrow: data.heading1,
+            main: data.heading2,
+            underlineColor: 'olive',
+          }}
+          lead={data.description}
+          cta={{ route: '/events/', text: 'Upcoming Events' }}
+          backgroundColour="cream"
+          onDark={false}
+        >
+          <ul className="divide-y divide-gray-700 reset-list">
+            {data.events.map((event) => (
+              <li key={event.id} className="py-4">
+                <h3>{event.overview}</h3>
+                {event._rawDescription ? (
+                  <BlockContent
+                    blocks={event._rawDescription}
+                    className="!mt-0"
+                  />
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </Copy>
+      </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper>
+          <GatsbyImage
+            image={data.mainImage.asset.gatsbyImageData}
+            alt="Current events"
+          />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
+    </SideBySide>
+  );
+}
 
 function SeeOurHistory() {
   return (

@@ -41,12 +41,12 @@ interface EventsPage {
   happyHour?: CopyWithImage;
 }
 
-interface Events {
+interface EventsPageQueryResponse {
   sanityEventsPage: EventsPage;
 }
 
 function useEvents(): EventsPage {
-  const { sanityEventsPage } = useStaticQuery<Events>(
+  const { sanityEventsPage } = useStaticQuery<EventsPageQueryResponse>(
     graphql`
       query SanityEventsQuery {
         sanityEventsPage(_id: { eq: "eventsPage" }) {
@@ -159,4 +159,11 @@ function useEvents(): EventsPage {
 }
 
 export { useEvents };
-export { CopyWithImage, Event, Events, EventsPage, EventsSection, SanityImage };
+export {
+  CopyWithImage,
+  Event,
+  EventsPage,
+  EventsPageQueryResponse,
+  EventsSection,
+  SanityImage,
+};
