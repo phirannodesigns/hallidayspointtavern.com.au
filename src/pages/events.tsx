@@ -96,7 +96,6 @@ function LiveMusic({ data }: LiveMusicProps) {
                 <h3>{event.overview}</h3>
                 {event._rawDescription ? (
                   <BlockContent
-                    renderContainerOnSingleChild
                     blocks={event._rawDescription}
                     className="!mt-0"
                   />
