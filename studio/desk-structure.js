@@ -2,12 +2,14 @@ import S from '@sanity/desk-tool/structure-builder';
 import {
   IoCalendarOutline,
   IoCogOutline,
+  IoHomeOutline,
   IoImagesOutline,
   IoMenuOutline,
 } from 'react-icons/io5';
 
 const hiddenDocTypes = (listItem) => ![
   'eventsPage',
+  'homePage',
   'imageGallery',
   'navigation',
   'siteSettings',
@@ -18,13 +20,18 @@ const hiddenDocTypes = (listItem) => ![
 export default () => S.list()
   .title('Content')
   .items([
-    // Everything else
-    ...S.documentTypeListItems().filter((docType) => hiddenDocTypes(docType)),
+    // Home Page
+    S.listItem()
+      .title('Home Page')
+      .icon(IoHomeOutline)
+      .child(S.document().schemaType('homePage').documentId('homePage')),
     // Events
     S.listItem()
       .title('Events')
       .icon(IoCalendarOutline)
       .child(S.document().schemaType('eventsPage').documentId('eventsPage')),
+    // Everything else
+    ...S.documentTypeListItems().filter((docType) => hiddenDocTypes(docType)),
     // Image Gallery
     S.listItem()
       .title('Image Gallery')

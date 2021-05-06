@@ -14,6 +14,7 @@ import event from './event';
 import eventsPage from './events-page';
 import eventsSection from './events-section';
 import googleMaps from './google-maps';
+import homePage from './home-page';
 import imageGallery from './image-gallery';
 import menuHeading from './menu-heading';
 import menuItem from './menu-item';
@@ -42,6 +43,7 @@ export default createSchema({
     event,
     eventsSection,
     googleMaps,
+    homePage,
     menuHeading,
     menuItem,
     navItem,
