@@ -7,6 +7,16 @@ export default {
   icon,
   fields: [
     {
+      name: 'eventsLinks',
+      title: 'Upcoming Events Links',
+      type: 'array',
+      of: [{ type: 'eventsLink' }],
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+      },
+    },
+    {
       name: 'upcomingEvents',
       title: 'Upcoming Events',
       type: 'copyWithImage',

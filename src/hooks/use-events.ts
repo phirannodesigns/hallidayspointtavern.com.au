@@ -33,6 +33,18 @@ interface EventsSection {
   mainImage: SanityImage;
 }
 
+interface EventsLink {
+  id: string;
+  file: {
+    asset: {
+      url: string;
+    };
+  };
+  text: string;
+}
+
+type EventsLinks = EventsLink[];
+
 interface EventsPage {
   upcomingEvents?: CopyWithImage;
   specialEvent?: CopyWithImage;
@@ -40,6 +52,7 @@ interface EventsPage {
   liveMusic?: EventsSection;
   raffleSection?: CopyWithImage;
   happyHour?: CopyWithImage;
+  eventsLinks?: EventsLinks;
 }
 
 interface EventsPageQueryResponse {
@@ -51,6 +64,15 @@ function useEvents(): EventsPage {
     graphql`
       query SanityEventsQuery {
         sanityEventsPage(_id: { eq: "eventsPage" }) {
+          eventsLinks {
+            id: _key
+            file {
+              asset {
+                url
+              }
+            }
+            text
+          }
           happyHour {
             _rawCopy
             backgroundImage {
@@ -168,6 +190,7 @@ export { useEvents };
 export {
   CopyWithImage,
   Event,
+  EventsLinks,
   EventsPage,
   EventsPageQueryResponse,
   EventsSection,

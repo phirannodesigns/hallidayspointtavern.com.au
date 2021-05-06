@@ -8,7 +8,12 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { CopyWithImage, EventsSection, useEvents } from '../hooks/use-events';
+import {
+  CopyWithImage,
+  EventsLinks,
+  EventsSection,
+  useEvents,
+} from '../hooks/use-events';
 
 function EventsPage(): React.ReactElement {
   const events = useEvents();
@@ -16,7 +21,10 @@ function EventsPage(): React.ReactElement {
     <>
       <SEO title="Events" />
       <Layout>
-        <UpcomingEvents data={events.upcomingEvents} />
+        <UpcomingEvents
+          data={events.upcomingEvents}
+          links={events.eventsLinks}
+        />
         <SpecialEvent data={events.specialEvent} />
         <SportsEvent data={events.sportsEvent} />
         <LiveMusic data={events.liveMusic} />
@@ -30,9 +38,10 @@ function EventsPage(): React.ReactElement {
 
 interface UpcomingEventsProps {
   data?: CopyWithImage;
+  links?: EventsLinks;
 }
 
-function UpcomingEvents({ data }: UpcomingEventsProps) {
+function UpcomingEvents({ data, links }: UpcomingEventsProps) {
   if (!data || data.isHidden) {
     return null;
   }
@@ -60,6 +69,19 @@ function UpcomingEvents({ data }: UpcomingEventsProps) {
             blocks={data._rawCopy}
             className="!mt-0"
           />
+          <div className="flex flex-wrap justify-start mt-8">
+            {links?.map((link) => (
+              <a
+                key={link.id}
+                className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black !no-underline mr-4"
+                href={link.file.asset.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.text}
+              </a>
+            ))}
+          </div>
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
