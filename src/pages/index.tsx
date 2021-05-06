@@ -11,7 +11,7 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { EventsSection } from '../hooks/use-events';
+import { CopyWithImage, EventsSection } from '../hooks/use-events';
 import { useHomePage } from '../hooks/use-home-page';
 import { LogoWhite } from '../icons/logo-white';
 
@@ -23,8 +23,9 @@ function IndexPage(): React.ReactElement {
       <Layout hero={<Hero />}>
         <Welcome />
         <OurMenu />
-        <SeeOurHistory />
         <ExcitingEvents data={data.upcomingEvents} />
+        <SeeOurHistory />
+        <Trivia data={data.trivia} />
         <DiscoverHallidaysPoint />
         <CourtesyBus />
         <ContactSection />
@@ -172,6 +173,47 @@ function ExcitingEvents({ data }: ExcitingEventsProps) {
   );
 }
 
+interface TriviaProps {
+  data?: CopyWithImage;
+}
+
+function Trivia({ data }: TriviaProps) {
+  if (!data || data.isHidden) {
+    return null;
+  }
+  return (
+    <SideBySide
+      background={<span aria-hidden className="absolute inset-0 bg-cream" />}
+    >
+      <SideBySide.TwoCols>
+        <OverlappingImageWrapper overlapDirection="right">
+          <GatsbyImage
+            image={data.mainImage.asset.gatsbyImageData}
+            alt="Current events"
+          />
+        </OverlappingImageWrapper>
+      </SideBySide.TwoCols>
+      <SideBySide.ThreeCols>
+        <Copy
+          heading={{
+            eyebrow: data.heading1,
+            main: data.heading2,
+            underlineColor: 'olive',
+          }}
+          lead={data.description}
+          onDark={false}
+        >
+          <BlockContent
+            renderContainerOnSingleChild
+            blocks={data._rawCopy}
+            className="!mt-0"
+          />
+        </Copy>
+      </SideBySide.ThreeCols>
+    </SideBySide>
+  );
+}
+
 function SeeOurHistory() {
   return (
     <HeroComponent
@@ -180,7 +222,7 @@ function SeeOurHistory() {
           <StaticImage src="../images/elga-bg.jpg" alt="" className="flex-1" />
           <span
             aria-hidden
-            className="absolute inset-0 flex-1 bg-black bg-opacity-25"
+            className="absolute inset-0 flex-1 bg-black bg-opacity-75"
           />
         </>
       }

@@ -15,6 +15,15 @@ export default {
         collapsed: true, // Defines if the fieldset should be collapsed by default or not
       },
     },
+    {
+      name: 'trivia',
+      title: 'Trivia',
+      type: 'copyWithImage',
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+      },
+    },
   ],
   preview: {
     prepare() {

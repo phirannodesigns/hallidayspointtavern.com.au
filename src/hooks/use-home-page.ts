@@ -22,8 +22,19 @@ interface EventsSection {
   mainImage: SanityImage;
 }
 
+interface CopyWithImage {
+  _rawCopy: unknown[];
+  backgroundImage?: SanityImage;
+  description?: string;
+  heading1?: string;
+  heading2: string;
+  isHidden?: boolean;
+  mainImage: SanityImage;
+}
+
 interface HomePage {
   upcomingEvents?: EventsSection;
+  trivia?: CopyWithImage;
 }
 
 interface HomePageQueryResponse {
@@ -42,6 +53,23 @@ function useHomePage(): HomePage {
               _rawDescription
               overview
             }
+            heading1
+            heading2
+            isHidden
+            mainImage {
+              asset {
+                gatsbyImageData(width: 960)
+              }
+            }
+          }
+          trivia {
+            _rawCopy
+            backgroundImage {
+              asset {
+                gatsbyImageData
+              }
+            }
+            description
             heading1
             heading2
             isHidden
