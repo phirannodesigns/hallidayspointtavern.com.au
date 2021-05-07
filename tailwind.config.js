@@ -32,7 +32,7 @@ module.exports = {
             a: {
               color: theme('colors.white'),
               '&:hover': {
-                color: theme('colors.white')
+                color: theme('colors.white'),
               },
             },
             'h2, h3, h4': {
@@ -40,18 +40,18 @@ module.exports = {
             },
             ol: {
               li: {
-                '&:before': { color: theme('colors.white') }
-              }
+                '&:before': { color: theme('colors.white') },
+              },
             },
             ul: {
               li: {
-                '&:before': { backgroundColor: theme('colors.white') }
-              }
+                '&:before': { backgroundColor: theme('colors.white') },
+              },
             },
             strong: { color: theme('colors.white') },
-          }
-        }
-      })
+          },
+        },
+      }),
     },
   },
   variants: {
