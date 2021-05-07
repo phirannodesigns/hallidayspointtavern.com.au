@@ -26,6 +26,20 @@ module.exports = {
         sans: ['Metropolis', ...defaultTheme.fontFamily.sans],
       },
       typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            ol: {
+              li: {
+                '&:before': { color: theme('colors.gray.500') },
+              },
+            },
+            ul: {
+              li: {
+                '&:before': { backgroundColor: theme('colors.gray.500') },
+              },
+            },
+          },
+        },
         dark: {
           css: {
             color: theme('colors.white'),
