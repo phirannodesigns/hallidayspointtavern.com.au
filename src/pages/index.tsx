@@ -1,7 +1,7 @@
-import BlockContent from '@sanity/block-content-to-react';
 import { Link } from 'gatsby';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import PortableText from 'react-portable-text';
 
 import { ContactSection } from '../components/contact-section';
 import { Copy } from '../components/copy';
@@ -185,8 +185,9 @@ function ExcitingEvents({ data }: ExcitingEventsProps) {
               <li key={event.id} className="py-4">
                 <h3>{event.overview}</h3>
                 {event._rawDescription ? (
-                  <BlockContent
-                    blocks={event._rawDescription}
+                  <PortableText
+                    content={event._rawDescription}
+                    serializers={{}}
                     className="!mt-0"
                   />
                 ) : null}
@@ -241,9 +242,9 @@ function Trivia({ data }: TriviaProps) {
           lead={data.description}
           onDark={false}
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
+          <PortableText
+            content={data._rawCopy}
+            serializers={{}}
             className="!mt-0"
           />
         </Copy>
@@ -350,7 +351,24 @@ function CourtesyBus({ data }: CourtesyBusProps): JSX.Element | null {
           }}
           backgroundColour="transparent-black"
         >
-          <BlockContent blocks={data._rawCopy} className="!mt-0" />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{
+                ul: ({ children }) => (
+                  <ul className="divide-y divide-white reset-list">
+                    {children}
+                  </ul>
+                ),
+                li: ({ children }) => (
+                  <li className="py-4 text-lg font-semibold prose text-white sm:text-xl">
+                    {children}
+                  </li>
+                ),
+              }}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
