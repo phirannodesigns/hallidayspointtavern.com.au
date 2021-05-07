@@ -27,9 +27,10 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
-      resolve: "@sentry/gatsby",
+      resolve: '@sentry/gatsby',
       options: {
-        dsn: "https://61357888eb7749a1b1c3ae3ffeee4a01@o464087.ingest.sentry.io/5753400",
+        dsn:
+          'https://61357888eb7749a1b1c3ae3ffeee4a01@o464087.ingest.sentry.io/5753400',
         sampleRate: 0.7,
       },
     },
