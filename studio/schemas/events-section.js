@@ -35,6 +35,16 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      name: 'cta',
+      title: 'Call to action',
+      type: 'array',
+      of: [{ type: 'fileCta' }, { type: 'pageCta' }, { type: 'linkCta' }],
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+      },
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',

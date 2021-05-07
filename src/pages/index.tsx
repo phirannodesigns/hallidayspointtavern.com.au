@@ -11,7 +11,7 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import { CopyWithImage, EventsSection } from '../hooks/use-events';
+import type { CopyWithImage, EventsSection } from '../hooks/use-home-page';
 import { useHomePage } from '../hooks/use-home-page';
 import { LogoWhite } from '../icons/logo-white';
 
@@ -21,13 +21,13 @@ function IndexPage(): React.ReactElement {
     <>
       <SEO title="Home" />
       <Layout hero={<Hero />}>
-        <Welcome />
-        <OurMenu />
+        <Welcome data={data.welcomeSection} />
+        <OurMenu data={data.menuSection} />
         <SeeOurHistory />
         <ExcitingEvents data={data.upcomingEvents} />
         <DiscoverHallidaysPoint />
         <Trivia data={data.trivia} />
-        <CourtesyBus />
+        <CourtesyBus data={data.courtesyBus} />
         <ContactSection />
         <GoogleMap />
       </Layout>
@@ -47,17 +47,34 @@ function Hero() {
   );
 }
 
-function Welcome() {
+interface WelcomeProps {
+  data?: CopyWithImage;
+}
+
+function Welcome({ data }: WelcomeProps): JSX.Element | null {
+  if (!data || data.isHidden) {
+    return null;
+  }
   return (
     <SideBySide>
       <SideBySide.ThreeCols>
-        <div className="absolute inset-0 flex">
-          <StaticImage src="../images/wallaby.jpg" alt="" className="flex-1" />
-        </div>
+        {data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+          </div>
+        ) : null}
         <Copy
-          heading={{ eyebrow: 'Welcome To', main: 'Hallidays Point Tavern' }}
-          lead="At the Tavern, we are focused on delivering the best customer experience by combining great food, exquisite wines and beer, and matched with excellent customer service."
-          cta={{ route: '/about-us/', text: 'Read more' }}
+          heading={{ eyebrow: data.heading1, main: data.heading2 }}
+          lead={data.description}
+          cta={
+            data.cta?.[0]._type === 'pageCta'
+              ? { route: `/${data.cta[0].page}/`, text: data.cta[0].text }
+              : undefined
+          }
           backgroundColour="transparent-teal"
         >
           <p>
@@ -82,29 +99,46 @@ function Welcome() {
   );
 }
 
-function OurMenu() {
+interface OurMenuProps {
+  data?: CopyWithImage;
+}
+
+function OurMenu({ data }: OurMenuProps): JSX.Element | null {
+  if (!data || data.isHidden) {
+    return null;
+  }
   return (
     <SideBySide
       background={
-        <div className="absolute inset-0 flex">
-          <StaticImage src="../images/menu.jpg" alt="" className="flex-1" />
-          <span
-            aria-hidden
-            className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
-          />
-        </div>
+        data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
+            />
+          </div>
+        ) : null
       }
     >
       <span aria-hidden className="lg:col-span-2" />
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Come check out',
-            main: 'Our Delicious Menu',
+            eyebrow: data.heading1,
+            main: data.heading2,
             underlineColor: 'olive',
           }}
-          lead="Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
-          cta={{ route: '/menu/', text: 'See Menu' }}
+          lead={data.description}
+          cta={
+            data.cta?.[0]._type === 'pageCta'
+              ? { route: `/${data.cta[0].page}/`, text: data.cta[0].text }
+              : undefined
+          }
         >
           <p>
             Our menu offers you a vast array of delectable meals to choose from,
@@ -162,12 +196,14 @@ function ExcitingEvents({ data }: ExcitingEventsProps) {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <OverlappingImageWrapper>
-          <GatsbyImage
-            image={data.mainImage.asset.gatsbyImageData}
-            alt="Current events"
-          />
-        </OverlappingImageWrapper>
+        {data.mainImage ? (
+          <OverlappingImageWrapper>
+            <GatsbyImage
+              image={data.mainImage.asset.gatsbyImageData}
+              alt="Current events"
+            />
+          </OverlappingImageWrapper>
+        ) : null}
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -186,12 +222,14 @@ function Trivia({ data }: TriviaProps) {
       background={<span aria-hidden className="absolute inset-0 bg-cream" />}
     >
       <SideBySide.TwoCols>
-        <OverlappingImageWrapper overlapDirection="right">
-          <GatsbyImage
-            image={data.mainImage.asset.gatsbyImageData}
-            alt="Current events"
-          />
-        </OverlappingImageWrapper>
+        {data.mainImage ? (
+          <OverlappingImageWrapper overlapDirection="right">
+            <GatsbyImage
+              image={data.mainImage.asset.gatsbyImageData}
+              alt="Current events"
+            />
+          </OverlappingImageWrapper>
+        ) : null}
       </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
@@ -284,35 +322,35 @@ function DiscoverHallidaysPoint() {
   );
 }
 
-function CourtesyBus() {
+interface CourtesyBusProps {
+  data?: CopyWithImage;
+}
+
+function CourtesyBus({ data }: CourtesyBusProps): JSX.Element | null {
+  if (!data || data.isHidden) {
+    return null;
+  }
   return (
     <SideBySide id="courtesy_bus">
       <SideBySide.ThreeCols>
-        <div className="absolute inset-0 flex overflow-hidden">
-          <StaticImage
-            src="../images/headlands.jpg"
-            alt=""
-            className="flex-1"
-          />
-        </div>
+        {data.backgroundImage ? (
+          <div className="absolute inset-0 flex overflow-hidden">
+            <StaticImage
+              src="../images/headlands.jpg"
+              alt=""
+              className="flex-1"
+            />
+          </div>
+        ) : null}
         <Copy
           heading={{
-            eyebrow: 'Don’t want to drive?',
-            main: 'Get the Courtesy Bus',
+            eyebrow: data.heading1,
+            main: data.heading2,
             underlineColor: 'olive',
           }}
           backgroundColour="transparent-black"
         >
-          <dl className="divide-y-2 divide-white">
-            <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
-              <dt className="inline">Monday - Thursdays, </dt>
-              <dd className="inline">5pm till late</dd>
-            </div>
-            <div className="py-4 text-lg font-semibold prose text-white sm:text-xl">
-              <dt className="inline">Fridays - Sundays, </dt>
-              <dd className="inline">12pm noon till late</dd>
-            </div>
-          </dl>
+          <BlockContent blocks={data._rawCopy} className="!mt-0" />
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>

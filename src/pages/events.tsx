@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import BlockContent from '@sanity/block-content-to-react';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
@@ -8,12 +9,8 @@ import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
-import {
-  CopyWithImage,
-  EventsLinks,
-  EventsSection,
-  useEvents,
-} from '../hooks/use-events';
+import type { CopyWithImage, EventsSection } from '../hooks/use-events';
+import { useEvents } from '../hooks/use-events';
 
 function EventsPage(): React.ReactElement {
   const events = useEvents();
@@ -21,10 +18,7 @@ function EventsPage(): React.ReactElement {
     <>
       <SEO title="Events" />
       <Layout>
-        <UpcomingEvents
-          data={events.upcomingEvents}
-          links={events.eventsLinks}
-        />
+        <UpcomingEvents data={events.upcomingEvents} />
         <SpecialEvent data={events.specialEvent} />
         <SportsEvent data={events.sportsEvent} />
         <LiveMusic data={events.liveMusic} />
@@ -38,10 +32,9 @@ function EventsPage(): React.ReactElement {
 
 interface UpcomingEventsProps {
   data?: CopyWithImage;
-  links?: EventsLinks;
 }
 
-function UpcomingEvents({ data, links }: UpcomingEventsProps) {
+function UpcomingEvents({ data }: UpcomingEventsProps) {
   if (!data || data.isHidden) {
     return null;
   }
@@ -70,17 +63,46 @@ function UpcomingEvents({ data, links }: UpcomingEventsProps) {
             className="!mt-0"
           />
           <div className="flex flex-wrap justify-start mt-8">
-            {links?.map((link) => (
-              <a
-                key={link.id}
-                className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black !no-underline mr-4"
-                href={link.file.asset.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.text}
-              </a>
-            ))}
+            {data.cta?.map((cta) => {
+              if (cta._type === 'pageCta') {
+                return (
+                  <Link
+                    key={cta.id}
+                    to={cta.page}
+                    className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black !no-underline mr-4"
+                  >
+                    {cta.text}
+                  </Link>
+                );
+              }
+              if (cta._type === 'linkCta') {
+                return (
+                  <a
+                    key={cta.id}
+                    href={cta.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black !no-underline mr-4"
+                  >
+                    {cta.text}
+                  </a>
+                );
+              }
+              if (cta._type === 'fileCta') {
+                return (
+                  <a
+                    key={cta.id}
+                    href={cta.file.asset.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-black !no-underline mr-4"
+                  >
+                    {cta.text}
+                  </a>
+                );
+              }
+              return null;
+            })}
           </div>
         </Copy>
       </SideBySide.ThreeCols>
@@ -275,9 +297,11 @@ function MeatRaffles({ data }: MeatRafflesProps) {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <OverlappingImageWrapper>
-          <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-        </OverlappingImageWrapper>
+        {data.mainImage ? (
+          <OverlappingImageWrapper>
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
       </SideBySide.TwoCols>
     </SideBySide>
   );
@@ -325,9 +349,11 @@ function HappyHour({ data }: HappyHourProps) {
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
-        <OverlappingImageWrapper>
-          <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-        </OverlappingImageWrapper>
+        {data.mainImage ? (
+          <OverlappingImageWrapper>
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
       </SideBySide.TwoCols>
     </SideBySide>
   );

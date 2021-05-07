@@ -14,15 +14,18 @@ import event from './event';
 import eventsLink from './events-link';
 import eventsPage from './events-page';
 import eventsSection from './events-section';
+import fileCta from './file-cta';
 import googleMaps from './google-maps';
 import homePage from './home-page';
 import imageGallery from './image-gallery';
+import linkCta from './link-cta';
 import menuHeading from './menu-heading';
 import menuItem from './menu-item';
 import menuList from './menu-list';
 import navItem from './nav-item';
 import navigation from './navigation';
 import openHours from './open-hours';
+import pageCta from './page-cta';
 import richText from './rich-text';
 import siteSettings from './site-settings';
 import slide from './slide';
@@ -44,12 +47,15 @@ export default createSchema({
     event,
     eventsLink,
     eventsSection,
+    fileCta,
     googleMaps,
     homePage,
+    linkCta,
     menuHeading,
     menuItem,
     navItem,
     openHours,
+    pageCta,
     richText,
     slide,
     socialLink,

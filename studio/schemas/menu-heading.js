@@ -1,4 +1,4 @@
-import { IoStarOutline as icon } from 'react-icons/io5';
+import { IoTextOutline as icon } from 'react-icons/io5';
 
 export default {
   name: 'menuHeading',

@@ -7,14 +7,42 @@ interface SanityImage {
   };
 }
 
+interface PageCta {
+  _type: 'pageCta';
+  id: string;
+  page: string;
+  text: string;
+}
+
+interface FileCta {
+  _type: 'fileCta';
+  id: string;
+  file: {
+    asset: {
+      url: string;
+    };
+  };
+  text: string;
+}
+
+interface LinkCta {
+  _type: 'linkCta';
+  id: string;
+  link: string;
+  text: string;
+}
+
+type Ctas = Array<PageCta | FileCta | LinkCta>;
+
 interface CopyWithImage {
   _rawCopy: unknown[];
   backgroundImage?: SanityImage;
+  cta?: Ctas;
   description?: string;
   heading1?: string;
   heading2: string;
   isHidden?: boolean;
-  mainImage: SanityImage;
+  mainImage?: SanityImage;
 }
 
 interface Event {
@@ -25,34 +53,22 @@ interface Event {
 
 interface EventsSection {
   backgroundImage?: SanityImage;
+  cta?: Ctas;
   description?: string;
   events: Event[];
   heading1?: string;
   heading2: string;
   isHidden?: boolean;
-  mainImage: SanityImage;
+  mainImage?: SanityImage;
 }
-
-interface EventsLink {
-  id: string;
-  file: {
-    asset: {
-      url: string;
-    };
-  };
-  text: string;
-}
-
-type EventsLinks = EventsLink[];
 
 interface EventsPage {
-  upcomingEvents?: CopyWithImage;
-  specialEvent?: CopyWithImage;
-  sportsEvent?: CopyWithImage;
+  happyHour?: CopyWithImage;
   liveMusic?: EventsSection;
   raffleSection?: CopyWithImage;
-  happyHour?: CopyWithImage;
-  eventsLinks?: EventsLinks;
+  specialEvent?: CopyWithImage;
+  sportsEvent?: CopyWithImage;
+  upcomingEvents?: CopyWithImage;
 }
 
 interface EventsPageQueryResponse {
@@ -64,20 +80,35 @@ function useEvents(): EventsPage {
     graphql`
       query SanityEventsQuery {
         sanityEventsPage(_id: { eq: "eventsPage" }) {
-          eventsLinks {
-            id: _key
-            file {
-              asset {
-                url
-              }
-            }
-            text
-          }
           happyHour {
             _rawCopy
             backgroundImage {
               asset {
                 gatsbyImageData
+              }
+            }
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
               }
             }
             description
@@ -94,6 +125,30 @@ function useEvents(): EventsPage {
             backgroundImage {
               asset {
                 gatsbyImageData
+              }
+            }
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
               }
             }
             description
@@ -113,6 +168,30 @@ function useEvents(): EventsPage {
           }
           raffleSection {
             _rawCopy
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
+              }
+            }
             backgroundImage {
               asset {
                 gatsbyImageData
@@ -129,6 +208,30 @@ function useEvents(): EventsPage {
             }
           }
           specialEvent {
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
+              }
+            }
             _rawCopy
             backgroundImage {
               asset {
@@ -147,6 +250,30 @@ function useEvents(): EventsPage {
           }
           sportsEvent {
             _rawCopy
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
+              }
+            }
             backgroundImage {
               asset {
                 gatsbyImageData
@@ -164,6 +291,30 @@ function useEvents(): EventsPage {
           }
           upcomingEvents {
             _rawCopy
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
+              }
+            }
             backgroundImage {
               asset {
                 gatsbyImageData
@@ -187,12 +338,4 @@ function useEvents(): EventsPage {
 }
 
 export { useEvents };
-export {
-  CopyWithImage,
-  Event,
-  EventsLinks,
-  EventsPage,
-  EventsPageQueryResponse,
-  EventsSection,
-  SanityImage,
-};
+export { CopyWithImage, EventsSection };
