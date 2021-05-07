@@ -3160,6 +3160,14 @@ babel-preset-gatsby@^1.4.0:
     gatsby-core-utils "^2.4.0"
     gatsby-legacy-polyfills "^1.4.0"
 
+babel-runtime@^6.26.0:
+  version "6.26.0"
+  resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
+  integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+  dependencies:
+    core-js "^2.4.0"
+    regenerator-runtime "^0.11.0"
+
 backo2@^1.0.2, backo2@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
@@ -4230,6 +4238,11 @@ core-js-pure@^3.0.0:
   version "3.11.2"
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.11.2.tgz#10e3b35788c00f431bc0d601d7551475ec3e792c"
   integrity sha512-DQxdEKm+zFsnON7ZGOgUAQXBt1UJJ01tOzN/HgQ7cNf0oEHW1tcBLfCQQd1q6otdLu5gAdvKYxKHAoXGwE/kiQ==
+
+core-js@^2.4.0:
+  version "2.6.12"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
+  integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.9.0:
   version "3.11.2"
@@ -6698,6 +6711,13 @@ gatsby-plugin-page-creator@^3.4.1:
     gatsby-telemetry "^2.4.1"
     globby "^11.0.3"
     lodash "^4.17.21"
+
+gatsby-plugin-polyfill-io@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-polyfill-io/-/gatsby-plugin-polyfill-io-1.1.0.tgz#61424c773ae123680e50b9a6692a4b939a1e6e13"
+  integrity sha512-v2uiJvuAhtUU/30c257+KBj+hA0pMxpsCdq7PIcXLdGZlVhXJTporD5WIEPP5jeGl3zOp4y3FdQF1C10wlt1MA==
+  dependencies:
+    babel-runtime "^6.26.0"
 
 gatsby-plugin-postcss@^4.3.0:
   version "4.4.0"
@@ -11934,6 +11954,11 @@ regenerate@^1.4.0:
   version "1.4.2"
   resolved "https://registry.yarnpkg.com/regenerate/-/regenerate-1.4.2.tgz#b9346d8827e8f5a32f7ba29637d398b69014848a"
   integrity sha512-zrceR/XhGYU/d/opr2EKO7aRHUeiBI8qjtfHqADTwZd6Szfy16la6kqD0MIUs5z5hx6AaKa+PixpPrR289+I0A==
+
+regenerator-runtime@^0.11.0:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+  integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
 regenerator-runtime@^0.13.3, regenerator-runtime@^0.13.4:
   version "0.13.7"

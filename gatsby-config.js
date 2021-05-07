@@ -19,12 +19,13 @@ module.exports = {
     PRESERVE_WEBPACK_CACHE: true,
   },
   plugins: [
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-sitemap',
-    'gatsby-plugin-typescript',
     'gatsby-plugin-image',
+    'gatsby-plugin-polyfill-io',
+    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-typescript',
     'gatsby-transformer-sharp',
     {
       resolve: '@sentry/gatsby',
