@@ -183,11 +183,15 @@ function ExcitingEvents({ data }: ExcitingEventsProps) {
           <ul className="divide-y divide-gray-700 reset-list">
             {data.events.map((event) => (
               <li key={event.id} className="py-4">
-                <h3>{event.overview}</h3>
+                {event.overview ? <h3>{event.overview}</h3> : null}
                 {event._rawDescription ? (
                   <PortableText
                     content={event._rawDescription}
-                    serializers={{}}
+                    serializers={{
+                      h2: ({ children }) => (
+                        <h2 className="!m-0 !-mb-4">{children}</h2>
+                      ),
+                    }}
                     className="!mt-0"
                   />
                 ) : null}
@@ -314,7 +318,7 @@ function DiscoverHallidaysPoint() {
         </h2>
         <div className="mt-6">
           <Link
-            to="/about-us/"
+            to="/discover/"
             className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-transparent border border-white"
           >
             Discover more
