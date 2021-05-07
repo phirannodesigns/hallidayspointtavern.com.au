@@ -242,11 +242,13 @@ function Trivia({ data }: TriviaProps) {
           lead={data.description}
           onDark={false}
         >
-          <PortableText
-            content={data._rawCopy}
-            serializers={{}}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
     </SideBySide>

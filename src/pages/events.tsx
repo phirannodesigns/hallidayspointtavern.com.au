@@ -1,7 +1,7 @@
 import { Link } from '@reach/router';
-import BlockContent from '@sanity/block-content-to-react';
 import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import PortableText from 'react-portable-text';
 
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
@@ -57,11 +57,13 @@ function UpcomingEvents({ data }: UpcomingEventsProps) {
           }}
           backgroundColour="transparent-teal"
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
           <div className="flex flex-wrap justify-start mt-8">
             {data.cta?.map((cta) => {
               if (cta._type === 'pageCta') {
@@ -158,8 +160,9 @@ function LiveMusic({ data }: LiveMusicProps) {
               <li key={event.id} className="py-4">
                 <h3>{event.overview}</h3>
                 {event._rawDescription ? (
-                  <BlockContent
-                    blocks={event._rawDescription}
+                  <PortableText
+                    content={event._rawDescription}
+                    serializers={{}}
                     className="!mt-0"
                   />
                 ) : null}
@@ -212,11 +215,13 @@ function SpecialEvent({ data }: SpecialEventProps) {
           }}
           lead={data.description}
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
     </SideBySide>
@@ -253,11 +258,13 @@ function SportsEvent({ data }: SportsEventProps) {
           backgroundColour="cream"
           onDark={false}
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
@@ -289,11 +296,13 @@ function MeatRaffles({ data }: MeatRafflesProps) {
             underlineColor: 'olive',
           }}
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
@@ -341,11 +350,13 @@ function HappyHour({ data }: HappyHourProps) {
             underlineColor: 'black',
           }}
         >
-          <BlockContent
-            renderContainerOnSingleChild
-            blocks={data._rawCopy}
-            className="!mt-0"
-          />
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>

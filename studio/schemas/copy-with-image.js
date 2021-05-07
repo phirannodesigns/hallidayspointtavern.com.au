@@ -31,7 +31,6 @@ export default {
       name: 'copy',
       title: 'Copy',
       type: 'richText',
-      validation: (Rule) => Rule.required(),
     },
     {
       name: 'cta',

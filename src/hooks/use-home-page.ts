@@ -37,7 +37,7 @@ type Ctas = Array<PageCta | FileCta | LinkCta>;
 interface Event {
   id: string;
   // eslint-disable-next-line @typescript-eslint/ban-types
-  _rawDescription: [object];
+  _rawDescription?: [object];
   overview: string;
 }
 
@@ -54,7 +54,7 @@ interface EventsSection {
 
 interface CopyWithImage {
   // eslint-disable-next-line @typescript-eslint/ban-types
-  _rawCopy: [object];
+  _rawCopy?: [object];
   cta?: Ctas;
   backgroundImage?: SanityImage;
   description?: string;
