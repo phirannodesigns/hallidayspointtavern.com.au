@@ -198,13 +198,6 @@ function SpecialEvent2({ data }: SpecialEvent2Props) {
         ) : undefined
       }
     >
-      <SideBySide.TwoCols>
-        {data.mainImage ? (
-          <OverlappingImageWrapper overlapDirection="right">
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-          </OverlappingImageWrapper>
-        ) : null}
-      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
@@ -223,6 +216,13 @@ function SpecialEvent2({ data }: SpecialEvent2Props) {
           ) : null}
         </Copy>
       </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        {data.mainImage ? (
+          <OverlappingImageWrapper>
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
+      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
@@ -237,6 +237,13 @@ function SportsEvent({ data }: SportsEventProps) {
   }
   return (
     <SideBySide>
+      <SideBySide.TwoCols>
+        {data.mainImage ? (
+          <OverlappingImageWrapper overlapDirection="right">
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
+      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         {data.backgroundImage ? (
           <div className="absolute inset-0 flex overflow-hidden">
@@ -266,13 +273,6 @@ function SportsEvent({ data }: SportsEventProps) {
           ) : null}
         </Copy>
       </SideBySide.ThreeCols>
-      <SideBySide.TwoCols>
-        {data.mainImage ? (
-          <OverlappingImageWrapper>
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-          </OverlappingImageWrapper>
-        ) : null}
-      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
@@ -302,13 +302,6 @@ function LiveMusic({ data }: LiveMusicProps) {
         ) : undefined
       }
     >
-      <SideBySide.TwoCols>
-        {data.mainImage ? (
-          <OverlappingImageWrapper overlapDirection="right">
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-          </OverlappingImageWrapper>
-        ) : null}
-      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
@@ -333,6 +326,13 @@ function LiveMusic({ data }: LiveMusicProps) {
           </ul>
         </Copy>
       </SideBySide.ThreeCols>
+      <SideBySide.TwoCols>
+        {data.mainImage ? (
+          <OverlappingImageWrapper>
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
+      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
@@ -349,6 +349,13 @@ function MeatRaffles({ data }: MeatRafflesProps) {
     <SideBySide
       background={<span aria-hidden className="absolute inset-0 bg-black" />}
     >
+      <SideBySide.TwoCols>
+        {data.mainImage ? (
+          <OverlappingImageWrapper overlapDirection="right">
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
+      </SideBySide.TwoCols>
       <SideBySide.ThreeCols>
         <Copy
           heading={{
@@ -366,13 +373,6 @@ function MeatRaffles({ data }: MeatRafflesProps) {
           ) : null}
         </Copy>
       </SideBySide.ThreeCols>
-      <SideBySide.TwoCols>
-        {data.mainImage ? (
-          <OverlappingImageWrapper>
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-          </OverlappingImageWrapper>
-        ) : null}
-      </SideBySide.TwoCols>
     </SideBySide>
   );
 }
