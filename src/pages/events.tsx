@@ -347,7 +347,21 @@ function MeatRaffles({ data }: MeatRafflesProps) {
   }
   return (
     <SideBySide
-      background={<span aria-hidden className="absolute inset-0 bg-black" />}
+      background={
+        data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-black"
+            />
+          </div>
+        ) : undefined
+      }
     >
       <SideBySide.TwoCols>
         {data.mainImage ? (
