@@ -16,8 +16,17 @@ export default {
       },
     },
     {
-      name: 'specialEvent',
-      title: 'Special Event',
+      name: 'specialEvent1',
+      title: 'Special Event 1',
+      type: 'copyWithImage',
+      options: {
+        collapsible: true, // Makes the whole fieldset collapsible
+        collapsed: true, // Defines if the fieldset should be collapsed by default or not
+      },
+    },
+    {
+      name: 'specialEvent2',
+      title: 'Special Event 2',
       type: 'copyWithImage',
       options: {
         collapsible: true, // Makes the whole fieldset collapsible
