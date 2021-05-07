@@ -11,7 +11,6 @@ import address from './address';
 import blockContent from './block-content';
 import copyWithImage from './copy-with-image';
 import event from './event';
-import eventsLink from './events-link';
 import eventsPage from './events-page';
 import eventsSection from './events-section';
 import fileCta from './file-cta';
@@ -45,7 +44,6 @@ export default createSchema({
     blockContent,
     copyWithImage,
     event,
-    eventsLink,
     eventsSection,
     fileCta,
     googleMaps,
