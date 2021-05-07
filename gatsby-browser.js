@@ -5,3 +5,4 @@
  */
 
 import './src/styles/global.css';
+import '@fontsource/metropolis';
