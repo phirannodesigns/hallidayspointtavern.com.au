@@ -49,10 +49,7 @@
   .reset-list > li {
     @apply pl-0 !important;
   }
-  .reset-list > li > h3 {
-    @apply m-0 !important;
-  }
-  .reset-list > li > p {
+  .reset-list > li > * {
     @apply m-0 !important;
   }
   [id] {
