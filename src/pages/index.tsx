@@ -272,7 +272,7 @@ function SeeOurHistory() {
         </>
       }
     >
-      <div className="flex-1 text-center">
+      <div className="flex-1 max-w-lg mx-auto lg:text-center lg:max-w-prose">
         <h2 className="text-5xl font-black text-white">
           See The History Of The Tavern
         </h2>
@@ -311,7 +311,7 @@ function DiscoverHallidaysPoint() {
         </>
       }
     >
-      <div className="flex-1 text-center">
+      <div className="flex-1 max-w-lg mx-auto lg:text-center lg:max-w-prose">
         <p className="text-3xl text-white">What are you waiting for?</p>
         <h2 className="text-5xl font-black text-white">
           Discover Hallidays Point
