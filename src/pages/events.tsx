@@ -5,6 +5,7 @@ import PortableText from 'react-portable-text';
 
 import { Copy } from '../components/copy';
 import { GoogleMap } from '../components/google-map';
+import { Hero } from '../components/hero';
 import { Layout } from '../components/layout';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
@@ -40,41 +41,32 @@ function UpcomingEvents({ data }: UpcomingEventsProps) {
     return null;
   }
   return (
-    <SideBySide>
-      <SideBySide.ThreeCols>
-        {data?.backgroundImage ? (
+    <Hero
+      backgroundImage={
+        data.backgroundImage ? (
           <div className="absolute inset-0 flex">
             <GatsbyImage
               image={data.backgroundImage.asset.gatsbyImageData}
               alt=""
               className="flex-1"
             />
-          </div>
-        ) : null}
-        <Copy
-          heading={{
-            eyebrow: data.heading1,
-            main: data.heading2,
-          }}
-          backgroundColour="transparent-teal"
-        >
-          {data._rawCopy ? (
-            <PortableText
-              content={data._rawCopy}
-              serializers={{}}
-              className="!mt-0"
+            <span
+              aria-hidden
+              className="absolute inset-0 flex-1 bg-black bg-opacity-50"
             />
+          </div>
+        ) : null
+      }
+    >
+      <div className="flex-1 text-center">
+        <h2>
+          {data.heading1 ? (
+            <div className="text-3xl text-white">{data.heading1}</div>
           ) : null}
-        </Copy>
-      </SideBySide.ThreeCols>
-      <SideBySide.TwoCols>
-        {data.mainImage ? (
-          <OverlappingImageWrapper>
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
-          </OverlappingImageWrapper>
-        ) : null}
-      </SideBySide.TwoCols>
-    </SideBySide>
+          <div className="text-5xl font-black text-white">{data.heading2}</div>
+        </h2>
+      </div>
+    </Hero>
   );
 }
 
@@ -87,9 +79,7 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
     return null;
   }
   return (
-    <SideBySide
-      background={<span aria-hidden className="absolute inset-0 bg-cream" />}
-    >
+    <SideBySide>
       <SideBySide.TwoCols>
         {data.mainImage ? (
           <OverlappingImageWrapper overlapDirection="right">
