@@ -115,14 +115,14 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
             />
           ) : null}
           {data.cta ? (
-            <div className="flex flex-wrap justify-start mt-8">
+            <div className="flex flex-wrap justify-start mt-4">
               {data.cta.map((cta) => {
                 if (cta._type === 'pageCta') {
                   return (
                     <Link
                       key={cta.id}
                       to={cta.page}
-                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mr-4"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
                     >
                       {cta.text}
                     </Link>
@@ -135,7 +135,7 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
                       href={cta.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mr-4"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
                     >
                       {cta.text}
                     </a>
@@ -148,7 +148,7 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
                       href={cta.file.asset.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mr-4"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
                     >
                       {cta.text}
                     </a>
