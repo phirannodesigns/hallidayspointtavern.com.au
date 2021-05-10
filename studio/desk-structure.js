@@ -13,9 +13,7 @@ const hiddenDocTypes = (listItem) => ![
   'imageGallery',
   'navigation',
   'siteSettings',
-].includes(
-  listItem.getId(),
-);
+].includes(listItem.getId());
 
 export default () => S.list()
   .title('Content')
@@ -36,7 +34,9 @@ export default () => S.list()
     S.listItem()
       .title('Image Gallery')
       .icon(IoImagesOutline)
-      .child(S.document().schemaType('imageGallery').documentId('imageGallery')),
+      .child(
+        S.document().schemaType('imageGallery').documentId('imageGallery'),
+      ),
     // Navigation
     S.listItem()
       .title('Navigation')
