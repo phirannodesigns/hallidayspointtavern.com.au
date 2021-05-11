@@ -79,7 +79,7 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
     return null;
   }
   return (
-    <SideBySide>
+    <SideBySide bgColorClass="bg-cream">
       <SideBySide.TwoCols>
         {data.mainImage ? (
           <OverlappingImageWrapper overlapDirection="right">
@@ -104,7 +104,6 @@ function SpecialEvent1({ data }: SpecialEvent1Props) {
             underlineColor: 'olive',
           }}
           lead={data.description}
-          backgroundColour="cream"
           onDark={false}
         >
           {data._rawCopy ? (
@@ -321,7 +320,14 @@ function LiveMusic({ data }: LiveMusicProps) {
       <SideBySide.TwoCols>
         {data.mainImage ? (
           <OverlappingImageWrapper>
-            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+            <div className="space-y-8">
+              {data.mainImage.map((image) => (
+                <GatsbyImage
+                  image={image.asset.gatsbyImageData}
+                  alt="Current events"
+                />
+              ))}
+            </div>
           </OverlappingImageWrapper>
         ) : null}
       </SideBySide.TwoCols>
