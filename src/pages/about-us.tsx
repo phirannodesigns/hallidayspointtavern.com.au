@@ -68,7 +68,7 @@ function OurHistory() {
           <StaticImage
             src="../images/elga-motel-1982.jpg"
             alt=""
-            className="flex-1 object-cover"
+            className="flex-1 object-cover "
           />
           <span
             aria-hidden
