@@ -31,14 +31,14 @@ function Nav(): React.ReactElement {
       {({ open }) => (
         <>
           <div className="relative z-20 flex-1">
-            <nav className="flex flex-wrap items-center justify-between px-4 py-5 mx-auto md:items-baseline md:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-12 md:space-x-10">
+            <nav className="flex flex-wrap items-center justify-between px-4 py-5 mx-auto lg:items-baseline lg:justify-center max-w-screen-2xl sm:px-6 sm:py-4 lg:px-12 lg:space-x-10">
               {firstHalf.map((navItem) => (
                 <NavLink key={navItem.route.current} navItem={navItem} />
               ))}
               <div>
                 <Link
                   to="/"
-                  className="inline-flex transform md:mx-auto md:translate-y-1"
+                  className="inline-flex transform lg:mx-auto lg:translate-y-1"
                 >
                   <span className="sr-only">{siteSettings.title}</span>
                   <Logo aria-hidden className="w-auto h-12 sm:h-16" />
@@ -47,7 +47,7 @@ function Nav(): React.ReactElement {
               {secondHalf.map((navItem) => (
                 <NavLink key={navItem.route.current} navItem={navItem} />
               ))}
-              <div className="-my-2 -mr-2 md:hidden">
+              <div className="-my-2 -mr-2 lg:hidden">
                 <Popover.Button className="inline-flex items-center justify-center p-2 text-gray-400 bg-white rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset">
                   <span className="sr-only">Open menu</span>
                   <MenuIcon aria-hidden className="w-6 h-6" />
@@ -70,7 +70,7 @@ function NavLink({ navItem }: { navItem: NavItem }): React.ReactElement | null {
       to={`/${navItem.route.current}${
         navItem.route.current.startsWith('#') ? '' : '/'
       }`}
-      className={`hidden text-base font-medium uppercase md:inline-block ${
+      className={`hidden text-base font-medium uppercase lg:inline-block ${
         pathname === navItem.route.current ? 'text-teal' : 'text-blue-light'
       } hover:text-gray-900`}
     >
@@ -97,7 +97,7 @@ function MobileMenu({ open }) {
       <Popover.Panel
         focus
         static
-        className="absolute inset-x-0 top-0 z-30 p-2 transition origin-top-right transform md:hidden"
+        className="absolute inset-x-0 top-0 z-30 p-2 transition origin-top-right transform md:max-w-md md:w-full md:left-auto lg:hidden"
       >
         <div className="overflow-hidden bg-white rounded-lg shadow-md ring-1 ring-black ring-opacity-5">
           <div className="flex items-center justify-between px-5 pt-4">
