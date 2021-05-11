@@ -47,7 +47,8 @@ export default {
     {
       name: 'mainImage',
       title: 'Main image',
-      type: 'image',
+      type: 'array',
+      of: [{ type: 'image' }],
       options: {
         hotspot: true,
       },

@@ -49,7 +49,7 @@ interface EventsSection {
   heading1?: string;
   heading2: string;
   isHidden?: boolean;
-  mainImage?: SanityImage;
+  mainImage?: SanityImage[];
 }
 
 interface CopyWithImage {

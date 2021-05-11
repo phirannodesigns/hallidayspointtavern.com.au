@@ -203,10 +203,14 @@ function ExcitingEvents({ data }: ExcitingEventsProps) {
       <SideBySide.TwoCols>
         {data.mainImage ? (
           <OverlappingImageWrapper>
-            <GatsbyImage
-              image={data.mainImage.asset.gatsbyImageData}
-              alt="Current events"
-            />
+            <div className="space-y-8">
+              {data.mainImage.map((image) => (
+                <GatsbyImage
+                  image={image.asset.gatsbyImageData}
+                  alt="Current events"
+                />
+              ))}
+            </div>
           </OverlappingImageWrapper>
         ) : null}
       </SideBySide.TwoCols>
