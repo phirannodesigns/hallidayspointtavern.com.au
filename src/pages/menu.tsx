@@ -1,5 +1,6 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
+import PortableText from 'react-portable-text';
 
 import { Copy } from '../components/copy';
 import { Layout } from '../components/layout';
@@ -7,63 +8,69 @@ import { Menu } from '../components/menu';
 import { OverlappingImageWrapper } from '../components/overlapping-image-wrapper';
 import { SEO } from '../components/seo';
 import { SideBySide } from '../components/side-by-side';
+import { CopyWithImage, useHomePage } from '../hooks/use-home-page';
 import logo from '../images/reschs-logo.svg';
 
 function MenuPage(): React.ReactElement {
+  const data = useHomePage();
   return (
     <>
       <SEO title="Menu" />
       <Layout>
-        <OurMenu />
+        <OurMenu data={data.menuSection} />
         <Menu />
       </Layout>
     </>
   );
 }
 
-function OurMenu() {
+interface OurMenuProps {
+  data?: CopyWithImage;
+}
+
+function OurMenu({ data }: OurMenuProps): JSX.Element | null {
+  if (!data || data.isHidden) {
+    return null;
+  }
   return (
     <SideBySide
       background={
-        <div className="absolute inset-0 flex">
-          <StaticImage
-            src="../images/menu.jpg"
-            alt=""
-            className="flex-1 object-cover"
-          />
-          <span
-            aria-hidden
-            className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
-          />
-        </div>
+        data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-black bg-opacity-75 pointer-events-none"
+            />
+          </div>
+        ) : null
       }
     >
       <SideBySide.ThreeCols>
         <Copy
           heading={{
-            eyebrow: 'Come check out',
-            main: 'Our Delicious Menu',
+            eyebrow: data.heading1,
+            main: data.heading2,
             underlineColor: 'olive',
           }}
-          lead="Hallidays Point Tavern is a unique casual restaurant featuring a diverse menu, and enjoy a full bar selection of wines and spirits or beer."
+          lead={data.description}
+          cta={
+            data.cta?.[0]._type === 'pageCta'
+              ? { route: `/${data.cta[0].page}/`, text: data.cta[0].text }
+              : undefined
+          }
         >
-          <p>
-            Hallidays Point Tavern is a unique casual restaurant featuring a
-            diverse menu, and enjoy a full bar selection of wines and spirits or
-            beer.
-          </p>
-          <p>
-            Our menu offers you a vast array of delectable meals to choose from,
-            anytime from a late morning brunch of coffee/cake, to our main meals
-            of lunch and dinner till midnight. The Tavern’s distinct menu has
-            our local clients craving making us one of the best restaurants in
-            Hallidays Point. Enjoy your meal in our cozy, bistro ambience that
-            is comfy, warm and welcoming.
-          </p>
-          <p>
-            Sit back, relax, and let us show you why our patrons brand us as one
-            of the best restaurants in Hallidays Point, New South Wales.
-          </p>
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>

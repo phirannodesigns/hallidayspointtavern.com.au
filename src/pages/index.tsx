@@ -140,18 +140,13 @@ function OurMenu({ data }: OurMenuProps): JSX.Element | null {
               : undefined
           }
         >
-          <p>
-            Our menu offers you a vast array of delectable meals to choose from,
-            anytime from a late morning brunch of coffee/cake, to our main meals
-            of lunch and dinner till midnight. The Tavern’s distinct menu has
-            our local clients craving making us one of the best restaurants in
-            Hallidays Point. Enjoy your meal in our cozy, bistro ambience that
-            is comfy, warm and welcoming.
-          </p>
-          <p>
-            Sit back, relax, and let us show you why our patrons brand us as one
-            of the best restaurants in Hallidays Point, New South Wales.
-          </p>
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
     </SideBySide>
