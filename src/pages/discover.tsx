@@ -199,7 +199,6 @@ function ExcitingEvents() {
           }}
           backgroundColour="cream"
           onDark={false}
-          maxWidth="max-w-prose"
         >
           <ul className="divide-y divide-gray-700 reset-list">
             <li className="py-4">
