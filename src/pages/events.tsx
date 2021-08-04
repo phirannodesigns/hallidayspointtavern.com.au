@@ -22,6 +22,7 @@ function EventsPage(): React.ReactElement {
         <UpcomingEvents data={events.upcomingEvents} />
         <SpecialEvent1 data={events.specialEvent1} />
         <SpecialEvent2 data={events.specialEvent2} />
+        <SpecialEvent3 data={events.specialEvent3} />
         <SportsEvent data={events.sportsEvent} />
         <LiveMusic data={events.liveMusic} />
         <MeatRaffles data={events.raffleSection} />
@@ -214,6 +215,60 @@ function SpecialEvent2({ data }: SpecialEvent2Props) {
           </OverlappingImageWrapper>
         ) : null}
       </SideBySide.TwoCols>
+    </SideBySide>
+  );
+}
+interface SpecialEvent3Props {
+  data?: CopyWithImage;
+}
+
+function SpecialEvent3({ data }: SpecialEvent3Props) {
+  if (!data || data.isHidden) {
+    return null;
+  }
+  return (
+    <SideBySide
+      background={
+        data.backgroundImage ? (
+          <div className="absolute inset-0 flex">
+            <GatsbyImage
+              image={data.backgroundImage.asset.gatsbyImageData}
+              alt=""
+              className="flex-1"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-opacity-[0.85] pointer-events-none bg-black"
+            />
+          </div>
+        ) : undefined
+      }
+    >
+      <SideBySide.TwoCols>
+        {data.mainImage ? (
+          <OverlappingImageWrapper overlapDirection="right">
+            <GatsbyImage image={data.mainImage.asset.gatsbyImageData} alt="" />
+          </OverlappingImageWrapper>
+        ) : null}
+      </SideBySide.TwoCols>
+      <SideBySide.ThreeCols>
+        <Copy
+          heading={{
+            eyebrow: data.heading1,
+            main: data.heading2,
+            underlineColor: 'olive',
+          }}
+          lead={data.description}
+        >
+          {data._rawCopy ? (
+            <PortableText
+              content={data._rawCopy}
+              serializers={{}}
+              className="!mt-0"
+            />
+          ) : null}
+        </Copy>
+      </SideBySide.ThreeCols>
     </SideBySide>
   );
 }

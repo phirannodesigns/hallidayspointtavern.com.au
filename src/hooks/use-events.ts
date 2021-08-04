@@ -70,6 +70,7 @@ interface EventsPage {
   raffleSection?: CopyWithImage;
   specialEvent1?: CopyWithImage;
   specialEvent2?: CopyWithImage;
+  specialEvent3?: CopyWithImage;
   sportsEvent?: CopyWithImage;
   upcomingEvents?: CopyWithImage;
 }
@@ -252,6 +253,47 @@ function useEvents(): EventsPage {
             }
           }
           specialEvent2 {
+            cta {
+              ... on SanityFileCta {
+                id: _key
+                _type
+                file {
+                  asset {
+                    url
+                  }
+                }
+                text
+              }
+              ... on SanityLinkCta {
+                id: _key
+                _type
+                link
+                text
+              }
+              ... on SanityPageCta {
+                id: _key
+                _type
+                page
+                text
+              }
+            }
+            _rawCopy
+            backgroundImage {
+              asset {
+                gatsbyImageData
+              }
+            }
+            description
+            heading1
+            heading2
+            isHidden
+            mainImage {
+              asset {
+                gatsbyImageData(width: 960)
+              }
+            }
+          }
+          specialEvent3 {
             cta {
               ... on SanityFileCta {
                 id: _key
