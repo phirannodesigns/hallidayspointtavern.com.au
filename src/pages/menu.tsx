@@ -75,7 +75,7 @@ function OurMenu({ data }: OurMenuProps): JSX.Element | null {
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
         <OverlappingImageWrapper>
-          <figure className="flex flex-col w-full pb-12 mx-auto prose text-center text-white max-w-none">
+          {/* <figure className="flex flex-col w-full pb-12 mx-auto prose text-center text-white max-w-none">
             <StaticImage
               src="../images/dine-and-discover-nsw.jpg"
               alt=""
@@ -86,7 +86,7 @@ function OurMenu({ data }: OurMenuProps): JSX.Element | null {
               Dine &amp; Discover <br />
               voucher accepted here 7 days a week
             </figcaption>
-          </figure>
+          </figure> */}
           <figure className="flex flex-col w-full pb-12 mx-auto prose text-center text-white max-w-none">
             <img
               src={logo}

@@ -206,6 +206,50 @@ function SpecialEvent2({ data }: SpecialEvent2Props) {
               className="!mt-0"
             />
           ) : null}
+          {data.cta ? (
+            <div className="flex flex-wrap justify-start mt-4">
+              {data.cta.map((cta) => {
+                if (cta._type === 'pageCta') {
+                  return (
+                    <Link
+                      key={cta.id}
+                      to={cta.page}
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </Link>
+                  );
+                }
+                if (cta._type === 'linkCta') {
+                  return (
+                    <a
+                      key={cta.id}
+                      href={cta.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </a>
+                  );
+                }
+                if (cta._type === 'fileCta') {
+                  return (
+                    <a
+                      key={cta.id}
+                      href={cta.file.asset.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </a>
+                  );
+                }
+                return null;
+              })}
+            </div>
+          ) : null}
         </Copy>
       </SideBySide.ThreeCols>
       <SideBySide.TwoCols>
@@ -266,6 +310,50 @@ function SpecialEvent3({ data }: SpecialEvent3Props) {
               serializers={{}}
               className="!mt-0"
             />
+          ) : null}
+          {data.cta ? (
+            <div className="flex flex-wrap justify-start mt-4">
+              {data.cta.map((cta) => {
+                if (cta._type === 'pageCta') {
+                  return (
+                    <Link
+                      key={cta.id}
+                      to={cta.page}
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </Link>
+                  );
+                }
+                if (cta._type === 'linkCta') {
+                  return (
+                    <a
+                      key={cta.id}
+                      href={cta.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </a>
+                  );
+                }
+                if (cta._type === 'fileCta') {
+                  return (
+                    <a
+                      key={cta.id}
+                      href={cta.file.asset.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-2 font-medium tracking-wider text-white uppercase bg-olive !no-underline mt-4 mr-4"
+                    >
+                      {cta.text}
+                    </a>
+                  );
+                }
+                return null;
+              })}
+            </div>
           ) : null}
         </Copy>
       </SideBySide.ThreeCols>
