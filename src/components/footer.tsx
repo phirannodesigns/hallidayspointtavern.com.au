@@ -111,12 +111,12 @@ function Footer(): React.ReactElement {
         <div className="items-center pt-8 mt-16 border-t border-opacity-25 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-base md:mt-0 md:order-1">
             <a
-              href="https://www.phirannodesigns.com.au/"
+              href="https://pd.design"
               className="transition duration-150 ease-in-out hover:text-gray-500 hover:underline group"
             >
-              Website by{' '}
+              Designed and developed by{' '}
               <span className="font-semibold group-hover:text-gray-500">
-                Phiranno Designs
+                PD
               </span>
             </a>
           </p>
