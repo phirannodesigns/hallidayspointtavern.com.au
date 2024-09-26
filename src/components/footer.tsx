@@ -111,7 +111,7 @@ function Footer(): React.ReactElement {
         <div className="items-center pt-8 mt-16 border-t border-opacity-25 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-base md:mt-0 md:order-1">
             <a
-              href="https://pd.design"
+              href="https://pd.digital"
               className="transition duration-150 ease-in-out hover:text-gray-500 hover:underline group"
             >
               Designed and developed by{' '}
